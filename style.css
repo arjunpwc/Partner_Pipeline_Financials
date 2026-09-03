@@ -1,15 +1,32 @@
 :root {
-  --bg: #f4f6f8;
-  --surface: #ffffff;
-  --text: #1f2933;
-  --muted: #5c6b7a;
-  --border: #d8dee6;
-  --accent: #1d4e89;
-  --error-bg: #fdecea;
-  --error-border: #e3b6b1;
-  --error-text: #8a1f1a;
+  /* Core */
+  --pwc-orange: #FD5108;
+  --pwc-black: #000000;
+  --pwc-white: #FFFFFF;
+
+  /* Orange tints - reserved for data visualizations and chart series */
+  --pwc-orange-500: #FD5108;
+  --pwc-orange-400: #FE7C39;
+  --pwc-orange-300: #FFAA72;
+  --pwc-orange-200: #FFCDA8;
+  --pwc-orange-100: #FFE8D4;
+  --pwc-orange-50: #FFF5ED;
+
+  /* Greys - backgrounds, borders, secondary text */
+  --pwc-grey-500: #A1A8B3;
+  --pwc-grey-400: #B5BCC4;
+  --pwc-grey-300: #CBD1D6;
+  --pwc-grey-200: #DFE3E6;
+  --pwc-grey-100: #EEEFF1;
+  --pwc-grey-50: #F5F7F8;
+
+  /* Limited-use accent, data-viz only - do not use for primary UI/CTA */
+  --pwc-tangerine: #FF9F00;
+  --pwc-red: #FA143C;
+  --pwc-rose: #F05596;
+
   --radius: 10px;
-  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --shadow: 0 1px 2px color-mix(in srgb, var(--pwc-black) 4%, transparent);
 }
 
 * {
@@ -24,8 +41,8 @@ body {
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--pwc-white);
+  color: var(--pwc-black);
   line-height: 1.5;
 }
 
@@ -44,19 +61,19 @@ body {
   font-size: 1.75rem;
   font-weight: 650;
   letter-spacing: -0.02em;
-  color: var(--accent);
+  color: var(--pwc-black);
 }
 
 .data-as-of {
   margin: 0;
-  color: var(--muted);
+  color: var(--pwc-grey-500);
   font-size: 0.95rem;
 }
 
 .error-banner {
-  background: var(--error-bg);
-  border: 1px solid var(--error-border);
-  color: var(--error-text);
+  background: var(--pwc-orange-100);
+  border: 1px solid var(--pwc-orange-200);
+  color: var(--pwc-black);
   border-radius: var(--radius);
   padding: 16px 18px;
   margin-bottom: 24px;
@@ -68,8 +85,8 @@ body {
 }
 
 .card {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--pwc-grey-50);
+  border: 1px solid var(--pwc-grey-200);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 20px 22px 22px;
@@ -80,7 +97,7 @@ body {
   margin: 0 0 14px;
   font-size: 1.05rem;
   font-weight: 650;
-  color: var(--text);
+  color: var(--pwc-black);
 }
 
 .section-body {
@@ -94,8 +111,8 @@ body {
 }
 
 .kpi-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--pwc-white);
+  border: 1px solid var(--pwc-grey-200);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 16px 18px 18px;
@@ -107,19 +124,19 @@ body {
   font-size: 1.45rem;
   font-weight: 650;
   letter-spacing: -0.03em;
-  color: var(--accent);
+  color: var(--pwc-orange);
   line-height: 1.2;
 }
 
 .kpi-label {
   margin: 0;
-  color: var(--muted);
+  color: var(--pwc-grey-500);
   font-size: 0.82rem;
 }
 
 .placeholder {
   margin: 0;
-  color: var(--muted);
+  color: var(--pwc-grey-500);
   font-size: 0.92rem;
 }
 
@@ -132,10 +149,10 @@ body {
 
 .toggle-btn {
   appearance: none;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--pwc-white);
+  border: 1px solid var(--pwc-grey-200);
   border-radius: 999px;
-  color: var(--muted);
+  color: var(--pwc-grey-500);
   cursor: pointer;
   font: inherit;
   font-size: 0.85rem;
@@ -143,14 +160,14 @@ body {
 }
 
 .toggle-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--pwc-orange);
+  color: var(--pwc-orange);
 }
 
 .toggle-btn.is-active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
+  background: var(--pwc-orange);
+  border-color: var(--pwc-orange);
+  color: var(--pwc-white);
 }
 
 .chart-wrap {
@@ -178,12 +195,13 @@ body {
 .data-table td {
   text-align: left;
   padding: 8px 10px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--pwc-grey-200);
   vertical-align: top;
 }
 
 .data-table th {
-  color: var(--muted);
+  background: var(--pwc-grey-100);
+  color: var(--pwc-black);
   font-weight: 650;
   white-space: nowrap;
 }
@@ -193,14 +211,14 @@ body {
 }
 
 .data-table th[data-sort-key]:hover {
-  color: var(--accent);
+  color: var(--pwc-orange);
 }
 
 .data-table th[aria-sort="ascending"]::after,
 .data-table th[aria-sort="descending"]::after {
   content: " ▲";
   font-size: 0.75em;
-  color: var(--accent);
+  color: var(--pwc-orange);
 }
 
 .data-table th[aria-sort="descending"]::after {
@@ -218,11 +236,11 @@ body {
 }
 
 .data-table tbody tr:hover {
-  background: #f8fafc;
+  background: var(--pwc-grey-100);
 }
 
 .empty-row {
-  color: var(--muted);
+  color: var(--pwc-grey-500);
 }
 
 .delta-kpis,
@@ -240,23 +258,23 @@ body {
 .warning-note {
   margin: 0 0 12px;
   padding: 10px 12px;
-  background: #fff8e8;
-  border: 1px solid #ead9a8;
+  background: var(--pwc-orange-100);
+  border: 1px solid var(--pwc-orange-200);
   border-radius: var(--radius);
-  color: #6b5420;
+  color: var(--pwc-black);
   font-size: 0.88rem;
 }
 
 .card-warning {
-  border-color: #ead9a8;
+  border-color: var(--pwc-orange-200);
 }
 
 .flag-chip {
   display: inline-block;
-  background: #fff8e8;
-  border: 1px solid #ead9a8;
+  background: var(--pwc-orange-100);
+  border: 1px solid var(--pwc-orange-200);
   border-radius: 999px;
-  color: #6b5420;
+  color: var(--pwc-black);
   font-size: 0.78rem;
   font-weight: 650;
   padding: 2px 8px;
@@ -265,7 +283,7 @@ body {
 
 .mismatch-details {
   margin-top: 18px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--pwc-grey-200);
   border-radius: var(--radius);
   padding: 8px 14px 14px;
 }
@@ -326,8 +344,8 @@ body {
 }
 
 .callout {
-  background: #eef3f8;
-  border: 1px solid var(--border);
+  background: var(--pwc-orange-50);
+  border: 1px solid var(--pwc-grey-200);
   border-radius: var(--radius);
   padding: 12px 16px;
   margin-bottom: 14px;
@@ -337,13 +355,13 @@ body {
   margin: 0 0 2px;
   font-size: 1.25rem;
   font-weight: 650;
-  color: var(--accent);
+  color: var(--pwc-orange);
   letter-spacing: -0.02em;
 }
 
 .callout-label {
   margin: 0;
-  color: var(--muted);
+  color: var(--pwc-grey-500);
   font-size: 0.88rem;
 }
 

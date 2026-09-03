@@ -73,6 +73,42 @@
     return Math.round(n).toLocaleString();
   }
 
+  function cssVar(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
+  function hexToRgba(hex, alpha) {
+    var h = String(hex || "").replace("#", "").trim();
+    if (h.length === 3) {
+      h = h.charAt(0) + h.charAt(0) + h.charAt(1) + h.charAt(1) + h.charAt(2) + h.charAt(2);
+    }
+    var r = parseInt(h.slice(0, 2), 16);
+    var g = parseInt(h.slice(2, 4), 16);
+    var b = parseInt(h.slice(4, 6), 16);
+    if ([r, g, b].some(function (n) { return Number.isNaN(n); })) {
+      return "rgba(0, 0, 0, " + alpha + ")";
+    }
+    return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+  }
+
+  const FUNNEL_STAGES = ["Target", "Interact", "Propose", "Close", "Won"];
+  const PARTNER_BAR_COLOR = cssVar("--pwc-orange-500");
+  const DCM_BAR_COLOR = cssVar("--pwc-grey-400");
+  const CHART_GRID_COLOR = cssVar("--pwc-grey-100");
+  const CHART_LABEL_COLOR = cssVar("--pwc-grey-500");
+  const CHART_FILL_PRIMARY = hexToRgba(PARTNER_BAR_COLOR, 0.12);
+  const CHART_FILL_COMPARE = hexToRgba(DCM_BAR_COLOR, 0.12);
+  const CHART_PALETTE = [
+    cssVar("--pwc-orange-500"),
+    cssVar("--pwc-orange-400"),
+    cssVar("--pwc-orange-300"),
+    cssVar("--pwc-orange-200"),
+    cssVar("--pwc-grey-500"),
+    cssVar("--pwc-grey-400"),
+    cssVar("--pwc-grey-300"),
+  ];
+  let stageFunnelChart = null;
+
   function kpiCard(label, value) {
     return (
       '<article class="kpi-card">' +
@@ -98,11 +134,6 @@
       kpiCard("Average deal size", formatMillions(data.average_deal_size)) +
       "</div>";
   }
-
-  const FUNNEL_STAGES = ["Target", "Interact", "Propose", "Close", "Won"];
-  const PARTNER_BAR_COLOR = "#1d4e89";
-  const DCM_BAR_COLOR = "#7b8ea3";
-  let stageFunnelChart = null;
 
   function indexStageTotals(rows) {
     const byStage = {};
@@ -143,7 +174,7 @@
         const meta = chart.getDatasetMeta(0);
         ctx.save();
         ctx.font = "12px Segoe UI, Tahoma, Geneva, Verdana, sans-serif";
-        ctx.fillStyle = "#5c6b7a";
+        ctx.fillStyle = CHART_LABEL_COLOR;
         ctx.textBaseline = "middle";
         meta.data.forEach(function (bar, i) {
           const text = formatCount(dataset.counts[i]) + " · " + formatMillions(dataset.data[i]);
@@ -270,7 +301,7 @@
         scales: {
           x: {
             beginAtZero: true,
-            grid: { color: "#eef1f4" },
+            grid: { color: CHART_GRID_COLOR },
             ticks: {
               callback: function (value) {
                 return formatMillions(value);
@@ -512,7 +543,7 @@
         const meta = chart.getDatasetMeta(0);
         ctx.save();
         ctx.font = "11px Segoe UI, Tahoma, Geneva, Verdana, sans-serif";
-        ctx.fillStyle = "#5c6b7a";
+        ctx.fillStyle = CHART_LABEL_COLOR;
         ctx.textBaseline = "middle";
         meta.data.forEach(function (bar, i) {
           const text = formatMillions(dataset.data[i]);
@@ -580,7 +611,7 @@
         scales: {
           x: {
             beginAtZero: true,
-            grid: { color: "#eef1f4" },
+            grid: { color: CHART_GRID_COLOR },
             ticks: {
               callback: function (value) {
                 return formatMillions(value);
@@ -791,7 +822,7 @@
         scales: {
           x: {
             beginAtZero: true,
-            grid: { color: "#eef1f4" },
+            grid: { color: CHART_GRID_COLOR },
             ticks: {
               callback: function (value) {
                 return formatMillions(value);
@@ -834,7 +865,7 @@
               return Number(row.amount) || 0;
             }),
             borderColor: PARTNER_BAR_COLOR,
-            backgroundColor: "rgba(29, 78, 137, 0.12)",
+            backgroundColor: CHART_FILL_PRIMARY,
             tension: 0.2,
             fill: true,
             pointRadius: 3,
@@ -859,7 +890,7 @@
           x: { grid: { display: false } },
           y: {
             beginAtZero: true,
-            grid: { color: "#eef1f4" },
+            grid: { color: CHART_GRID_COLOR },
             ticks: {
               callback: function (value) {
                 return formatMillions(value);
@@ -1101,26 +1132,7 @@
     }
   }
 
-  const INDUSTRY_PALETTE = [
-    "#1d4e89",
-    "#c45c26",
-    "#2a9d8f",
-    "#7b2d8e",
-    "#c9a227",
-    "#264653",
-    "#e76f51",
-    "#457b9d",
-    "#6a994e",
-    "#bc4749",
-    "#8d99ae",
-    "#2b6cb0",
-    "#9c6644",
-    "#52796f",
-    "#b56576",
-    "#3d5a80",
-    "#ee9b00",
-    "#606c38",
-  ];
+  const INDUSTRY_PALETTE = CHART_PALETTE;
 
   function industryColorMap(names) {
     const unique = [];
@@ -1395,7 +1407,7 @@
             label: "Pipeline $ closing that month",
             data: pipeline,
             borderColor: PARTNER_BAR_COLOR,
-            backgroundColor: "rgba(29, 78, 137, 0.12)",
+            backgroundColor: CHART_FILL_PRIMARY,
             tension: 0.2,
             fill: false,
             pointRadius: 3,
@@ -1403,8 +1415,8 @@
           {
             label: "Cumulative Won $",
             data: cumulativeWon,
-            borderColor: "#c45c26",
-            backgroundColor: "rgba(196, 92, 38, 0.12)",
+            borderColor: DCM_BAR_COLOR,
+            backgroundColor: CHART_FILL_COMPARE,
             tension: 0.2,
             fill: false,
             pointRadius: 3,
@@ -1437,7 +1449,7 @@
           },
           y: {
             beginAtZero: true,
-            grid: { color: "#eef1f4" },
+            grid: { color: CHART_GRID_COLOR },
             ticks: {
               callback: function (value) {
                 return formatMillions(value);
@@ -1570,7 +1582,7 @@
           y: {
             beginAtZero: true,
             ticks: { precision: 0 },
-            grid: { color: "#eef1f4" },
+            grid: { color: CHART_GRID_COLOR },
             title: { display: true, text: "Count" },
           },
         },
@@ -1589,7 +1601,7 @@
         const meta = chart.getDatasetMeta(0);
         ctx.save();
         ctx.font = "11px Segoe UI, Tahoma, Geneva, Verdana, sans-serif";
-        ctx.fillStyle = "#5c6b7a";
+        ctx.fillStyle = CHART_LABEL_COLOR;
         ctx.textBaseline = "middle";
         meta.data.forEach(function (bar, i) {
           ctx.fillText(formatMillions(dataset.wonAmounts[i]) + " won", bar.x + 8, bar.y);
@@ -1705,7 +1717,7 @@
           x: {
             beginAtZero: true,
             max: 100,
-            grid: { color: "#eef1f4" },
+            grid: { color: CHART_GRID_COLOR },
             ticks: {
               callback: function (value) {
                 return value + "%";
