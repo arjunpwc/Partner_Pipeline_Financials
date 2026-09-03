@@ -1,1 +1,1191 @@
-{}
+{
+  "generated_at": "2026-09-03T18:36:43.951983+00:00",
+  "kpis": {
+    "total_open_pipeline": 423876293.0,
+    "open_opportunity_count": 104,
+    "total_won": 70066171.0,
+    "average_deal_size": 4075733.59
+  },
+  "stage_totals": {
+    "dcm_stage_totals": [
+      {
+        "stage": "Interact",
+        "count": 11,
+        "amount": 28140000.0
+      },
+      {
+        "stage": "Propose",
+        "count": 12,
+        "amount": 22617285.0
+      },
+      {
+        "stage": "Target",
+        "count": 24,
+        "amount": 22490349.0
+      },
+      {
+        "stage": "Won",
+        "count": 15,
+        "amount": 17659986.0
+      },
+      {
+        "stage": "Close",
+        "count": 2,
+        "amount": 286750.0
+      }
+    ],
+    "partner_stage_totals": [
+      {
+        "stage": "Interact",
+        "count": 63,
+        "amount": 269491501.0
+      },
+      {
+        "stage": "Propose",
+        "count": 41,
+        "amount": 154384792.0
+      },
+      {
+        "stage": "Won",
+        "count": 43,
+        "amount": 70066171.0
+      },
+      {
+        "stage": "Close",
+        "count": 8,
+        "amount": 13980697.0
+      }
+    ]
+  },
+  "opps_over_10m": [
+    {
+      "name": "WFRD IT Mgd Svcs and Agentic BPO",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Robert Stephens",
+      "stage": "Interact",
+      "amount": 84250000.0,
+      "close_date": "2026-12-31"
+    },
+    {
+      "name": "HGV Oracle Financial Lending & Leasing Services",
+      "partner": "Yeon Lee",
+      "lead": "Christopher Black",
+      "stage": "Interact",
+      "amount": 19030000.0,
+      "close_date": "2027-03-31"
+    },
+    {
+      "name": "Wave 3 FY27 UPS FCE Amendment 7",
+      "partner": "Brad Housour",
+      "lead": "Troy Lutes",
+      "stage": "Interact",
+      "amount": 17140000.0,
+      "close_date": "2026-10-30"
+    },
+    {
+      "name": "Masimo ERP",
+      "partner": "Rattan Singh",
+      "lead": "Jeff Greenberg",
+      "stage": "Propose",
+      "amount": 16370000.0,
+      "close_date": "2027-02-26"
+    },
+    {
+      "name": "NetJets Finance Evolution - Oracle ERP Implementation - Release 1",
+      "partner": "Brad Housour",
+      "lead": "Wai Ming Li",
+      "stage": "Propose",
+      "amount": 16310000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "MunichRE:  Oracle Finance Transformation Remaining GSI EntitiesP3/P4- #Oracle_INS",
+      "partner": "Tojo Johnson",
+      "lead": "Tony Bowers",
+      "stage": "Won",
+      "amount": 15452825.0,
+      "close_date": "2026-08-28"
+    },
+    {
+      "name": "Finance Transformation / Strategic Ledger - R2 Implementation - Yr 1",
+      "partner": "Ajeetha Menezes; Tojo Johnson; Yeon Lee",
+      "lead": "Maria Blanco",
+      "stage": "Interact",
+      "amount": 15000000.0,
+      "close_date": "2027-04-30"
+    },
+    {
+      "name": "Pfizer - Finance AI Build #DigitalFinance #PLSAI",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Saurabh Sarbaliya",
+      "stage": "Interact",
+      "amount": 15000000.0,
+      "close_date": "2026-11-06"
+    },
+    {
+      "name": "Modernization of Financial and Regulatory Reporting Processes - Phase 2 #RegReporting #RiskData #RRCostOpt\u200b",
+      "partner": "Yeon Lee",
+      "lead": "Pradeep Pandey",
+      "stage": "Interact",
+      "amount": 14000000.0,
+      "close_date": "2026-12-31"
+    },
+    {
+      "name": "Trimble - ERP Cloud Transformation/Implementation",
+      "partner": "Samir Mehta; Satyen Popat",
+      "lead": "Ernesto Solera",
+      "stage": "Propose",
+      "amount": 11755000.0,
+      "close_date": "2026-10-15"
+    },
+    {
+      "name": "Fanatics xOp Co - Oracle AES ERP Fin/SCM/ERP/HCM",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Todd Lee",
+      "stage": "Close",
+      "amount": 11000000.0,
+      "close_date": "2026-10-31"
+    },
+    {
+      "name": "Citi Strategic Ledger - FIN R1 Renewal Contract - AMENDMENT #1 (Apr 26-Dec 26)",
+      "partner": "Yeon Lee",
+      "lead": "Yeon Lee",
+      "stage": "Won",
+      "amount": 10626386.0,
+      "close_date": "2026-07-10"
+    },
+    {
+      "name": "Regions Bank: ERP Transformation and Implementation",
+      "partner": "Yeon Lee",
+      "lead": "Arjun Katyal",
+      "stage": "Interact",
+      "amount": 10400001.0,
+      "close_date": "2027-01-29"
+    },
+    {
+      "name": "Athene:  Oracle Cloud Migration #Oracle_AWM",
+      "partner": "Brad Housour",
+      "lead": "Tony Bowers",
+      "stage": "Interact",
+      "amount": 10000000.0,
+      "close_date": "2027-04-05"
+    },
+    {
+      "name": "Agentic Process Transformation #PLSAI",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Kevin McLellan",
+      "stage": "Propose",
+      "amount": 10000000.0,
+      "close_date": "2027-03-31"
+    }
+  ],
+  "opps_over_20m": [
+    {
+      "name": "WFRD IT Mgd Svcs and Agentic BPO",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Robert Stephens",
+      "stage": "Interact",
+      "amount": 84250000.0,
+      "close_date": "2026-12-31"
+    }
+  ],
+  "partner_totals": [
+    {
+      "partner": "Saurabh Sarbaliya",
+      "amount": 161000249.0,
+      "count": 28
+    },
+    {
+      "partner": "Brad Housour",
+      "amount": 97904753.0,
+      "count": 37
+    },
+    {
+      "partner": "Yeon Lee",
+      "amount": 90364387.0,
+      "count": 15
+    },
+    {
+      "partner": "Samir Mehta",
+      "amount": 72730982.0,
+      "count": 23
+    },
+    {
+      "partner": "Satyen Popat",
+      "amount": 50256897.0,
+      "count": 25
+    },
+    {
+      "partner": "Tojo Johnson",
+      "amount": 37751509.0,
+      "count": 9
+    },
+    {
+      "partner": "Faisal Ghadially",
+      "amount": 23843736.0,
+      "count": 8
+    },
+    {
+      "partner": "Rattan Singh",
+      "amount": 22535250.0,
+      "count": 9
+    },
+    {
+      "partner": "Ajeetha Menezes",
+      "amount": 16533685.0,
+      "count": 3
+    },
+    {
+      "partner": "Jithendra Pai Brahmavar",
+      "amount": 12430600.0,
+      "count": 5
+    },
+    {
+      "partner": "Ken Becker",
+      "amount": 12267000.0,
+      "count": 11
+    },
+    {
+      "partner": "Sunil Warier",
+      "amount": 5109526.0,
+      "count": 6
+    }
+  ],
+  "partner_code_totals": [
+    {
+      "product_code": "Unmapped",
+      "amount": 448219140.0,
+      "count": 119,
+      "source": "partner_joined_to_dcm_codes"
+    },
+    {
+      "product_code": "USG18",
+      "amount": 22549386.0,
+      "count": 11,
+      "source": "partner_joined_to_dcm_codes"
+    },
+    {
+      "product_code": "US948",
+      "amount": 15353000.0,
+      "count": 4,
+      "source": "partner_joined_to_dcm_codes"
+    },
+    {
+      "product_code": "USH17",
+      "amount": 11378685.0,
+      "count": 8,
+      "source": "partner_joined_to_dcm_codes"
+    },
+    {
+      "product_code": "USG62",
+      "amount": 7000000.0,
+      "count": 2,
+      "source": "partner_joined_to_dcm_codes"
+    },
+    {
+      "product_code": "USH16",
+      "amount": 1030000.0,
+      "count": 5,
+      "source": "partner_joined_to_dcm_codes"
+    },
+    {
+      "product_code": "GB502",
+      "amount": 503500.0,
+      "count": 1,
+      "source": "partner_joined_to_dcm_codes"
+    },
+    {
+      "product_code": "US784",
+      "amount": 500000.0,
+      "count": 1,
+      "source": "partner_joined_to_dcm_codes"
+    },
+    {
+      "product_code": "USG90",
+      "amount": 447700.0,
+      "count": 4,
+      "source": "partner_joined_to_dcm_codes"
+    },
+    {
+      "product_code": "USA32",
+      "amount": 400000.0,
+      "count": 1,
+      "source": "partner_joined_to_dcm_codes"
+    },
+    {
+      "product_code": "USF28",
+      "amount": 400000.0,
+      "count": 1,
+      "source": "partner_joined_to_dcm_codes"
+    },
+    {
+      "product_code": "GB122",
+      "amount": 141750.0,
+      "count": 1,
+      "source": "partner_joined_to_dcm_codes"
+    }
+  ],
+  "industry_totals": {
+    "dcm": [
+      {
+        "industry": "Banking and Capital Markets",
+        "amount": 38095072.0,
+        "count": 11
+      },
+      {
+        "industry": "Pharma and Life Sciences",
+        "amount": 28114450.0,
+        "count": 11
+      },
+      {
+        "industry": "Engineering and Construction",
+        "amount": 11131000.0,
+        "count": 7
+      },
+      {
+        "industry": "Transportation and Logistics",
+        "amount": 3850000.0,
+        "count": 10
+      },
+      {
+        "industry": "Power and Utilities",
+        "amount": 3800000.0,
+        "count": 5
+      },
+      {
+        "industry": "Technology",
+        "amount": 2435000.0,
+        "count": 8
+      },
+      {
+        "industry": "Retail",
+        "amount": 1225000.0,
+        "count": 2
+      },
+      {
+        "industry": "Telecommunications",
+        "amount": 1218500.0,
+        "count": 4
+      },
+      {
+        "industry": "Semiconductors",
+        "amount": 500000.0,
+        "count": 1
+      },
+      {
+        "industry": "Energy",
+        "amount": 350000.0,
+        "count": 2
+      },
+      {
+        "industry": "Asset and Wealth Management",
+        "amount": 325348.0,
+        "count": 1
+      },
+      {
+        "industry": "Forest, Paper and Packaging",
+        "amount": 100000.0,
+        "count": 1
+      },
+      {
+        "industry": "Manufacturing",
+        "amount": 50000.0,
+        "count": 1
+      }
+    ],
+    "partner": [
+      {
+        "industry": "Financial Services",
+        "amount": 127793896.0,
+        "count": 31
+      },
+      {
+        "industry": "Health Industries",
+        "amount": 87317005.0,
+        "count": 34
+      },
+      {
+        "industry": "Energy, Utilities and Resources",
+        "amount": 86850000.0,
+        "count": 5
+      },
+      {
+        "industry": "Technology, Media and Telecommunications",
+        "amount": 85957928.0,
+        "count": 35
+      },
+      {
+        "industry": "Consumer Markets",
+        "amount": 61392477.0,
+        "count": 18
+      },
+      {
+        "industry": "Industrials and Services",
+        "amount": 40991855.0,
+        "count": 23
+      },
+      {
+        "industry": "Private Equity and Principal Investors",
+        "amount": 17620000.0,
+        "count": 9
+      }
+    ]
+  },
+  "top_accounts": {
+    "top_15": [
+      {
+        "account": "WEATHERFORD INTERNATIONAL PUBLIC LIMITED COMPANY",
+        "amount": 84350000.0,
+        "count": 2
+      },
+      {
+        "account": "Citigroup Inc.",
+        "amount": 25626386.0,
+        "count": 2
+      },
+      {
+        "account": "TD Bank, National Association",
+        "amount": 22300000.0,
+        "count": 3
+      },
+      {
+        "account": "Pfizer Inc.",
+        "amount": 20200000.0,
+        "count": 3
+      },
+      {
+        "account": "Hilton Grand Vacations Inc.",
+        "amount": 19030000.0,
+        "count": 1
+      },
+      {
+        "account": "Munich Reinsurance America, Inc.",
+        "amount": 18817824.0,
+        "count": 4
+      },
+      {
+        "account": "Rogers Communications Inc.",
+        "amount": 17773500.0,
+        "count": 7
+      },
+      {
+        "account": "Trimble Inc.",
+        "amount": 17752000.0,
+        "count": 3
+      },
+      {
+        "account": "United Parcel Service, Inc.",
+        "amount": 17660000.0,
+        "count": 4
+      },
+      {
+        "account": "Masimo Corporation",
+        "amount": 16370000.0,
+        "count": 1
+      },
+      {
+        "account": "NetJets Inc.",
+        "amount": 16310000.0,
+        "count": 1
+      },
+      {
+        "account": "Sensata Technologies, Inc",
+        "amount": 12888981.0,
+        "count": 2
+      },
+      {
+        "account": "Fanatics Holdings, Inc.",
+        "amount": 11000000.0,
+        "count": 2
+      },
+      {
+        "account": "Regions Bank",
+        "amount": 10400001.0,
+        "count": 1
+      },
+      {
+        "account": "Community Health Systems Inc.",
+        "amount": 10340000.0,
+        "count": 5
+      }
+    ],
+    "top_5_amount": 171506386.0,
+    "top_5_pct_of_pipeline": 0.3377,
+    "pipeline_total": 507923161.0
+  },
+  "delta": {
+    "matched_count": 36,
+    "only_in_dcm_count": 19,
+    "only_in_partner_count": 119,
+    "only_in_dcm_names": [
+      "#APP Haemonetics",
+      "Data Management Regulatory Additional Remediation Planning Change Order #RegResponse",
+      "HPE WC Forecast Phase 2 #APP",
+      "JLL Lease Revenue Forecasting",
+      "OCI / APP suspect - Rob/Brad to status week of 7/6",
+      "Oracle ERP Phase 0",
+      "Oracle ERP Stabilization",
+      "Pfizer Domain Lab Rollout",
+      "Platform Selection, Phase 0 and Implementation",
+      "RSI - AP Automation through AI  #APP",
+      "RSI PO Requisition Agent POC",
+      "Rogers MLSE Finance Implementation ERP & EPM",
+      "Suspect HPE SCM Implementation",
+      "Suspect Oracle ERP cloud",
+      "TD Bank:  FRP Risk Retail R2   #Oracle_BCM #BCMTECH",
+      "TQL Oracle Acquisition Enablement",
+      "TSVC Fusion Cloud - Phase 2 - HCM expansion",
+      "Trimble - Detailed Shared Services and COE design and transitioning planning",
+      "Williams #APP - Narrative Reporting"
+    ],
+    "only_in_partner_names": [
+      "#APP Oracle Cloud ERP - Agent Powered Performance",
+      "ACV - MI ACV Reporting Support",
+      "AEO - Oracle HCM Enhancements",
+      "AI Enabled Finance Transformation - Implement",
+      "Agentic HR AI Transformation - Phase 0",
+      "Agentic Process Transformation #PLSAI",
+      "Ameritas:  Oracle FDI Implementation",
+      "Astellas - Detailed Design CY2026 | Part of PJ OM RFP",
+      "Athene:  Oracle Cloud Migration #Oracle_AWM",
+      "AtkinsRealis ERP / EBS integrations, resource & roadmap, OU re-configuration",
+      "Axcelis / Veeco Ph0 ERP Assessment",
+      "BJC Bus Transformation - $0 To Support Flex - Expenses",
+      "BJC Bus Transformation - CR1.0 - $0 To Support Flex - All Fees",
+      "BJC Business Transformation - CO 15 AP, Vendor Mgmt and D&A Support",
+      "BJC Business Transformation - CO 16 - HCM, Deployment & D&A Support",
+      "BJC Business Transformation - CO 17 - Payroll & S&C Support",
+      "BJC Business Transformation - CO 18 - SCM Security & Testing Support",
+      "BMCD - PPM Phase 1 - Adoption & Config Validation",
+      "BP&C (ANICO, ARGO) - FP&A Implementation CO #6",
+      "BP&C (ANICO, ARGO) - Phase 2 Oracle Implementation FDI and Accounting Hub",
+      "BSC -  #GBS  #DVT #PLSAI #AI  - AI Operations Managed Services",
+      "BSC - #GBS #APP #PLSAI #AI - Pharos Stabilization and Requirements Gathering",
+      "BSC - #GBS #DVT #PLSAI #AI - AI Transformation Phase 3",
+      "BSC - #GBS #DVT #PLSAI #AI - Pharos MVP2 Phase",
+      "BTI Model Assessment",
+      "Build a Thon for TR team",
+      "CHS Business Transformation - Asset Maintenance Implementation",
+      "CHS Enterprise Pricing Assessment",
+      "CHS Enterprise Pricing and Strategic Sourcing Phase 2",
+      "CMG - Oracle Finance COA Redesign - Impl Ph1",
+      "CO01: Termination",
+      "CRH ACM - Eco Material - Oracle SCM and FDI",
+      "Change Request: Odyssey Oracle Cloud Finance/Procurement Implementation",
+      "Chewy Rebates",
+      "Cianbro Oracle Fusion Re-Implementation",
+      "Cloud ERP Financials + Palantir",
+      "Cloud Software Kyriba Implementation",
+      "Customer Delivery Operating Model and Roadmap",
+      "DPR - Global Design",
+      "ERP transformation - Oracle, Workday",
+      "Emerson - Demand Planning and Forecasting Phase 1 - Architecture and Data",
+      "Esko: Platform and Pricing Strategy  #BMR-XaaS #BMT-TMT #AISupported",
+      "FY26 Accounting Advisory",
+      "Fanatics Collectibles - Amazon MX and Canada Order Integration",
+      "Fanatics xOp Co - Oracle AES ERP Fin/SCM/ERP/HCM",
+      "Fermi - CBS Expansion SCM Enhancements",
+      "Finance & Tech Offshoring July extension",
+      "Finance Transformation / Strategic Ledger - R2 Implementation - Yr 1",
+      "GEHC DCT Phase 1: $0 Scope, Schedule, and AI Agent Updates (CR #2)",
+      "Global DBU Process Design & PPM Scope Confirmation - Change Order 01",
+      "GrantGuard X UTSW",
+      "Gray Media - Oracle Fusion and EPM Imp Takeover",
+      "HAE Oracle Phase 2 CO16 April 2027 Go Live",
+      "HCM Op Model Phase 2",
+      "HGV Oracle Financial Lending & Leasing Services",
+      "HPE - DISE Assessment - Phase 1 #DISE",
+      "HPE - Networking Business Finance Transformation",
+      "HPE - SSP Methodology Harmonization",
+      "Hach Commercial Excellence (Contingent Fee)",
+      "Hach Commercial Excellence (Fixed Fee)",
+      "JLL Fin Trans - Delivery Partner IFW #DigitalFinance",
+      "JLL Fin Trans - Program Orchestration",
+      "Jefferies - Oracle Financials Cloud Migration #Oracle_AWM",
+      "Lucid Data Strategy & Governance",
+      "MRE GSI, HSB UK TE Support",
+      "MSFT FIN Gaming Oracle - CR for Tech and Func RICEW",
+      "MUFG Oracle Financials AES Production Support",
+      "Masimo ERP",
+      "MetLife Phase 2 - Data Conversion - MGCC Conversion Approach",
+      "MetLife: Extend Business Day Solution",
+      "MetLife: GRR Migration to Workday Financials Accounting Center",
+      "MetLife: Versant Migration to Workday Financials",
+      "MetLife: Workday Finance Phase 2 - Jira Enhancements",
+      "MetLife: Workday Financials Transformation Phase 2 - ACC-Investments / ATP",
+      "Modernization of Financial and Regulatory Reporting Processes - Phase 2 #RegReporting #RiskData #RRCostOpt\u200b",
+      "MunichRE:  Oracle Finance Transformation Remaining GSI Entities P2 Extension",
+      "MunichRE:  Oracle Finance Transformation Remaining GSI EntitiesP3/P4- #Oracle_INS",
+      "MunichRE: Oracle Finance Transformation - Consolidated Release - P2 GSI Upsell #Oracle_INS",
+      "NetApp #O2C Process and AI Assessment",
+      "NetJets Finance Evolution - Oracle ERP Implementation - Release 1",
+      "Nutanix Cloud ERP",
+      "OCI Observability in Fusion SaaS & PaaS",
+      "OCI_Data Platform Migration",
+      "OCI_LandingZone+",
+      "Oracle Cloud - Phase 2a FDI Pull Thru",
+      "Oracle Cloud ERP/EPM - AES",
+      "Oracle Cloud Implementation #AI-APP",
+      "Oracle Cloud Managed Services #enablingfunctions",
+      "Palo Alto Networks - CyberArk Data Migration & Bus. Support CO1 #O2C",
+      "Pfizer - Finance Agentification AI RFI Phase 0 #DigitalFinance #agentic #TrustAI",
+      "Pfizer - Forecasting Enterprise Initiative #3 #DigitalFinance #PLSAI",
+      "Phase ERP PPM Implementation",
+      "Project Deliver RT2 - Freeze Support",
+      "Project Ocean ERP SOW Redwood Initiative",
+      "PwC Support for STOBG Board Retreat",
+      "PwC/Jacobs Alliance - Accelerated Infrastructure Build #AI",
+      "R2P Remediation Planning",
+      "RS&H - Oracle Fusion ERP Global Design",
+      "Regeneron -System Transformation - Oracle Pre-Implementation Assessment (N)",
+      "Regions Bank: ERP Transformation and Implementation",
+      "Rogers - Sport Co. HCM Integration and Talent Transformation",
+      "Rogers Communications Inc- Order Entry Cockpit Solution",
+      "Rogers MLSE Finance Implementation",
+      "Roku: Oracle ERP and SCM",
+      "Sensata aerospace carve out - Implementation Phase",
+      "Sensata aerospace carveout  - Global Design Only",
+      "Sonar QTR Assessment",
+      "TD CECL Refinement Short Term Initiatives #CMCT",
+      "Textron Systems -Oracle Cloud Validation Assessment",
+      "Trimble  - Oracle ERP Global Design",
+      "Trimble - ERP Cloud Transformation/Implementation",
+      "Trimble Finance Function Outsourcing Pilot",
+      "UC Davis - FDI Implementation",
+      "UNF-DELIVER-Cloud AES (RT1+RT2+RT MDM) - CO#2",
+      "USAA ARM Accounting Rules (3 sources) and AI",
+      "Veralto Corp | AES-TBD | HCM | 12M | NEW",
+      "WAL - Oracle AI",
+      "WFRD IT Mgd Svcs and Agentic BPO",
+      "Wave 3 FY27 UPS FCE Amendment 7"
+    ],
+    "amount_mismatches": [
+      {
+        "name": "Fermi - CBS Expansion",
+        "dcm_amount": 3600000.0,
+        "partner_amount": 1200000.0,
+        "difference": -2400000.0
+      },
+      {
+        "name": "TD Bank:  FRP Finance PeopleSoft GL Replacement #Oracle_BCM #BCMTECH",
+        "dcm_amount": 13200000.0,
+        "partner_amount": 6600000.0,
+        "difference": -6600000.0
+      }
+    ],
+    "stage_mismatches": [],
+    "duplicate_partner_opps": [
+      {
+        "name": "Finance Transformation / Strategic Ledger - R2 Implementation - Yr 1",
+        "partners": [
+          "Ajeetha Menezes",
+          "Tojo Johnson",
+          "Yeon Lee"
+        ],
+        "amount": 15000000.0,
+        "partner_count": 3
+      },
+      {
+        "name": "Trimble - ERP Cloud Transformation/Implementation",
+        "partners": [
+          "Samir Mehta",
+          "Satyen Popat"
+        ],
+        "amount": 11755000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "Oracle Cloud Implementation #AI-APP",
+        "partners": [
+          "Satyen Popat",
+          "Saurabh Sarbaliya"
+        ],
+        "amount": 7100000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "Sensata aerospace carve out - Implementation Phase",
+        "partners": [
+          "Brad Housour",
+          "Faisal Ghadially",
+          "Samir Mehta",
+          "Saurabh Sarbaliya"
+        ],
+        "amount": 6884898.0,
+        "partner_count": 4
+      },
+      {
+        "name": "Sensata aerospace carveout  - Global Design Only",
+        "partners": [
+          "Faisal Ghadially",
+          "Samir Mehta"
+        ],
+        "amount": 6004083.0,
+        "partner_count": 2
+      },
+      {
+        "name": "BMCD - PPM Phase 1 - Adoption & Config Validation",
+        "partners": [
+          "Brad Housour",
+          "Samir Mehta"
+        ],
+        "amount": 3900000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "Trimble  - Oracle ERP Global Design",
+        "partners": [
+          "Samir Mehta",
+          "Satyen Popat"
+        ],
+        "amount": 3145000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "DPR - Global Design",
+        "partners": [
+          "Satyen Popat",
+          "Saurabh Sarbaliya"
+        ],
+        "amount": 2100000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "Chewy Rebates",
+        "partners": [
+          "Brad Housour",
+          "Satyen Popat"
+        ],
+        "amount": 2000000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "MUFG Oracle Financials AES Production Support",
+        "partners": [
+          "Tojo Johnson",
+          "Yeon Lee"
+        ],
+        "amount": 1900000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "Cloud ERP Financials + Palantir",
+        "partners": [
+          "Brad Housour",
+          "Samir Mehta"
+        ],
+        "amount": 1550000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "MUFG JP AFCS Phase R0 DDCT",
+        "partners": [
+          "Ajeetha Menezes",
+          "Tojo Johnson"
+        ],
+        "amount": 1152604.0,
+        "partner_count": 2
+      },
+      {
+        "name": "HPE - Networking Business Finance Transformation",
+        "partners": [
+          "Satyen Popat",
+          "Saurabh Sarbaliya"
+        ],
+        "amount": 990000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "CO01: Termination",
+        "partners": [
+          "Samir Mehta",
+          "Saurabh Sarbaliya"
+        ],
+        "amount": 750000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "OCI_Data Platform Migration",
+        "partners": [
+          "Satyen Popat",
+          "Tojo Johnson"
+        ],
+        "amount": 500000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "MUFG JP AFCS Phase R1 Basic Design",
+        "partners": [
+          "Ajeetha Menezes",
+          "Tojo Johnson"
+        ],
+        "amount": 381081.0,
+        "partner_count": 2
+      },
+      {
+        "name": "Oracle Cloud - Phase 2a FDI Pull Thru",
+        "partners": [
+          "Brad Housour",
+          "Sunil Warier"
+        ],
+        "amount": 350000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "WAL - Oracle AI",
+        "partners": [
+          "Brad Housour",
+          "Saurabh Sarbaliya"
+        ],
+        "amount": 350000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "Esko: Platform and Pricing Strategy  #BMR-XaaS #BMT-TMT #AISupported",
+        "partners": [
+          "Rattan Singh",
+          "Saurabh Sarbaliya"
+        ],
+        "amount": 150000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "Tama - AI Training",
+        "partners": [
+          "Brad Housour",
+          "Satyen Popat"
+        ],
+        "amount": 50000.0,
+        "partner_count": 2
+      },
+      {
+        "name": "Fanatics Collectibles - Amazon MX and Canada Order Integration",
+        "partners": [
+          "Satyen Popat",
+          "Saurabh Sarbaliya"
+        ],
+        "amount": 22951.0,
+        "partner_count": 2
+      }
+    ]
+  },
+  "data_quality_flags": {
+    "amount_le_1": [
+      {
+        "name": "AIDEN - Change Order",
+        "partner": "Saurabh Sarbaliya",
+        "stage": "Won",
+        "amount": 0.0,
+        "close_date": "2026-08-31"
+      },
+      {
+        "name": "BJC Bus Transformation - $0 To Support Flex - Expenses",
+        "partner": "Ken Becker",
+        "stage": "Won",
+        "amount": 0.0,
+        "close_date": "2026-09-01"
+      },
+      {
+        "name": "BJC Bus Transformation - CR1.0 - $0 To Support Flex - All Fees",
+        "partner": "Ken Becker",
+        "stage": "Won",
+        "amount": 0.0,
+        "close_date": "2026-09-01"
+      },
+      {
+        "name": "GEHC DCT Phase 1: $0 Scope, Schedule, and AI Agent Updates (CR #2)",
+        "partner": "Rattan Singh",
+        "stage": "Propose",
+        "amount": 0.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "Global DBU Process Design & PPM Scope Confirmation - Change Order 01",
+        "partner": "Samir Mehta",
+        "stage": "Close",
+        "amount": 1.0,
+        "close_date": "2026-12-21"
+      },
+      {
+        "name": "MSFT FIN Gaming Oracle - CR 3 for Assist with SIT [Zero dollars CR for documentation]",
+        "partner": "Jithendra Pai Brahmavar",
+        "stage": "Propose",
+        "amount": 0.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "UNF-DELIVER-Cloud AES (RT1+RT2+RT MDM) - CO#2",
+        "partner": "Sunil Warier",
+        "stage": "Won",
+        "amount": 0.0,
+        "close_date": "2026-12-31"
+      },
+      {
+        "name": "WWT FAH IMPL resource change",
+        "partner": "Samir Mehta",
+        "stage": "Propose",
+        "amount": 0.0,
+        "close_date": "2026-08-21"
+      }
+    ],
+    "target_interact_close_over_365d": []
+  },
+  "trend": {
+    "fiscal_year_start": "2026-07-01",
+    "fiscal_year_end": "2027-06-30",
+    "by_month": [
+      {
+        "month": "2026-07",
+        "amount": 25160940.0,
+        "won_amount": 25160940.0,
+        "cumulative_won": 25160940.0
+      },
+      {
+        "month": "2026-08",
+        "amount": 44220581.0,
+        "won_amount": 42855231.0,
+        "cumulative_won": 68016171.0
+      },
+      {
+        "month": "2026-09",
+        "amount": 72952711.0,
+        "won_amount": 1295000.0,
+        "cumulative_won": 69311171.0
+      },
+      {
+        "month": "2026-10",
+        "amount": 98943000.0,
+        "won_amount": 755000.0,
+        "cumulative_won": 70066171.0
+      },
+      {
+        "month": "2026-11",
+        "amount": 45184981.0,
+        "won_amount": 0.0,
+        "cumulative_won": 70066171.0
+      },
+      {
+        "month": "2026-12",
+        "amount": 110088947.0,
+        "won_amount": 0.0,
+        "cumulative_won": 70066171.0
+      },
+      {
+        "month": "2027-01",
+        "amount": 24550001.0,
+        "won_amount": 0.0,
+        "cumulative_won": 70066171.0
+      },
+      {
+        "month": "2027-02",
+        "amount": 19092000.0,
+        "won_amount": 0.0,
+        "cumulative_won": 70066171.0
+      },
+      {
+        "month": "2027-03",
+        "amount": 30930000.0,
+        "won_amount": 0.0,
+        "cumulative_won": 70066171.0
+      },
+      {
+        "month": "2027-04",
+        "amount": 28300000.0,
+        "won_amount": 0.0,
+        "cumulative_won": 70066171.0
+      },
+      {
+        "month": "2027-05",
+        "amount": 0.0,
+        "won_amount": 0.0,
+        "cumulative_won": 70066171.0
+      },
+      {
+        "month": "2027-06",
+        "amount": 8500000.0,
+        "won_amount": 0.0,
+        "cumulative_won": 70066171.0
+      }
+    ]
+  },
+  "aging": {
+    "buckets": [
+      {
+        "bucket": "0-90",
+        "count": 40,
+        "amount": 192539707.0
+      },
+      {
+        "bucket": "91-180",
+        "count": 17,
+        "amount": 61149083.0
+      },
+      {
+        "bucket": "181-365",
+        "count": 18,
+        "amount": 54452604.0
+      },
+      {
+        "bucket": "365+",
+        "count": 29,
+        "amount": 115734899.0
+      }
+    ],
+    "oldest": [
+      {
+        "name": "Roku: Oracle ERP and SCM",
+        "partner": "Satyen Popat",
+        "stage": "Propose",
+        "amount": 2500000.0,
+        "created_date": "2021-12-07",
+        "age_days": 1731
+      },
+      {
+        "name": "Athene:  Oracle Cloud Migration #Oracle_AWM",
+        "partner": "Brad Housour",
+        "stage": "Interact",
+        "amount": 10000000.0,
+        "created_date": "2022-11-29",
+        "age_days": 1374
+      },
+      {
+        "name": "Jefferies - Oracle Financials Cloud Migration #Oracle_AWM",
+        "partner": "Brad Housour",
+        "stage": "Interact",
+        "amount": 5000000.0,
+        "created_date": "2023-02-24",
+        "age_days": 1287
+      },
+      {
+        "name": "USAA ARM Accounting Rules (3 sources) and AI",
+        "partner": "Brad Housour",
+        "stage": "Interact",
+        "amount": 1050000.0,
+        "created_date": "2023-05-22",
+        "age_days": 1200
+      },
+      {
+        "name": "Regions Bank: ERP Transformation and Implementation",
+        "partner": "Yeon Lee",
+        "stage": "Interact",
+        "amount": 10400001.0,
+        "created_date": "2023-10-17",
+        "age_days": 1052
+      },
+      {
+        "name": "ERP transformation - Oracle, Workday",
+        "partner": "Jithendra Pai Brahmavar",
+        "stage": "Propose",
+        "amount": 5000000.0,
+        "created_date": "2023-12-20",
+        "age_days": 988
+      },
+      {
+        "name": "Phase ERP PPM Implementation",
+        "partner": "Samir Mehta",
+        "stage": "Interact",
+        "amount": 8200000.0,
+        "created_date": "2024-06-24",
+        "age_days": 801
+      },
+      {
+        "name": "Ultragenyx ERP Strategy & Roadmap",
+        "partner": "Rattan Singh",
+        "stage": "Interact",
+        "amount": 100000.0,
+        "created_date": "2024-09-18",
+        "age_days": 715
+      },
+      {
+        "name": "DPR - Global Design",
+        "partner": "Satyen Popat; Saurabh Sarbaliya",
+        "stage": "Interact",
+        "amount": 2100000.0,
+        "created_date": "2024-09-27",
+        "age_days": 706
+      },
+      {
+        "name": "Hach Commercial Excellence (Contingent Fee)",
+        "partner": "Saurabh Sarbaliya",
+        "stage": "Interact",
+        "amount": 100000.0,
+        "created_date": "2024-10-10",
+        "age_days": 693
+      }
+    ]
+  },
+  "win_rate_by_partner": [
+    {
+      "partner": "Tojo Johnson",
+      "won_amount": 18717824.0,
+      "close_amount": 0.0,
+      "win_rate": 1.0
+    },
+    {
+      "partner": "Yeon Lee",
+      "won_amount": 11245386.0,
+      "close_amount": 0.0,
+      "win_rate": 1.0
+    },
+    {
+      "partner": "Faisal Ghadially",
+      "won_amount": 7981155.0,
+      "close_amount": 0.0,
+      "win_rate": 1.0
+    },
+    {
+      "partner": "Ken Becker",
+      "won_amount": 3267000.0,
+      "close_amount": 0.0,
+      "win_rate": 1.0
+    },
+    {
+      "partner": "Jithendra Pai Brahmavar",
+      "won_amount": 834600.0,
+      "close_amount": 0.0,
+      "win_rate": 1.0
+    },
+    {
+      "partner": "Satyen Popat",
+      "won_amount": 6463951.0,
+      "close_amount": 193946.0,
+      "win_rate": 0.9709
+    },
+    {
+      "partner": "Samir Mehta",
+      "won_amount": 12073500.0,
+      "close_amount": 595001.0,
+      "win_rate": 0.953
+    },
+    {
+      "partner": "Rattan Singh",
+      "won_amount": 1773500.0,
+      "close_amount": 141750.0,
+      "win_rate": 0.926
+    },
+    {
+      "partner": "Brad Housour",
+      "won_amount": 5851855.0,
+      "close_amount": 1000000.0,
+      "win_rate": 0.8541
+    },
+    {
+      "partner": "Saurabh Sarbaliya",
+      "won_amount": 5775351.0,
+      "close_amount": 12050000.0,
+      "win_rate": 0.324
+    },
+    {
+      "partner": "Ajeetha Menezes",
+      "won_amount": 0.0,
+      "close_amount": 0.0,
+      "win_rate": null
+    },
+    {
+      "partner": "Sunil Warier",
+      "won_amount": 0.0,
+      "close_amount": 0.0,
+      "win_rate": null
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Partner Pipeline Financials</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <h1>Partner Pipeline Financials</h1>
+        <p id="data-as-of" class="data-as-of" hidden></p>
+      </header>
+
+      <div id="error-banner" class="error-banner" hidden role="alert"></div>
+
+      <p id="loading-note" class="placeholder">Loading dashboard data…</p>
+
+      <main id="dashboard" hidden>
+        <section id="kpi-cards" class="card" aria-labelledby="kpi-cards-title">
+          <h2 id="kpi-cards-title">Pipeline snapshot</h2>
+          <div class="section-body" data-render="kpi-cards"></div>
+        </section>
+
+        <section id="stage-funnel" class="card" aria-labelledby="stage-funnel-title">
+          <h2 id="stage-funnel-title">Stage funnel</h2>
+          <div class="section-body" data-render="stage-funnel"></div>
+        </section>
+
+        <section id="large-opps" class="card" aria-labelledby="large-opps-title">
+          <h2 id="large-opps-title">Opportunities ≥ $10M</h2>
+          <div class="section-body" data-render="large-opps">
+            <div class="chart-toolbar" role="group" aria-label="Opportunity amount threshold">
+              <button type="button" class="toggle-btn is-active" data-opps-view="10m" aria-pressed="true">≥ $10M</button>
+              <button type="button" class="toggle-btn" data-opps-view="20m" aria-pressed="false">≥ $20M</button>
+            </div>
+            <div id="opps-10m-table"></div>
+            <div id="opps-20m-table" hidden></div>
+          </div>
+        </section>
+
+        <section id="rankings" class="card" aria-labelledby="rankings-title">
+          <h2 id="rankings-title">Pipeline ranking</h2>
+          <div class="ranking-grid">
+            <div id="partner-ranking-chart" class="ranking-panel" data-render="partner-ranking-chart"></div>
+            <div id="partner-code-chart" class="ranking-panel" data-render="partner-code-chart"></div>
+          </div>
+        </section>
+
+        <section id="industry-mix-chart" class="card" aria-labelledby="industry-mix-title">
+          <h2 id="industry-mix-title">Industry mix</h2>
+          <div class="section-body ranking-grid" data-render="industry-mix-chart"></div>
+        </section>
+
+        <section id="top-accounts-chart" class="card" aria-labelledby="top-accounts-title">
+          <h2 id="top-accounts-title">Top accounts</h2>
+          <div class="section-body" data-render="top-accounts-chart"></div>
+        </section>
+
+        <section id="delta-summary" class="card" aria-labelledby="delta-summary-title">
+          <h2 id="delta-summary-title">DCM vs partner delta</h2>
+          <div class="section-body" data-render="delta-summary"></div>
+        </section>
+
+        <section id="trend-chart" class="card" aria-labelledby="trend-chart-title">
+          <h2 id="trend-chart-title">Close-date trend</h2>
+          <div class="section-body" data-render="trend-chart"></div>
+        </section>
+
+        <section id="aging-histogram" class="card" aria-labelledby="aging-histogram-title">
+          <h2 id="aging-histogram-title">Open opportunity aging</h2>
+          <div class="section-body" data-render="aging-histogram"></div>
+        </section>
+
+        <section id="win-rate-chart" class="card" aria-labelledby="win-rate-title">
+          <h2 id="win-rate-title">Win rate by partner</h2>
+          <div class="section-body" data-render="win-rate-chart"></div>
+        </section>
+
+        <section id="data-quality-flags" class="card card-warning" aria-labelledby="data-quality-title">
+          <h2 id="data-quality-title">Data quality flags</h2>
+          <div class="section-body" data-render="data-quality-flags"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>
