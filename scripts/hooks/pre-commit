@@ -1,0 +1,23 @@
+#!/bin/sh
+# Fail the commit if any staged file is under data/raw/,
+# except data/raw/.gitkeep (keeps the empty folder in git).
+# Raw extracts must never be committed.
+
+staged=$(git diff --cached --name-only)
+
+if [ -z "$staged" ]; then
+  exit 0
+fi
+
+blocked=$(printf '%s\n' "$staged" | grep -E '^data/raw/' | grep -v '^data/raw/\.gitkeep$')
+
+if [ -n "$blocked" ]; then
+  echo "ERROR: Commit blocked — files under data/raw/ must never be committed."
+  echo "The following staged paths are not allowed:"
+  printf '%s\n' "$blocked"
+  echo "Unstage them with: git restore --staged <path>"
+  echo "Only data/raw/.gitkeep may be committed in that folder."
+  exit 1
+fi
+
+exit 0

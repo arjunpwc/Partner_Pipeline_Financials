@@ -1,3 +1,2 @@
-# .gitignore
-data/raw/*.xlsx
-data/raw/*.xls
+data/raw/*
+!data/raw/.gitkeep
