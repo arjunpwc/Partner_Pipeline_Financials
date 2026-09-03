@@ -73,6 +73,7 @@ CLOSE_STAGE = "Close"
 
 DCM_GLOB = "DCM_D_T_Pipeline_View*.xlsx"
 PARTNER_GLOB = "Pipeline_Partner_View*.xlsx"
+FOCUS_PRODUCT_CODES = ("USH16", "USH17", "USG18")
 
 
 def fail(message: str, code: int = 1) -> None:
@@ -513,6 +514,179 @@ def build_aging(partner_opps: pd.DataFrame, today: pd.Timestamp) -> dict:
     return {"buckets": dist, "oldest": oldest_rows}
 
 
+def _norm_code(value) -> str:
+    if value is None or (isinstance(value, float) and pd.isna(value)) or pd.isna(value):
+        return ""
+    text = str(value).strip()
+    if not text or text.lower() in {"nan", "none"}:
+        return ""
+    return text.upper()
+
+
+def _partner_lookup(partner_opps: pd.DataFrame) -> pd.DataFrame:
+    if partner_opps.empty:
+        return pd.DataFrame(
+            columns=["Opportunity Name", "_partners", "Full Name",
+                     "Opportunity Lead: Full Name", "Account Name: Account Name"]
+        )
+    cols = [
+        "Opportunity Name",
+        "_partners",
+        "Full Name",
+        "Opportunity Lead: Full Name",
+        "Account Name: Account Name",
+    ]
+    available = [c for c in cols if c in partner_opps.columns]
+    return (
+        partner_opps[available]
+        .drop_duplicates("Opportunity Name", keep="first")
+        .set_index("Opportunity Name")
+    )
+
+
+def _fy_month_trend(df: pd.DataFrame, today: pd.Timestamp) -> list[dict]:
+    start, end = fiscal_year_bounds(today)
+    months = pd.date_range(start, end, freq="MS")
+    if df.empty or "Close Date" not in df.columns:
+        return [{"month": m.strftime("%Y-%m"), "amount": 0.0} for m in months]
+    fy = df[
+        df["Close Date"].notna()
+        & (df["Close Date"] >= start)
+        & (df["Close Date"] <= end + pd.Timedelta(days=1) - pd.Timedelta(seconds=1))
+    ]
+    by_month = fy.groupby(fy["Close Date"].dt.to_period("M").dt.to_timestamp())["Amount"].sum() if not fy.empty else pd.Series(dtype=float)
+    return [
+        {"month": month.strftime("%Y-%m"), "amount": money(by_month.get(month, 0.0))}
+        for month in months
+    ]
+
+
+def _empty_product_focus(today: pd.Timestamp) -> dict:
+    return {
+        "total": 0.0,
+        "count": 0,
+        "stage_breakdown": [],
+        "top_opportunities": [],
+        "partner_breakdown": [],
+        "trend": _fy_month_trend(pd.DataFrame(columns=["Close Date", "Amount"]), today),
+        "no_data": True,
+    }
+
+
+def product_code_focus(
+    dcm: pd.DataFrame, partner_opps: pd.DataFrame, today: pd.Timestamp
+) -> dict:
+    """Per-code rollups for USH16 / USH17 / USG18. Always emits all three keys."""
+    lookup = _partner_lookup(partner_opps)
+    work = dcm.copy()
+    work["_code"] = work["Product Code"].map(_norm_code)
+
+    out: dict = {}
+    for code in FOCUS_PRODUCT_CODES:
+        slice_df = work[work["_code"] == code]
+        if slice_df.empty:
+            out[code] = _empty_product_focus(today)
+            continue
+
+        slice_df = slice_df.sort_values("Amount", ascending=False)
+        agg = (
+            slice_df.groupby("Opportunity Name", as_index=False)
+            .agg(
+                Amount=("Amount", "sum"),
+                Stage=("Stage", "first"),
+                **{"Close Date": ("Close Date", "first")},
+                **{"Opportunity Lead: Full Name": ("Opportunity Lead: Full Name", "first")},
+                **{"Opportunity Owner: Full Name": ("Opportunity Owner: Full Name", "first")},
+            )
+        )
+
+        def _lookup_val(name: str, col: str):
+            if name not in lookup.index or col not in lookup.columns:
+                return ""
+            val = lookup.at[name, col]
+            if isinstance(val, pd.Series):
+                val = val.iloc[0]
+            if val is None or (isinstance(val, float) and pd.isna(val)) or pd.isna(val):
+                return ""
+            return str(val).strip()
+
+        partners: list[str] = []
+        leads: list[str] = []
+        accounts: list[str] = []
+        for name in agg["Opportunity Name"]:
+            partner = _lookup_val(name, "_partners") or _lookup_val(name, "Full Name")
+            lead = (
+                _lookup_val(name, "Opportunity Lead: Full Name")
+                or (str(agg.loc[agg["Opportunity Name"] == name, "Opportunity Lead: Full Name"].iloc[0] or "").strip()
+                    if not agg.loc[agg["Opportunity Name"] == name].empty else "")
+            )
+            owner = ""
+            owner_series = agg.loc[agg["Opportunity Name"] == name, "Opportunity Owner: Full Name"]
+            if not owner_series.empty and pd.notna(owner_series.iloc[0]):
+                owner = str(owner_series.iloc[0]).strip()
+            dcm_lead_series = agg.loc[agg["Opportunity Name"] == name, "Opportunity Lead: Full Name"]
+            dcm_lead = ""
+            if not dcm_lead_series.empty and pd.notna(dcm_lead_series.iloc[0]):
+                dcm_lead = str(dcm_lead_series.iloc[0]).strip()
+            if not partner:
+                partner = dcm_lead or owner
+            if not lead:
+                lead = dcm_lead or owner
+            partners.append(partner or "")
+            leads.append(lead or "")
+            accounts.append(_lookup_val(name, "Account Name: Account Name"))
+
+        agg["partner"] = partners
+        agg["lead"] = leads
+        agg["account"] = accounts
+
+        open_rows = agg[agg["Stage"].isin(OPEN_STAGES)]
+        top = agg.sort_values("Amount", ascending=False).head(10)
+        top_opportunities = [
+            {
+                "name": row["Opportunity Name"],
+                "partner": row["partner"] or "",
+                "lead": row["lead"] or "",
+                "account": row["account"] or "",
+                "stage": "" if pd.isna(row["Stage"]) else str(row["Stage"]),
+                "amount": money(row["Amount"]),
+                "close_date": iso_date(row.get("Close Date")),
+            }
+            for _, row in top.iterrows()
+        ]
+
+        partner_rows = []
+        partner_work = agg.copy()
+        partner_work["_partner_key"] = (
+            partner_work["partner"].fillna("").astype(str).str.strip().replace({"": "(blank)"})
+        )
+        grouped_partners = (
+            partner_work.groupby("_partner_key")
+            .agg(amount=("Amount", "sum"), count=("Amount", "size"))
+            .reset_index()
+            .sort_values("amount", ascending=False)
+        )
+        for _, row in grouped_partners.iterrows():
+            partner_rows.append(
+                {
+                    "partner": row["_partner_key"],
+                    "amount": money(row["amount"]),
+                    "count": int(row["count"]),
+                }
+            )
+
+        out[code] = {
+            "total": money(open_rows["Amount"].sum()),
+            "count": int(len(open_rows)),
+            "stage_breakdown": group_stage_totals(agg),
+            "top_opportunities": top_opportunities,
+            "partner_breakdown": partner_rows,
+            "trend": _fy_month_trend(agg, today),
+            "no_data": False,
+        }
+    return out
+
+
 def win_rate_by_partner(partner: pd.DataFrame) -> list[dict]:
     if partner.empty:
         return []
@@ -600,11 +774,21 @@ def main() -> None:
 
     flags = data_quality_flags(partner_opps, today)
     dq_count = len(flags["amount_le_1"]) + len(flags["target_interact_close_over_365d"])
+    focus = product_code_focus(dcm, partner_opps, today)
 
     print(f"DCM rows: {len(dcm)}  ({dcm_path.name})")
     print(f"Partner rows: {len(partner)}  ({partner_path.name})")
     print(f"Unique partner opportunities: {len(partner_opps)}")
     print(f"Data-quality flags: {dq_count}  (amount<=1: {len(flags['amount_le_1'])}; Target/Interact close >365d: {len(flags['target_interact_close_over_365d'])})")
+    for code in FOCUS_PRODUCT_CODES:
+        block = focus[code]
+        if block["no_data"]:
+            print(f"Product code {code}: no matching rows")
+        else:
+            print(
+                f"Product code {code}: open ${block['total']:,.0f}  "
+                f"({block['count']} opps, {len(block['top_opportunities'])} in top list)"
+            )
 
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -629,6 +813,7 @@ def main() -> None:
             for _, row in partner_name_totals.iterrows()
         ],
         "partner_code_totals": partner_code_totals(dcm, partner_opps),
+        "product_code_focus": focus,
         "industry_totals": {
             "dcm": industry_totals(dcm, "Industry Sector"),
             "partner": industry_totals(partner_opps, "Ultimate Parent Account: Industry"),

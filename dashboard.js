@@ -664,6 +664,396 @@
     }
   }
 
+  const FOCUS_PRODUCT_CODES = ["USH16", "USH17", "USG18"];
+  let productFocusData = {};
+  let productFocusStageChart = null;
+  let productFocusTrendChart = null;
+  let productFocusWired = false;
+
+  function destroyProductFocusCharts() {
+    if (productFocusStageChart) {
+      productFocusStageChart.destroy();
+      productFocusStageChart = null;
+    }
+    if (productFocusTrendChart) {
+      productFocusTrendChart.destroy();
+      productFocusTrendChart = null;
+    }
+    if (rankingCharts["product-focus-partner-canvas"]) {
+      rankingCharts["product-focus-partner-canvas"].destroy();
+      rankingCharts["product-focus-partner-canvas"] = null;
+    }
+  }
+
+  function defaultProductFocusCode(focus) {
+    for (var i = 0; i < FOCUS_PRODUCT_CODES.length; i++) {
+      var code = FOCUS_PRODUCT_CODES[i];
+      var block = focus && focus[code];
+      if (block && !block.no_data) return code;
+    }
+    return FOCUS_PRODUCT_CODES[0];
+  }
+
+  function setProductFocusTabState(code) {
+    var toolbar = document.querySelector("#product-code-focus .chart-toolbar");
+    if (!toolbar) return;
+    toolbar.querySelectorAll("[data-focus-code]").forEach(function (btn) {
+      var active = btn.getAttribute("data-focus-code") === code;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-selected", active ? "true" : "false");
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+  }
+
+  function focusStageRows(breakdown) {
+    var byStage = {};
+    (breakdown || []).forEach(function (row) {
+      var name = row && row.stage != null ? String(row.stage) : "";
+      byStage[name] = {
+        stage: name,
+        count: Number(row.count) || 0,
+        amount: Number(row.amount) || 0,
+      };
+    });
+    var rows = FUNNEL_STAGES.map(function (stage) {
+      return byStage[stage] || { stage: stage, count: 0, amount: 0 };
+    });
+    Object.keys(byStage).forEach(function (name) {
+      if (name && FUNNEL_STAGES.indexOf(name) === -1) {
+        rows.push(byStage[name]);
+      }
+    });
+    return rows;
+  }
+
+  function topPartnerFromBreakdown(rows) {
+    var sorted = (rows || []).slice().sort(function (a, b) {
+      return (Number(b.amount) || 0) - (Number(a.amount) || 0);
+    });
+    if (!sorted.length) return { partner: "—", amount: 0 };
+    return {
+      partner: sorted[0].partner || "(blank)",
+      amount: Number(sorted[0].amount) || 0,
+    };
+  }
+
+  function drawProductFocusStageChart(canvas, rows, code) {
+    if (typeof Chart === "undefined") return false;
+    if (productFocusStageChart) {
+      productFocusStageChart.destroy();
+      productFocusStageChart = null;
+    }
+    canvas.setAttribute("role", "img");
+    canvas.setAttribute(
+      "aria-label",
+      "Stage breakdown for " + code + ": " + funnelSummary(rows)
+    );
+    productFocusStageChart = new Chart(canvas.getContext("2d"), {
+      type: "bar",
+      data: {
+        labels: rows.map(function (row) {
+          return row.stage;
+        }),
+        datasets: [
+          {
+            data: rows.map(function (row) {
+              return row.amount;
+            }),
+            counts: rows.map(function (row) {
+              return row.count;
+            }),
+            backgroundColor: PARTNER_BAR_COLOR,
+            borderSkipped: false,
+            borderRadius: 4,
+            barThickness: 22,
+          },
+        ],
+      },
+      options: {
+        indexAxis: "y",
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function (ctx) {
+                return (
+                  formatMillions(ctx.parsed.x) +
+                  " · " +
+                  formatCount(ctx.dataset.counts[ctx.dataIndex]) +
+                  " opportunities"
+                );
+              },
+            },
+          },
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            grid: { color: "#eef1f4" },
+            ticks: {
+              callback: function (value) {
+                return formatMillions(value);
+              },
+            },
+          },
+          y: { grid: { display: false }, ticks: { autoSkip: false } },
+        },
+        layout: { padding: { right: 72 } },
+      },
+      plugins: [stageBarLabelPlugin()],
+    });
+    return true;
+  }
+
+  function drawProductFocusTrendChart(canvas, trendRows, code) {
+    if (typeof Chart === "undefined") return false;
+    if (productFocusTrendChart) {
+      productFocusTrendChart.destroy();
+      productFocusTrendChart = null;
+    }
+    var rows = (trendRows || []).slice().sort(function (a, b) {
+      return String(a.month || "").localeCompare(String(b.month || ""));
+    });
+    canvas.setAttribute("role", "img");
+    canvas.setAttribute(
+      "aria-label",
+      "Fiscal-year close-date trend for product code " + code
+    );
+    productFocusTrendChart = new Chart(canvas.getContext("2d"), {
+      type: "line",
+      data: {
+        labels: rows.map(function (row) {
+          return formatFyMonthLabel(row.month);
+        }),
+        datasets: [
+          {
+            label: "Amount by close month",
+            data: rows.map(function (row) {
+              return Number(row.amount) || 0;
+            }),
+            borderColor: PARTNER_BAR_COLOR,
+            backgroundColor: "rgba(29, 78, 137, 0.12)",
+            tension: 0.2,
+            fill: true,
+            pointRadius: 3,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function (ctx) {
+                return formatMillions(ctx.parsed.y);
+              },
+            },
+          },
+        },
+        scales: {
+          x: { grid: { display: false } },
+          y: {
+            beginAtZero: true,
+            grid: { color: "#eef1f4" },
+            ticks: {
+              callback: function (value) {
+                return formatMillions(value);
+              },
+            },
+          },
+        },
+      },
+    });
+    return true;
+  }
+
+  function renderProductFocusOppsTable(container, opps) {
+    var rows = Array.isArray(opps) ? opps.slice() : [];
+    var sortKey = "amount";
+    var sortDir = "desc";
+    var columns = [
+      { key: "name", label: "Opportunity Name", cls: "" },
+      { key: "partner", label: "Partner", cls: "" },
+      { key: "account", label: "Account", cls: "" },
+      { key: "stage", label: "Stage", cls: "" },
+      { key: "amount", label: "Amount", cls: "num" },
+      { key: "close_date", label: "Close Date", cls: "" },
+    ];
+
+    function paint() {
+      rows.sort(function (a, b) {
+        return compareOpps(a, b, sortKey, sortDir);
+      });
+      var head = columns
+        .map(function (col) {
+          var aria =
+            col.key === sortKey ? (sortDir === "asc" ? "ascending" : "descending") : "none";
+          return (
+            '<th scope="col" class="' +
+            col.cls +
+            '" data-sort-key="' +
+            col.key +
+            '" aria-sort="' +
+            aria +
+            '">' +
+            escapeHtml(col.label) +
+            "</th>"
+          );
+        })
+        .join("");
+      var body;
+      if (!rows.length) {
+        body =
+          '<tr><td class="empty-row" colspan="6">No opportunities in this list.</td></tr>';
+      } else {
+        body = rows
+          .map(function (row) {
+            return (
+              "<tr>" +
+              "<td>" +
+              escapeHtml(row.name || "") +
+              "</td>" +
+              "<td>" +
+              escapeHtml(row.partner || "") +
+              "</td>" +
+              "<td>" +
+              escapeHtml(row.account || "—") +
+              "</td>" +
+              "<td>" +
+              escapeHtml(row.stage || "") +
+              "</td>" +
+              '<td class="num">' +
+              escapeHtml(formatMillions(row.amount)) +
+              "</td>" +
+              "<td>" +
+              escapeHtml(formatCloseDate(row.close_date)) +
+              "</td>" +
+              "</tr>"
+            );
+          })
+          .join("");
+      }
+      container.innerHTML =
+        '<div class="table-wrap"><table class="data-table">' +
+        "<caption>Top opportunities (" +
+        formatCount(rows.length) +
+        ")</caption>" +
+        "<thead><tr>" +
+        head +
+        "</tr></thead><tbody>" +
+        body +
+        "</tbody></table></div>";
+      container.querySelectorAll("th[data-sort-key]").forEach(function (th) {
+        th.addEventListener("click", function () {
+          var key = th.getAttribute("data-sort-key");
+          if (sortKey === key) {
+            sortDir = sortDir === "asc" ? "desc" : "asc";
+          } else {
+            sortKey = key;
+            sortDir = key === "amount" ? "desc" : "asc";
+          }
+          paint();
+        });
+      });
+    }
+
+    paint();
+  }
+
+  function renderProductCodeFocus(code) {
+    var panel = document.getElementById("product-code-focus-panel");
+    if (!panel) return;
+    destroyProductFocusCharts();
+
+    var selected = code;
+    if (FOCUS_PRODUCT_CODES.indexOf(selected) === -1) {
+      selected = defaultProductFocusCode(productFocusData);
+    }
+    setProductFocusTabState(selected);
+    panel.setAttribute("aria-label", "Detail for product code " + selected);
+
+    var block = (productFocusData && productFocusData[selected]) || { no_data: true };
+    if (block.no_data) {
+      panel.innerHTML =
+        '<p class="placeholder">No open opportunities currently tagged with this product code</p>';
+      return;
+    }
+
+    var topPartner = topPartnerFromBreakdown(block.partner_breakdown);
+    var stageRows = focusStageRows(block.stage_breakdown);
+    var partnerRows = sortedRankingRows(block.partner_breakdown, "partner");
+
+    panel.innerHTML =
+      '<div class="kpi-grid kpi-grid-3">' +
+      kpiCard("Total pipeline $", formatMillions(block.total)) +
+      kpiCard("Opportunity count", formatCount(block.count)) +
+      kpiCard(
+        "Top partner by $ (" + formatMillions(topPartner.amount) + ")",
+        topPartner.partner
+      ) +
+      "</div>" +
+      '<h3 class="subsection-title">Stage breakdown</h3>' +
+      '<div class="chart-wrap focus-chart-wrap">' +
+      '<canvas id="product-focus-stage-canvas"></canvas>' +
+      "</div>" +
+      '<h3 class="subsection-title">Top opportunities</h3>' +
+      '<div id="product-focus-opps-table"></div>' +
+      '<h3 class="subsection-title">Partner breakdown</h3>' +
+      '<div class="chart-wrap focus-chart-wrap">' +
+      '<canvas id="product-focus-partner-canvas" role="img" aria-label="' +
+      escapeHtml(rankingAria("Pipeline amount by partner for " + selected, partnerRows)) +
+      '"></canvas>' +
+      "</div>" +
+      '<h3 class="subsection-title">Close-date trend</h3>' +
+      '<div class="chart-wrap focus-trend-wrap">' +
+      '<canvas id="product-focus-trend-canvas"></canvas>' +
+      "</div>";
+
+    var tableHost = document.getElementById("product-focus-opps-table");
+    if (tableHost) renderProductFocusOppsTable(tableHost, block.top_opportunities);
+
+    var stageCanvas = document.getElementById("product-focus-stage-canvas");
+    var trendCanvas = document.getElementById("product-focus-trend-canvas");
+    var stageOk = stageCanvas && drawProductFocusStageChart(stageCanvas, stageRows, selected);
+    var partnerOk = drawRankingChart(
+      "product-focus-partner-canvas",
+      partnerRows,
+      PARTNER_BAR_COLOR
+    );
+    var trendOk = trendCanvas && drawProductFocusTrendChart(trendCanvas, block.trend, selected);
+    if (!stageOk && !partnerOk && !trendOk) {
+      panel.innerHTML =
+        '<p class="placeholder">Chart.js failed to load, so product-code charts cannot be shown.</p>';
+    }
+  }
+
+  function renderProductCodeFocusSection(focus) {
+    productFocusData = focus || {};
+    var toolbar = document.querySelector("#product-code-focus .chart-toolbar");
+    if (toolbar) {
+      toolbar.querySelectorAll("[data-focus-code]").forEach(function (btn) {
+        var code = btn.getAttribute("data-focus-code");
+        var block = productFocusData[code];
+        var count = block && !block.no_data ? formatCount(block.count) : "0";
+        btn.textContent = code + " (" + count + ")";
+      });
+    }
+    if (!productFocusWired && toolbar) {
+      productFocusWired = true;
+      toolbar.addEventListener("click", function (event) {
+        var button = event.target.closest("[data-focus-code]");
+        if (!button) return;
+        renderProductCodeFocus(button.getAttribute("data-focus-code"));
+      });
+    }
+    renderProductCodeFocus(defaultProductFocusCode(productFocusData));
+  }
+
   function renderIndustryMix(industryTotals) {
     const body = sectionBody("industry-mix-chart");
     if (!body) return;
@@ -1404,6 +1794,7 @@
       ["opps-20m-table", renderOpps20mTable, data.opps_over_20m],
       ["partner-ranking-chart", renderPartnerRanking, data.partner_totals],
       ["partner-code-chart", renderPartnerCodeRanking, data.partner_code_totals],
+      ["product-code-focus", renderProductCodeFocusSection, data.product_code_focus],
       ["industry-mix-chart", renderIndustryMix, data.industry_totals],
       ["top-accounts-chart", renderTopAccounts, data.top_accounts],
       ["delta-summary", renderDeltaSummary, data.delta],

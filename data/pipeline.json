@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T18:36:43.951983+00:00",
+  "generated_at": "2026-09-03T22:13:58.930002+00:00",
   "kpis": {
     "total_open_pipeline": 423876293.0,
     "open_opportunity_count": 104,
@@ -325,6 +325,541 @@
       "source": "partner_joined_to_dcm_codes"
     }
   ],
+  "product_code_focus": {
+    "USH16": {
+      "total": 1680000.0,
+      "count": 6,
+      "stage_breakdown": [
+        {
+          "stage": "Target",
+          "count": 2,
+          "amount": 650000.0
+        },
+        {
+          "stage": "Interact",
+          "count": 3,
+          "amount": 530000.0
+        },
+        {
+          "stage": "Propose",
+          "count": 1,
+          "amount": 500000.0
+        },
+        {
+          "stage": "Won",
+          "count": 1,
+          "amount": 0.0
+        }
+      ],
+      "top_opportunities": [
+        {
+          "name": "Finance Data & AI Acceleration (Phase 1)",
+          "partner": "Satyen Popat",
+          "lead": "Satyen Popat",
+          "account": "ARM Limited",
+          "stage": "Propose",
+          "amount": 500000.0,
+          "close_date": "2026-08-30"
+        },
+        {
+          "name": "Pfizer Domain Lab Rollout",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Saurabh Sarbaliya",
+          "account": "",
+          "stage": "Target",
+          "amount": 500000.0,
+          "close_date": "2026-11-01"
+        },
+        {
+          "name": "CSG APP and Oracle AI",
+          "partner": "Satyen Popat",
+          "lead": "Satyen Popat",
+          "account": "Cloud Software Group Inc",
+          "stage": "Interact",
+          "amount": 300000.0,
+          "close_date": "2026-09-11"
+        },
+        {
+          "name": "RSI Local Warranty AI Solution POC",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "Republic Services INC.",
+          "stage": "Interact",
+          "amount": 180000.0,
+          "close_date": "2026-10-30"
+        },
+        {
+          "name": "#APP Haemonetics",
+          "partner": "Satyen Popat",
+          "lead": "Satyen Popat",
+          "account": "",
+          "stage": "Target",
+          "amount": 150000.0,
+          "close_date": "2027-04-02"
+        },
+        {
+          "name": "Tama - AI Training",
+          "partner": "Brad Housour; Satyen Popat",
+          "lead": "Satyen Popat",
+          "account": "Tama Group",
+          "stage": "Interact",
+          "amount": 50000.0,
+          "close_date": "2026-11-30"
+        },
+        {
+          "name": "AIDEN - Change Order",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Saurabh Sarbaliya",
+          "account": "Fanatics Holdings, Inc.",
+          "stage": "Won",
+          "amount": 0.0,
+          "close_date": "2026-08-31"
+        }
+      ],
+      "partner_breakdown": [
+        {
+          "partner": "Satyen Popat",
+          "amount": 950000.0,
+          "count": 3
+        },
+        {
+          "partner": "Saurabh Sarbaliya",
+          "amount": 500000.0,
+          "count": 2
+        },
+        {
+          "partner": "Brad Housour",
+          "amount": 180000.0,
+          "count": 1
+        },
+        {
+          "partner": "Brad Housour; Satyen Popat",
+          "amount": 50000.0,
+          "count": 1
+        }
+      ],
+      "trend": [
+        {
+          "month": "2026-07",
+          "amount": 0.0
+        },
+        {
+          "month": "2026-08",
+          "amount": 500000.0
+        },
+        {
+          "month": "2026-09",
+          "amount": 300000.0
+        },
+        {
+          "month": "2026-10",
+          "amount": 180000.0
+        },
+        {
+          "month": "2026-11",
+          "amount": 550000.0
+        },
+        {
+          "month": "2026-12",
+          "amount": 0.0
+        },
+        {
+          "month": "2027-01",
+          "amount": 0.0
+        },
+        {
+          "month": "2027-02",
+          "amount": 0.0
+        },
+        {
+          "month": "2027-03",
+          "amount": 0.0
+        },
+        {
+          "month": "2027-04",
+          "amount": 150000.0
+        },
+        {
+          "month": "2027-05",
+          "amount": 0.0
+        },
+        {
+          "month": "2027-06",
+          "amount": 0.0
+        }
+      ],
+      "no_data": false
+    },
+    "USH17": {
+      "total": 10053685.0,
+      "count": 6,
+      "stage_breakdown": [
+        {
+          "stage": "Interact",
+          "count": 3,
+          "amount": 8310000.0
+        },
+        {
+          "stage": "Propose",
+          "count": 3,
+          "amount": 1743685.0
+        },
+        {
+          "stage": "Won",
+          "count": 2,
+          "amount": 1325000.0
+        }
+      ],
+      "top_opportunities": [
+        {
+          "name": "TD US FRP - Ledger Migration and FInancial Reporting Modernization",
+          "partner": "Yeon Lee",
+          "lead": "Yeon Lee",
+          "account": "TD Bank, National Association",
+          "stage": "Interact",
+          "amount": 8000000.0,
+          "close_date": "2027-01-22"
+        },
+        {
+          "name": "Dollar General - FDI Extension",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "Dollar General Corporation",
+          "stage": "Won",
+          "amount": 1225000.0,
+          "close_date": "2026-07-31"
+        },
+        {
+          "name": "MUFG JP AFCS Phase R0 DDCT",
+          "partner": "Ajeetha Menezes; Tojo Johnson",
+          "lead": "Ajeetha Menezes",
+          "account": "MUFG Bank, Ltd.",
+          "stage": "Propose",
+          "amount": 1152604.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "MUFG JP AFCS Phase R1 Basic Design",
+          "partner": "Ajeetha Menezes; Tojo Johnson",
+          "lead": "Ajeetha Menezes",
+          "account": "MUFG Bank, Ltd.",
+          "stage": "Propose",
+          "amount": 381081.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "UPS Reporting CoE Flex Resources (Surge 11) - AP Reports Delivery",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "United Parcel Service, Inc.",
+          "stage": "Propose",
+          "amount": 210000.0,
+          "close_date": "2026-09-25"
+        },
+        {
+          "name": "UPS Reporting CoE Flex Resources (Surge 12) - Subledger Reporting",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "United Parcel Service, Inc.",
+          "stage": "Interact",
+          "amount": 210000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "UPS Reporting CoE Flex Resources (Surge 12) - FDI Delivery",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "United Parcel Service, Inc.",
+          "stage": "Won",
+          "amount": 100000.0,
+          "close_date": "2026-08-07"
+        },
+        {
+          "name": "WFRD Oracle D1 - Headcount Report Changes",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "WEATHERFORD INTERNATIONAL PUBLIC LIMITED COMPANY",
+          "stage": "Interact",
+          "amount": 100000.0,
+          "close_date": "2026-10-30"
+        }
+      ],
+      "partner_breakdown": [
+        {
+          "partner": "Yeon Lee",
+          "amount": 8000000.0,
+          "count": 1
+        },
+        {
+          "partner": "Brad Housour",
+          "amount": 1845000.0,
+          "count": 5
+        },
+        {
+          "partner": "Ajeetha Menezes; Tojo Johnson",
+          "amount": 1533685.0,
+          "count": 2
+        }
+      ],
+      "trend": [
+        {
+          "month": "2026-07",
+          "amount": 1225000.0
+        },
+        {
+          "month": "2026-08",
+          "amount": 100000.0
+        },
+        {
+          "month": "2026-09",
+          "amount": 1953685.0
+        },
+        {
+          "month": "2026-10",
+          "amount": 100000.0
+        },
+        {
+          "month": "2026-11",
+          "amount": 0.0
+        },
+        {
+          "month": "2026-12",
+          "amount": 0.0
+        },
+        {
+          "month": "2027-01",
+          "amount": 8000000.0
+        },
+        {
+          "month": "2027-02",
+          "amount": 0.0
+        },
+        {
+          "month": "2027-03",
+          "amount": 0.0
+        },
+        {
+          "month": "2027-04",
+          "amount": 0.0
+        },
+        {
+          "month": "2027-05",
+          "amount": 0.0
+        },
+        {
+          "month": "2027-06",
+          "amount": 0.0
+        }
+      ],
+      "no_data": false
+    },
+    "USG18": {
+      "total": 25595000.0,
+      "count": 13,
+      "stage_breakdown": [
+        {
+          "stage": "Propose",
+          "count": 3,
+          "amount": 13200000.0
+        },
+        {
+          "stage": "Won",
+          "count": 5,
+          "amount": 12949386.0
+        },
+        {
+          "stage": "Target",
+          "count": 7,
+          "amount": 8595000.0
+        },
+        {
+          "stage": "Interact",
+          "count": 3,
+          "amount": 3800000.0
+        }
+      ],
+      "top_opportunities": [
+        {
+          "name": "TD Bank:  FRP Finance PeopleSoft GL Replacement #Oracle_BCM #BCMTECH",
+          "partner": "Yeon Lee",
+          "lead": "Yeon Lee",
+          "account": "The Toronto-Dominion Bank",
+          "stage": "Propose",
+          "amount": 13200000.0,
+          "close_date": "2026-11-30"
+        },
+        {
+          "name": "Citi Strategic Ledger - FIN R1 Renewal Contract - AMENDMENT #1 (Apr 26-Dec 26)",
+          "partner": "Yeon Lee",
+          "lead": "Yeon Lee",
+          "account": "Citigroup Inc.",
+          "stage": "Won",
+          "amount": 10626386.0,
+          "close_date": "2026-07-10"
+        },
+        {
+          "name": "Platform Selection, Phase 0 and Implementation",
+          "partner": "Rattan Singh",
+          "lead": "Rattan Singh",
+          "account": "",
+          "stage": "Target",
+          "amount": 5000000.0,
+          "close_date": "2027-01-25"
+        },
+        {
+          "name": "IPS Oracle Cloud Global PPM Workforce Planning, Resource Mgt",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "IPS-INTEGRATED PROJECT SERVICES, LLC",
+          "stage": "Interact",
+          "amount": 2200000.0,
+          "close_date": "2026-10-16"
+        },
+        {
+          "name": "EBS to Cloud Phase Zero/Design",
+          "partner": "Rattan Singh",
+          "lead": "Rattan Singh",
+          "account": "Vertex Pharmaceuticals Inc.",
+          "stage": "Interact",
+          "amount": 1500000.0,
+          "close_date": "2026-12-18"
+        },
+        {
+          "name": "Fermi - CBS Expansion",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "Fermi Inc.",
+          "stage": "Won",
+          "amount": 1200000.0,
+          "close_date": "2026-08-21"
+        },
+        {
+          "name": "TD Bank:  FRP Risk Retail R2   #Oracle_BCM #BCMTECH",
+          "partner": "Yeon Lee",
+          "lead": "Yeon Lee",
+          "account": "",
+          "stage": "Target",
+          "amount": 1000000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "TQL Oracle Acquisition Enablement",
+          "partner": "Sunil Warier",
+          "lead": "Sunil Warier",
+          "account": "",
+          "stage": "Target",
+          "amount": 750000.0,
+          "close_date": "2026-10-30"
+        },
+        {
+          "name": "Oracle ERP Stabilization",
+          "partner": "Sunil Warier",
+          "lead": "Sunil Warier",
+          "account": "",
+          "stage": "Target",
+          "amount": 750000.0,
+          "close_date": "2026-11-27"
+        },
+        {
+          "name": "WWT FAH IMPL",
+          "partner": "Samir Mehta",
+          "lead": "Samir Mehta",
+          "account": "World Wide Technology Holding Co. LLC",
+          "stage": "Won",
+          "amount": 550000.0,
+          "close_date": "2026-07-17"
+        }
+      ],
+      "partner_breakdown": [
+        {
+          "partner": "Yeon Lee",
+          "amount": 24826386.0,
+          "count": 3
+        },
+        {
+          "partner": "Rattan Singh",
+          "amount": 6600000.0,
+          "count": 3
+        },
+        {
+          "partner": "Brad Housour",
+          "amount": 3578000.0,
+          "count": 4
+        },
+        {
+          "partner": "Samir Mehta",
+          "amount": 1540000.0,
+          "count": 4
+        },
+        {
+          "partner": "Sunil Warier",
+          "amount": 1500000.0,
+          "count": 2
+        },
+        {
+          "partner": "Satyen Popat",
+          "amount": 500000.0,
+          "count": 1
+        },
+        {
+          "partner": "Jithendra Pai Brahmavar",
+          "amount": 0.0,
+          "count": 1
+        }
+      ],
+      "trend": [
+        {
+          "month": "2026-07",
+          "amount": 11176386.0
+        },
+        {
+          "month": "2026-08",
+          "amount": 1278000.0
+        },
+        {
+          "month": "2026-09",
+          "amount": 1495000.0
+        },
+        {
+          "month": "2026-10",
+          "amount": 2950000.0
+        },
+        {
+          "month": "2026-11",
+          "amount": 13950000.0
+        },
+        {
+          "month": "2026-12",
+          "amount": 2095000.0
+        },
+        {
+          "month": "2027-01",
+          "amount": 5000000.0
+        },
+        {
+          "month": "2027-02",
+          "amount": 0.0
+        },
+        {
+          "month": "2027-03",
+          "amount": 0.0
+        },
+        {
+          "month": "2027-04",
+          "amount": 600000.0
+        },
+        {
+          "month": "2027-05",
+          "amount": 0.0
+        },
+        {
+          "month": "2027-06",
+          "amount": 0.0
+        }
+      ],
+      "no_data": false
+    }
+  },
   "industry_totals": {
     "dcm": [
       {
