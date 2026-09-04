@@ -197,7 +197,7 @@
     const datasets = [];
     if (view === "dcm") {
       datasets.push({
-        label: "DCM",
+        label: "DCM D&T",
         data: dcmRows.map(function (row) {
           return row.amount;
         }),
@@ -211,7 +211,7 @@
       });
     } else if (view === "compare") {
       datasets.push({
-        label: "Partner",
+        label: "Partner Pipeline",
         data: partnerRows.map(function (row) {
           return row.amount;
         }),
@@ -224,7 +224,7 @@
         barThickness: 14,
       });
       datasets.push({
-        label: "DCM",
+        label: "DCM D&T",
         data: dcmRows.map(function (row) {
           return row.amount;
         }),
@@ -238,7 +238,7 @@
       });
     } else {
       datasets.push({
-        label: "Partner",
+        label: "Partner Pipeline",
         data: partnerRows.map(function (row) {
           return row.amount;
         }),
@@ -253,14 +253,14 @@
     }
 
     let ariaLabel =
-      "Partner pipeline by stage: " + funnelSummary(partnerRows);
+      "Partner Pipeline by stage: " + funnelSummary(partnerRows);
     if (view === "dcm") {
-      ariaLabel = "DCM pipeline by stage: " + funnelSummary(dcmRows);
+      ariaLabel = "DCM D&T pipeline by stage: " + funnelSummary(dcmRows);
     } else if (view === "compare") {
       ariaLabel =
-        "Side-by-side comparison of partner and DCM pipeline by stage. Partner: " +
+        "Side-by-side comparison of Partner Pipeline and DCM D&T by stage. Partner Pipeline: " +
         funnelSummary(partnerRows) +
-        ". DCM: " +
+        ". DCM D&T: " +
         funnelSummary(dcmRows);
     }
     canvas.setAttribute("role", "img");
@@ -331,12 +331,12 @@
 
     body.innerHTML =
       '<div class="chart-toolbar" role="group" aria-label="Stage funnel source">' +
-      '<button type="button" class="toggle-btn is-active" data-funnel-view="partner" aria-pressed="true">Partner</button>' +
-      '<button type="button" class="toggle-btn" data-funnel-view="dcm" aria-pressed="false">DCM</button>' +
+      '<button type="button" class="toggle-btn is-active" data-funnel-view="partner" aria-pressed="true">Partner Pipeline</button>' +
+      '<button type="button" class="toggle-btn" data-funnel-view="dcm" aria-pressed="false">DCM D&T</button>' +
       '<button type="button" class="toggle-btn" data-funnel-view="compare" aria-pressed="false">Compare</button>' +
       "</div>" +
       '<div class="chart-wrap">' +
-      '<canvas id="stage-funnel-chart" role="img" aria-label="Partner pipeline stage funnel"></canvas>' +
+      '<canvas id="stage-funnel-chart" role="img" aria-label="Partner Pipeline stage funnel"></canvas>' +
       "</div>";
 
     const canvas = document.getElementById("stage-funnel-chart");
@@ -662,7 +662,7 @@
     if (!container) return;
     const rows = sortedRankingRows(partnerTotals, "partner");
     container.innerHTML =
-      "<h3>By partner name</h3>" +
+      "<h3>By Partner Pipeline name</h3>" +
       '<div class="chart-wrap ranking-wrap">' +
       '<canvas id="partner-ranking-canvas" role="img" aria-label="' +
       escapeHtml(rankingAria("Pipeline amount by partner name", rows)) +
@@ -681,7 +681,7 @@
     if (!container) return;
     const rows = sortedRankingRows(partnerCodeTotals, "product_code");
     container.innerHTML =
-      "<h3>By partner/product code</h3>" +
+      "<h3>By Partner Pipeline/product code</h3>" +
       '<div class="chart-wrap ranking-wrap">' +
       '<canvas id="partner-code-canvas" role="img" aria-label="' +
       escapeHtml(rankingAria("Pipeline amount by partner product code", rows)) +
@@ -1034,7 +1034,7 @@
       "</div>" +
       '<h3 class="subsection-title">Top opportunities</h3>' +
       '<div id="product-focus-opps-table"></div>' +
-      '<h3 class="subsection-title">Partner breakdown</h3>' +
+      '<h3 class="subsection-title">Partner Pipeline breakdown</h3>' +
       '<div class="chart-wrap focus-chart-wrap">' +
       '<canvas id="product-focus-partner-canvas" role="img" aria-label="' +
       escapeHtml(rankingAria("Pipeline amount by partner for " + selected, partnerRows)) +
@@ -1106,18 +1106,18 @@
 
     body.innerHTML =
       '<div class="ranking-panel">' +
-      "<h3>DCM</h3>" +
+      "<h3>DCM D&T</h3>" +
       '<div class="chart-wrap industry-wrap">' +
       '<canvas id="industry-dcm-canvas" role="img" aria-label="' +
-      escapeHtml(rankingAria("DCM pipeline by industry", dcmRows)) +
+      escapeHtml(rankingAria("DCM D&T pipeline by industry", dcmRows)) +
       '"></canvas>' +
       "</div>" +
       "</div>" +
       '<div class="ranking-panel">' +
-      "<h3>Partner</h3>" +
+      "<h3>Partner Pipeline</h3>" +
       '<div class="chart-wrap industry-wrap">' +
       '<canvas id="industry-partner-canvas" role="img" aria-label="' +
-      escapeHtml(rankingAria("Partner pipeline by industry", partnerRows)) +
+      escapeHtml(rankingAria("Partner Pipeline by industry", partnerRows)) +
       '"></canvas>' +
       "</div>" +
       "</div>";
@@ -1277,10 +1277,10 @@
     body.innerHTML =
       '<div class="kpi-grid delta-kpis">' +
       kpiCard("Matched opportunities", formatCount(data.matched_count)) +
-      kpiCard("Only in DCM", formatCount(data.only_in_dcm_count)) +
-      kpiCard("Only in partner", formatCount(data.only_in_partner_count)) +
+      kpiCard("Only in DCM D&T", formatCount(data.only_in_dcm_count)) +
+      kpiCard("Only in Partner Pipeline", formatCount(data.only_in_partner_count)) +
       "</div>" +
-      '<h3 class="subsection-title">Duplicate partner opportunities</h3>' +
+      '<h3 class="subsection-title">Duplicate Partner Pipeline opportunities</h3>' +
       '<p class="warning-note">These opportunities appear under two or more partners. They are double-counted if partner totals are summed naively.</p>' +
       '<div class="table-wrap">' +
       '<table class="data-table">' +
