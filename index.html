@@ -9,7 +9,10 @@
   <body>
     <div class="page">
       <header class="site-header">
-        <h1>Partner Pipeline Financials</h1>
+        <div class="site-header-text">
+          <p class="eyebrow">OD&amp;A pipeline reporting</p>
+          <h1>Partner Pipeline Financials</h1>
+        </div>
         <p id="data-as-of" class="data-as-of" hidden></p>
       </header>
 
@@ -18,82 +21,87 @@
       <p id="loading-note" class="placeholder">Loading dashboard data…</p>
 
       <main id="dashboard" hidden>
-        <section id="kpi-cards" class="card" aria-labelledby="kpi-cards-title">
-          <h2 id="kpi-cards-title">Pipeline snapshot</h2>
-          <div class="section-body" data-render="kpi-cards"></div>
-        </section>
+        <nav id="view-tabs" class="view-tabs" role="tablist" aria-label="Dashboard views">
+          <button type="button" class="view-tab" role="tab" id="tabbtn-overview" data-tab-target="tab-overview" aria-controls="tab-overview" aria-selected="true">Overview</button>
+          <button type="button" class="view-tab" role="tab" id="tabbtn-size" data-tab-target="tab-size" aria-controls="tab-size" aria-selected="false">Opportunities by Size</button>
+          <button type="button" class="view-tab" role="tab" id="tabbtn-product" data-tab-target="tab-product" aria-controls="tab-product" aria-selected="false">Product</button>
+          <button type="button" class="view-tab" role="tab" id="tabbtn-recon" data-tab-target="tab-recon" aria-controls="tab-recon" aria-selected="false">Reconciliation</button>
+        </nav>
 
-        <section id="stage-funnel" class="card" aria-labelledby="stage-funnel-title">
-          <h2 id="stage-funnel-title">Stage funnel</h2>
-          <div class="section-body" data-render="stage-funnel"></div>
-        </section>
+        <div class="tab-panel grid-overview" id="tab-overview" role="tabpanel" aria-labelledby="tabbtn-overview">
+          <div id="fy-note" class="area-fy">
+            <p class="fy-banner" data-render="fy-note"></p>
+          </div>
 
-        <section id="large-opps" class="card" aria-labelledby="large-opps-title">
-          <h2 id="large-opps-title">Opportunities ≥ $10M</h2>
-          <div class="section-body" data-render="large-opps">
-            <div class="chart-toolbar" role="group" aria-label="Opportunity amount threshold">
-              <button type="button" class="toggle-btn is-active" data-opps-view="10m" aria-pressed="true">≥ $10M</button>
-              <button type="button" class="toggle-btn" data-opps-view="20m" aria-pressed="false">≥ $20M</button>
+          <section id="kpi-cards" class="hero area-kpi" aria-labelledby="kpi-cards-title">
+            <h2 id="kpi-cards-title" class="hero-title">Pipeline snapshot</h2>
+            <div class="section-body" data-render="kpi-cards"></div>
+          </section>
+
+          <section id="stage-funnel" class="panel panel-primary area-funnel" aria-labelledby="stage-funnel-title">
+            <h2 id="stage-funnel-title">Stage funnel</h2>
+            <div class="section-body" data-render="stage-funnel"></div>
+          </section>
+
+          <section id="top-accounts-chart" class="panel area-accounts" aria-labelledby="top-accounts-title">
+            <h2 id="top-accounts-title">Top accounts</h2>
+            <div class="section-body" data-render="top-accounts-chart"></div>
+          </section>
+
+          <section id="aging-histogram" class="panel area-aging" aria-labelledby="aging-histogram-title">
+            <h2 id="aging-histogram-title">Open opportunity aging</h2>
+            <div class="section-body" data-render="aging-histogram"></div>
+          </section>
+
+          <section id="win-rate-chart" class="panel area-winrate" aria-labelledby="win-rate-title">
+            <h2 id="win-rate-title">Win rate by All Pipeline</h2>
+            <div class="section-body" data-render="win-rate-chart"></div>
+          </section>
+        </div>
+
+        <div class="tab-panel grid-size" id="tab-size" role="tabpanel" aria-labelledby="tabbtn-size" hidden>
+          <section id="large-opps" class="panel panel-primary area-opps" aria-labelledby="large-opps-title">
+            <h2 id="large-opps-title">Opportunities by size</h2>
+            <div class="section-body" data-render="large-opps"></div>
+          </section>
+
+          <section id="rankings" class="panel area-rankings" aria-labelledby="rankings-title">
+            <h2 id="rankings-title">Pipeline ranking</h2>
+            <div class="ranking-grid">
+              <div id="partner-ranking-chart" class="ranking-panel" data-render="partner-ranking-chart"></div>
+              <div id="partner-code-chart" class="ranking-panel" data-render="partner-code-chart"></div>
             </div>
-            <div id="opps-10m-table"></div>
-            <div id="opps-20m-table" hidden></div>
-          </div>
-        </section>
+          </section>
 
-        <section id="rankings" class="card" aria-labelledby="rankings-title">
-          <h2 id="rankings-title">Pipeline ranking</h2>
-          <div class="ranking-grid">
-            <div id="partner-ranking-chart" class="ranking-panel" data-render="partner-ranking-chart"></div>
-            <div id="partner-code-chart" class="ranking-panel" data-render="partner-code-chart"></div>
-          </div>
-        </section>
+          <section id="industry-mix-chart" class="panel area-industry" aria-labelledby="industry-mix-title">
+            <h2 id="industry-mix-title">Industry mix</h2>
+            <div class="section-body ranking-grid" data-render="industry-mix-chart"></div>
+          </section>
 
-        <section id="product-code-focus" class="card" aria-labelledby="product-code-focus-title">
-          <h2 id="product-code-focus-title">Product Code Focus</h2>
-          <div class="section-body" data-render="product-code-focus">
-            <div class="chart-toolbar" role="tablist" aria-label="Product code">
-              <button type="button" class="toggle-btn" role="tab" data-focus-code="USH16" aria-selected="false">USH16</button>
-              <button type="button" class="toggle-btn" role="tab" data-focus-code="USH17" aria-selected="false">USH17</button>
-              <button type="button" class="toggle-btn" role="tab" data-focus-code="USG18" aria-selected="false">USG18</button>
-            </div>
-            <div id="product-code-focus-panel" role="tabpanel"></div>
-          </div>
-        </section>
+          <section id="trend-chart" class="panel area-trend" aria-labelledby="trend-chart-title">
+            <h2 id="trend-chart-title">Close-date trend</h2>
+            <div class="section-body" data-render="trend-chart"></div>
+          </section>
+        </div>
 
-        <section id="industry-mix-chart" class="card" aria-labelledby="industry-mix-title">
-          <h2 id="industry-mix-title">Industry mix</h2>
-          <div class="section-body ranking-grid" data-render="industry-mix-chart"></div>
-        </section>
+        <div class="tab-panel grid-product" id="tab-product" role="tabpanel" aria-labelledby="tabbtn-product" hidden>
+          <section id="product-ranking" class="panel panel-primary area-prod-rank" aria-labelledby="product-ranking-title">
+            <h2 id="product-ranking-title">Product ranking</h2>
+            <div class="section-body" data-render="product-ranking"></div>
+          </section>
 
-        <section id="top-accounts-chart" class="card" aria-labelledby="top-accounts-title">
-          <h2 id="top-accounts-title">Top accounts</h2>
-          <div class="section-body" data-render="top-accounts-chart"></div>
-        </section>
+          <section id="product-breakdown" class="panel area-prod-detail" aria-labelledby="product-breakdown-title">
+            <h2 id="product-breakdown-title">Breakdown by product</h2>
+            <div class="section-body" data-render="product-breakdown"></div>
+          </section>
+        </div>
 
-        <section id="delta-summary" class="card" aria-labelledby="delta-summary-title">
-          <h2 id="delta-summary-title">DCM D&amp;T vs Partner Pipeline delta</h2>
-          <div class="section-body" data-render="delta-summary"></div>
-        </section>
-
-        <section id="trend-chart" class="card" aria-labelledby="trend-chart-title">
-          <h2 id="trend-chart-title">Close-date trend</h2>
-          <div class="section-body" data-render="trend-chart"></div>
-        </section>
-
-        <section id="aging-histogram" class="card" aria-labelledby="aging-histogram-title">
-          <h2 id="aging-histogram-title">Open opportunity aging</h2>
-          <div class="section-body" data-render="aging-histogram"></div>
-        </section>
-
-        <section id="win-rate-chart" class="card" aria-labelledby="win-rate-title">
-          <h2 id="win-rate-title">Win rate by Partner Pipeline</h2>
-          <div class="section-body" data-render="win-rate-chart"></div>
-        </section>
-
-        <section id="data-quality-flags" class="card card-warning" aria-labelledby="data-quality-title">
-          <h2 id="data-quality-title">Data quality flags</h2>
-          <div class="section-body" data-render="data-quality-flags"></div>
-        </section>
+        <div class="tab-panel grid-recon" id="tab-recon" role="tabpanel" aria-labelledby="tabbtn-recon" hidden>
+          <section id="reconciliation" class="panel panel-primary area-recon" aria-labelledby="reconciliation-title">
+            <h2 id="reconciliation-title">Missing from DCM D&amp;T</h2>
+            <div class="section-body" data-render="reconciliation"></div>
+          </section>
+        </div>
       </main>
     </div>
 

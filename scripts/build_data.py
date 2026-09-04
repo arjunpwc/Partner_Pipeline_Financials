@@ -74,6 +74,23 @@ CLOSE_STAGE = "Close"
 DCM_GLOB = "DCM_D_T_Pipeline_View*.xlsx"
 PARTNER_GLOB = "Pipeline_Partner_View*.xlsx"
 FOCUS_PRODUCT_CODES = ("USH16", "USH17", "USG18")
+NO_DA_LABEL = "No D&A"
+PRODUCT_BREAKDOWN_KEYS = FOCUS_PRODUCT_CODES + (NO_DA_LABEL,)
+
+NAMED_RECON_PARTNERS = [
+    "Sunil Warier",
+    "Ajeetha Menezes",
+    "Tojo Johnson",
+    "Yeon Lee",
+    "Brad Housour",
+    "Saurabh Sarbaliya",
+    "Satyen Popat",
+    "Samir Mehta",
+    "Rattan Singh",
+    "Ken Becker",
+    "Faisal Ghadially",
+    "Jithendra Pai Brahmavar",
+]
 
 
 def fail(message: str, code: int = 1) -> None:
@@ -201,6 +218,20 @@ def money(value) -> float:
     return round(float(value), 2)
 
 
+def text_or_blank(value) -> str:
+    if value is None or (isinstance(value, float) and pd.isna(value)):
+        return ""
+    try:
+        if pd.isna(value):
+            return ""
+    except (TypeError, ValueError):
+        pass
+    text = str(value).strip()
+    if text.lower() in {"nan", "none", "nat"}:
+        return ""
+    return text
+
+
 def iso_date(value) -> str | None:
     if value is None or pd.isna(value):
         return None
@@ -232,6 +263,12 @@ def group_stage_totals(df: pd.DataFrame) -> list[dict]:
     return rows
 
 
+def fy_label_for(today: pd.Timestamp) -> str:
+    """PwC FY label from the July start year, e.g. Jul 2026 → FY26."""
+    start, _ = fiscal_year_bounds(today)
+    return f"FY{start.year % 100:02d}"
+
+
 def fiscal_year_bounds(today: pd.Timestamp) -> tuple[pd.Timestamp, pd.Timestamp]:
     if today.month >= 7:
         start = pd.Timestamp(year=today.year, month=7, day=1)
@@ -259,21 +296,67 @@ def unique_partner_opps(partner: pd.DataFrame) -> pd.DataFrame:
     return first.merge(partners, left_on="_key", right_index=True, how="left")
 
 
+def opportunity_record(row: pd.Series) -> dict:
+    partner = text_or_blank(row.get("_partners"))
+    if not partner:
+        partner = text_or_blank(row.get("Full Name"))
+    return {
+        "name": text_or_blank(row.get("Opportunity Name")),
+        "partner": partner,
+        "lead": text_or_blank(row.get("Opportunity Lead: Full Name")),
+        "account": text_or_blank(row.get("Account Name: Account Name")),
+        "stage": text_or_blank(row.get("Stage")),
+        "amount": money(row["Amount"]),
+        "close_date": iso_date(row.get("Close Date")),
+    }
+
+
 def records_over_amount(opps: pd.DataFrame, threshold: float) -> list[dict]:
     subset = opps[opps["Amount"] >= threshold].sort_values("Amount", ascending=False)
-    rows = []
-    for _, row in subset.iterrows():
-        rows.append(
+    return [opportunity_record(row) for _, row in subset.iterrows()]
+
+
+def all_open_opportunity_records(opps: pd.DataFrame) -> list[dict]:
+    if opps.empty:
+        return []
+    open_rows = opps[opps["Stage"].isin(OPEN_STAGES)].sort_values("Amount", ascending=False)
+    return [opportunity_record(row) for _, row in open_rows.iterrows()]
+
+
+def build_reconciliation(dcm: pd.DataFrame, partner: pd.DataFrame) -> dict:
+    """Opportunities on a named DCM D&T partner's team that are absent from the DCM extract."""
+    named = list(NAMED_RECON_PARTNERS)
+    named_set = set(named)
+    dcm_names = {text_or_blank(v) for v in dcm["Opportunity Name"].tolist() if text_or_blank(v)}
+
+    work = partner.copy()
+    work["_opp"] = work["Opportunity Name"].map(text_or_blank)
+    work["_member"] = work["Full Name"].map(text_or_blank)
+    tagged = work[work["_member"].isin(named_set) & work["_opp"].ne("")]
+
+    missing: list[dict] = []
+    for opp_name, subset in tagged.groupby("_opp", sort=False):
+        if opp_name in dcm_names:
+            continue
+        members = sorted({m for m in subset["_member"] if m in named_set})
+        pick = subset.sort_values(["Amount", "Created Date"], ascending=[False, True]).iloc[0]
+        missing.append(
             {
-                "name": row["Opportunity Name"],
-                "partner": row.get("_partners") or row.get("Full Name") or "",
-                "lead": row.get("Opportunity Lead: Full Name") or "",
-                "stage": row.get("Stage") or "",
-                "amount": money(row["Amount"]),
-                "close_date": iso_date(row.get("Close Date")),
+                "name": opp_name,
+                "partners": members,
+                "account": text_or_blank(pick.get("Account Name: Account Name")),
+                "stage": text_or_blank(pick.get("Stage")),
+                "amount": money(pick["Amount"]),
+                "close_date": iso_date(pick.get("Close Date")),
             }
         )
-    return rows
+    missing.sort(key=lambda r: (-r["amount"], r["name"]))
+    return {
+        "named_partners": named,
+        "missing_from_dcm": missing,
+        "count": len(missing),
+        "total": money(sum(r["amount"] for r in missing)),
+    }
 
 
 def industry_totals(df: pd.DataFrame, col: str) -> list[dict]:
@@ -344,97 +427,6 @@ def partner_code_totals(dcm: pd.DataFrame, partner_opps: pd.DataFrame) -> list[d
         }
         for _, row in grouped.iterrows()
     ]
-
-
-def build_delta(dcm: pd.DataFrame, partner: pd.DataFrame) -> dict:
-    dcm_amt = dcm.groupby("Opportunity Name").agg(
-        amount=("Amount", "sum"),
-        stages=("Stage", lambda s: sorted({str(x) for x in s.dropna() if str(x).strip()})),
-    )
-    partner_amt = partner.groupby("Opportunity Name").agg(
-        amount=("Amount", "first"),
-        stages=("Stage", lambda s: sorted({str(x) for x in s.dropna() if str(x).strip()})),
-        partners=("Full Name", lambda s: sorted({str(x) for x in s.dropna() if str(x).strip()})),
-    )
-    dcm_names = set(dcm_amt.index)
-    partner_names = set(partner_amt.index)
-    matched = sorted(dcm_names & partner_names)
-    only_dcm = sorted(dcm_names - partner_names)
-    only_partner = sorted(partner_names - dcm_names)
-
-    amount_mismatches = []
-    stage_mismatches = []
-    for name in matched:
-        d_amt = money(dcm_amt.loc[name, "amount"])
-        p_amt = money(partner_amt.loc[name, "amount"])
-        if abs(d_amt - p_amt) > 0.005:
-            amount_mismatches.append(
-                {
-                    "name": name,
-                    "dcm_amount": d_amt,
-                    "partner_amount": p_amt,
-                    "difference": money(p_amt - d_amt),
-                }
-            )
-        d_stages = dcm_amt.loc[name, "stages"]
-        p_stages = partner_amt.loc[name, "stages"]
-        if set(d_stages) != set(p_stages):
-            stage_mismatches.append(
-                {
-                    "name": name,
-                    "dcm_stages": d_stages,
-                    "partner_stages": p_stages,
-                }
-            )
-
-    dupes = []
-    partner_counts = partner.groupby("Opportunity Name")["Full Name"].nunique()
-    for name, n in partner_counts.items():
-        if n >= 2:
-            subset = partner[partner["Opportunity Name"] == name]
-            dupes.append(
-                {
-                    "name": name,
-                    "partners": sorted({str(x) for x in subset["Full Name"].dropna() if str(x).strip()}),
-                    "amount": money(subset["Amount"].iloc[0]),
-                    "partner_count": int(n),
-                }
-            )
-    dupes.sort(key=lambda r: r["amount"], reverse=True)
-
-    return {
-        "matched_count": len(matched),
-        "only_in_dcm_count": len(only_dcm),
-        "only_in_partner_count": len(only_partner),
-        "only_in_dcm_names": only_dcm,
-        "only_in_partner_names": only_partner,
-        "amount_mismatches": amount_mismatches,
-        "stage_mismatches": stage_mismatches,
-        "duplicate_partner_opps": dupes,
-    }
-
-
-def data_quality_flags(partner_opps: pd.DataFrame, today: pd.Timestamp) -> dict:
-    low_amount = partner_opps[partner_opps["Amount"] <= 1].sort_values("Opportunity Name")
-    far = partner_opps[
-        partner_opps["Stage"].isin({"Target", "Interact"})
-        & partner_opps["Close Date"].notna()
-        & (partner_opps["Close Date"] > (today + pd.Timedelta(days=365)))
-    ].sort_values("Close Date")
-
-    def flag_row(row: pd.Series) -> dict:
-        return {
-            "name": row["Opportunity Name"],
-            "partner": row.get("_partners") or row.get("Full Name") or "",
-            "stage": row.get("Stage") or "",
-            "amount": money(row["Amount"]),
-            "close_date": iso_date(row.get("Close Date")),
-        }
-
-    return {
-        "amount_le_1": [flag_row(r) for _, r in low_amount.iterrows()],
-        "target_interact_close_over_365d": [flag_row(r) for _, r in far.iterrows()],
-    }
 
 
 def build_trend(partner_opps: pd.DataFrame, today: pd.Timestamp) -> dict:
@@ -544,146 +536,111 @@ def _partner_lookup(partner_opps: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-def _fy_month_trend(df: pd.DataFrame, today: pd.Timestamp) -> list[dict]:
-    start, end = fiscal_year_bounds(today)
-    months = pd.date_range(start, end, freq="MS")
-    if df.empty or "Close Date" not in df.columns:
-        return [{"month": m.strftime("%Y-%m"), "amount": 0.0} for m in months]
-    fy = df[
-        df["Close Date"].notna()
-        & (df["Close Date"] >= start)
-        & (df["Close Date"] <= end + pd.Timedelta(days=1) - pd.Timedelta(seconds=1))
-    ]
-    by_month = fy.groupby(fy["Close Date"].dt.to_period("M").dt.to_timestamp())["Amount"].sum() if not fy.empty else pd.Series(dtype=float)
-    return [
-        {"month": month.strftime("%Y-%m"), "amount": money(by_month.get(month, 0.0))}
-        for month in months
-    ]
+def _lookup_text(lookup: pd.DataFrame, name: str, col: str) -> str:
+    if lookup.empty or name not in lookup.index or col not in lookup.columns:
+        return ""
+    val = lookup.at[name, col]
+    if isinstance(val, pd.Series):
+        val = val.iloc[0]
+    return text_or_blank(val)
 
 
-def _empty_product_focus(today: pd.Timestamp) -> dict:
+def _partner_totals_from_opps(opps: list[dict]) -> list[dict]:
+    buckets: dict[str, dict] = {}
+    for row in opps:
+        key = text_or_blank(row.get("partner")) or text_or_blank(row.get("lead")) or "(blank)"
+        rec = buckets.setdefault(key, {"partner": key, "amount": 0.0, "count": 0})
+        rec["amount"] += float(row.get("amount") or 0)
+        rec["count"] += 1
+    out = []
+    for rec in buckets.values():
+        rec["amount"] = money(rec["amount"])
+        out.append(rec)
+    out.sort(key=lambda r: (-r["amount"], r["partner"]))
+    return out
+
+
+def _product_block(opps: list[dict]) -> dict:
+    opps_sorted = sorted(opps, key=lambda r: (-float(r.get("amount") or 0), r.get("name") or ""))
     return {
-        "total": 0.0,
-        "count": 0,
-        "stage_breakdown": [],
-        "top_opportunities": [],
-        "partner_breakdown": [],
-        "trend": _fy_month_trend(pd.DataFrame(columns=["Close Date", "Amount"]), today),
-        "no_data": True,
+        "total": money(sum(float(r.get("amount") or 0) for r in opps_sorted)),
+        "count": len(opps_sorted),
+        "opportunities": opps_sorted,
+        "partner_totals": _partner_totals_from_opps(opps_sorted),
     }
 
 
-def product_code_focus(
-    dcm: pd.DataFrame, partner_opps: pd.DataFrame, today: pd.Timestamp
-) -> dict:
-    """Per-code rollups for USH16 / USH17 / USG18. Always emits all three keys."""
-    lookup = _partner_lookup(partner_opps)
-    work = dcm.copy()
-    work["_code"] = work["Product Code"].map(_norm_code)
-
-    out: dict = {}
-    for code in FOCUS_PRODUCT_CODES:
-        slice_df = work[work["_code"] == code]
-        if slice_df.empty:
-            out[code] = _empty_product_focus(today)
-            continue
-
-        slice_df = slice_df.sort_values("Amount", ascending=False)
-        agg = (
-            slice_df.groupby("Opportunity Name", as_index=False)
-            .agg(
-                Amount=("Amount", "sum"),
-                Stage=("Stage", "first"),
-                **{"Close Date": ("Close Date", "first")},
-                **{"Opportunity Lead: Full Name": ("Opportunity Lead: Full Name", "first")},
-                **{"Opportunity Owner: Full Name": ("Opportunity Owner: Full Name", "first")},
-            )
+def _dcm_open_records(slice_df: pd.DataFrame, lookup: pd.DataFrame) -> list[dict]:
+    if slice_df.empty:
+        return []
+    agg = (
+        slice_df.groupby("Opportunity Name", as_index=False)
+        .agg(
+            Amount=("Amount", "sum"),
+            Stage=("Stage", "first"),
+            **{"Close Date": ("Close Date", "first")},
+            **{"Opportunity Lead: Full Name": ("Opportunity Lead: Full Name", "first")},
+            **{"Opportunity Owner: Full Name": ("Opportunity Owner: Full Name", "first")},
         )
-
-        def _lookup_val(name: str, col: str):
-            if name not in lookup.index or col not in lookup.columns:
-                return ""
-            val = lookup.at[name, col]
-            if isinstance(val, pd.Series):
-                val = val.iloc[0]
-            if val is None or (isinstance(val, float) and pd.isna(val)) or pd.isna(val):
-                return ""
-            return str(val).strip()
-
-        partners: list[str] = []
-        leads: list[str] = []
-        accounts: list[str] = []
-        for name in agg["Opportunity Name"]:
-            partner = _lookup_val(name, "_partners") or _lookup_val(name, "Full Name")
-            lead = (
-                _lookup_val(name, "Opportunity Lead: Full Name")
-                or (str(agg.loc[agg["Opportunity Name"] == name, "Opportunity Lead: Full Name"].iloc[0] or "").strip()
-                    if not agg.loc[agg["Opportunity Name"] == name].empty else "")
-            )
-            owner = ""
-            owner_series = agg.loc[agg["Opportunity Name"] == name, "Opportunity Owner: Full Name"]
-            if not owner_series.empty and pd.notna(owner_series.iloc[0]):
-                owner = str(owner_series.iloc[0]).strip()
-            dcm_lead_series = agg.loc[agg["Opportunity Name"] == name, "Opportunity Lead: Full Name"]
-            dcm_lead = ""
-            if not dcm_lead_series.empty and pd.notna(dcm_lead_series.iloc[0]):
-                dcm_lead = str(dcm_lead_series.iloc[0]).strip()
-            if not partner:
-                partner = dcm_lead or owner
-            if not lead:
-                lead = dcm_lead or owner
-            partners.append(partner or "")
-            leads.append(lead or "")
-            accounts.append(_lookup_val(name, "Account Name: Account Name"))
-
-        agg["partner"] = partners
-        agg["lead"] = leads
-        agg["account"] = accounts
-
-        open_rows = agg[agg["Stage"].isin(OPEN_STAGES)]
-        top = agg.sort_values("Amount", ascending=False).head(10)
-        top_opportunities = [
+    )
+    records = []
+    for _, row in agg.iterrows():
+        name = text_or_blank(row.get("Opportunity Name"))
+        dcm_lead = text_or_blank(row.get("Opportunity Lead: Full Name"))
+        owner = text_or_blank(row.get("Opportunity Owner: Full Name"))
+        partner = _lookup_text(lookup, name, "_partners") or _lookup_text(lookup, name, "Full Name")
+        lead = _lookup_text(lookup, name, "Opportunity Lead: Full Name")
+        account = _lookup_text(lookup, name, "Account Name: Account Name")
+        if not partner:
+            partner = lead or dcm_lead or owner
+        if not lead:
+            lead = dcm_lead or owner
+        records.append(
             {
-                "name": row["Opportunity Name"],
-                "partner": row["partner"] or "",
-                "lead": row["lead"] or "",
-                "account": row["account"] or "",
-                "stage": "" if pd.isna(row["Stage"]) else str(row["Stage"]),
+                "name": name,
+                "partner": partner,
+                "lead": lead,
+                "account": account,
+                "stage": text_or_blank(row.get("Stage")),
                 "amount": money(row["Amount"]),
                 "close_date": iso_date(row.get("Close Date")),
             }
-            for _, row in top.iterrows()
-        ]
-
-        partner_rows = []
-        partner_work = agg.copy()
-        partner_work["_partner_key"] = (
-            partner_work["partner"].fillna("").astype(str).str.strip().replace({"": "(blank)"})
         )
-        grouped_partners = (
-            partner_work.groupby("_partner_key")
-            .agg(amount=("Amount", "sum"), count=("Amount", "size"))
-            .reset_index()
-            .sort_values("amount", ascending=False)
-        )
-        for _, row in grouped_partners.iterrows():
-            partner_rows.append(
-                {
-                    "partner": row["_partner_key"],
-                    "amount": money(row["amount"]),
-                    "count": int(row["count"]),
-                }
-            )
+    return records
 
-        out[code] = {
-            "total": money(open_rows["Amount"].sum()),
-            "count": int(len(open_rows)),
-            "stage_breakdown": group_stage_totals(agg),
-            "top_opportunities": top_opportunities,
-            "partner_breakdown": partner_rows,
-            "trend": _fy_month_trend(agg, today),
-            "no_data": False,
-        }
+
+def product_breakdown(dcm: pd.DataFrame, partner_opps: pd.DataFrame) -> dict:
+    """Open pipeline by USH16 / USH17 / USG18, plus a No D&A catch-all."""
+    lookup = _partner_lookup(partner_opps)
+    work = dcm.copy()
+    work["_code"] = work["Product Code"].map(_norm_code)
+    tagged_names = set(
+        work.loc[work["_code"].isin(FOCUS_PRODUCT_CODES), "Opportunity Name"]
+        .dropna()
+        .map(lambda v: str(v).strip())
+    )
+    dcm_open = work[work["Stage"].isin(OPEN_STAGES)]
+
+    out: dict = {}
+    for code in FOCUS_PRODUCT_CODES:
+        out[code] = _product_block(_dcm_open_records(dcm_open[dcm_open["_code"] == code], lookup))
+
+    no_da: list[dict] = []
+    partner_open = partner_opps[partner_opps["Stage"].isin(OPEN_STAGES)]
+    partner_open_names: set[str] = set()
+    for _, row in partner_open.iterrows():
+        name = text_or_blank(row.get("Opportunity Name"))
+        partner_open_names.add(name)
+        if name not in tagged_names:
+            no_da.append(opportunity_record(row))
+
+    untagged_dcm = dcm_open[
+        ~dcm_open["_code"].isin(FOCUS_PRODUCT_CODES)
+        & ~dcm_open["Opportunity Name"].map(lambda v: str(v).strip() if pd.notna(v) else "").isin(tagged_names)
+        & ~dcm_open["Opportunity Name"].map(lambda v: str(v).strip() if pd.notna(v) else "").isin(partner_open_names)
+    ]
+    no_da.extend(_dcm_open_records(untagged_dcm, lookup))
+    out[NO_DA_LABEL] = _product_block(no_da)
     return out
 
 
@@ -724,6 +681,12 @@ def main() -> None:
     today = pd.Timestamp(datetime.now().date())
 
     open_opps = partner_opps[partner_opps["Stage"].isin(OPEN_STAGES)]
+    all_open = all_open_opportunity_records(partner_opps)
+    max_open_amount = (
+        money(open_opps["Amount"].max())
+        if not open_opps.empty and pd.notna(open_opps["Amount"].max())
+        else 0.0
+    )
     won_opps = partner_opps[partner_opps["Stage"] == WON_STAGE]
     open_count = int(len(open_opps))
     open_amount = money(open_opps["Amount"].sum())
@@ -772,26 +735,42 @@ def main() -> None:
         for _, row in account_totals.head(15).iterrows()
     ]
 
-    flags = data_quality_flags(partner_opps, today)
-    dq_count = len(flags["amount_le_1"]) + len(flags["target_interact_close_over_365d"])
-    focus = product_code_focus(dcm, partner_opps, today)
+    breakdown = product_breakdown(dcm, partner_opps)
+    recon = build_reconciliation(dcm, partner)
+
+    extra_full_names = sorted(
+        {
+            text_or_blank(v)
+            for v in partner["Full Name"].tolist()
+            if text_or_blank(v) and text_or_blank(v) not in set(NAMED_RECON_PARTNERS)
+        }
+    )
 
     print(f"DCM rows: {len(dcm)}  ({dcm_path.name})")
     print(f"Partner rows: {len(partner)}  ({partner_path.name})")
     print(f"Unique partner opportunities: {len(partner_opps)}")
-    print(f"Data-quality flags: {dq_count}  (amount<=1: {len(flags['amount_le_1'])}; Target/Interact close >365d: {len(flags['target_interact_close_over_365d'])})")
-    for code in FOCUS_PRODUCT_CODES:
-        block = focus[code]
-        if block["no_data"]:
-            print(f"Product code {code}: no matching rows")
-        else:
-            print(
-                f"Product code {code}: open ${block['total']:,.0f}  "
-                f"({block['count']} opps, {len(block['top_opportunities'])} in top list)"
-            )
+    print(f"Open opportunities (slider): {len(all_open)}  max ${max_open_amount:,.0f}")
+    print(
+        f"Reconciliation missing from DCM: {recon['count']} opps  "
+        f"${recon['total']:,.0f}"
+    )
+    if extra_full_names:
+        print(f"Partner Full Name values not on named list: {', '.join(extra_full_names)}")
+    for code in PRODUCT_BREAKDOWN_KEYS:
+        block = breakdown[code]
+        print(
+            f"Product {code}: open ${block['total']:,.0f}  "
+            f"({block['count']} opps, {len(block['partner_totals'])} partners)"
+        )
 
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
+        "fy_label": fy_label_for(today),
+        "yoy_growth": {
+            "total_open_pipeline": None,
+            "open_opportunity_count": None,
+            "total_won": None,
+        },
         "kpis": {
             "total_open_pipeline": open_amount,
             "open_opportunity_count": open_count,
@@ -804,6 +783,8 @@ def main() -> None:
         },
         "opps_over_10m": records_over_amount(partner_opps, 10_000_000),
         "opps_over_20m": records_over_amount(partner_opps, 20_000_000),
+        "all_open_opportunities": all_open,
+        "max_open_opportunity_amount": max_open_amount,
         "partner_totals": [
             {
                 "partner": row["Full Name"],
@@ -813,7 +794,7 @@ def main() -> None:
             for _, row in partner_name_totals.iterrows()
         ],
         "partner_code_totals": partner_code_totals(dcm, partner_opps),
-        "product_code_focus": focus,
+        "product_breakdown": breakdown,
         "industry_totals": {
             "dcm": industry_totals(dcm, "Industry Sector"),
             "partner": industry_totals(partner_opps, "Ultimate Parent Account: Industry"),
@@ -824,15 +805,14 @@ def main() -> None:
             "top_5_pct_of_pipeline": top5_pct,
             "pipeline_total": pipeline_total,
         },
-        "delta": build_delta(dcm, partner),
-        "data_quality_flags": flags,
+        "reconciliation": recon,
         "trend": build_trend(partner_opps, today),
         "aging": build_aging(partner_opps, today),
         "win_rate_by_partner": win_rate_by_partner(partner),
     }
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    OUT_PATH.write_text(json.dumps(payload, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     print(f"Wrote {OUT_PATH.relative_to(REPO_ROOT)}")
 
 

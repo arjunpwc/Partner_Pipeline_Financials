@@ -25,8 +25,16 @@
   --pwc-red: #FA143C;
   --pwc-rose: #F05596;
 
-  --radius: 10px;
-  --shadow: 0 1px 2px color-mix(in srgb, var(--pwc-black) 4%, transparent);
+  /* Type scale */
+  --fs-display: 2.5rem;
+  --fs-xl: 1.5rem;
+  --fs-lg: 1.0625rem;
+  --fs-md: 0.9375rem;
+  --fs-sm: 0.8125rem;
+  --fs-caption: 0.6875rem;
+
+  --radius: 4px;
+  --gap: 20px;
 }
 
 * {
@@ -43,40 +51,62 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: var(--pwc-white);
   color: var(--pwc-black);
+  font-size: var(--fs-md);
   line-height: 1.5;
 }
 
-.page {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 32px 20px 64px;
+[hidden] {
+  display: none !important;
 }
 
+.page {
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 28px 32px 56px;
+}
+
+/* ---------- Header ---------- */
+
 .site-header {
-  margin-bottom: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--pwc-black);
+}
+
+.eyebrow {
+  margin: 0 0 2px;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pwc-orange);
+  font-weight: 700;
 }
 
 .site-header h1 {
-  margin: 0 0 6px;
-  font-size: 1.75rem;
-  font-weight: 650;
-  letter-spacing: -0.02em;
+  margin: 0;
+  font-size: var(--fs-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   color: var(--pwc-black);
 }
 
 .data-as-of {
   margin: 0;
   color: var(--pwc-grey-500);
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
 }
 
 .error-banner {
   background: var(--pwc-orange-100);
-  border: 1px solid var(--pwc-orange-200);
+  border-left: 4px solid var(--pwc-orange);
   color: var(--pwc-black);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  margin-bottom: 24px;
+  padding: 14px 18px;
+  margin-top: 20px;
 }
 
 .error-banner strong {
@@ -84,25 +114,236 @@ body {
   margin-bottom: 4px;
 }
 
-.card {
-  background: var(--pwc-grey-50);
-  border: 1px solid var(--pwc-grey-200);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 20px 22px 22px;
-  margin-bottom: 18px;
+.placeholder {
+  margin: 0;
+  color: var(--pwc-grey-500);
+  font-size: var(--fs-md);
 }
 
-.card h2 {
-  margin: 0 0 14px;
-  font-size: 1.05rem;
-  font-weight: 650;
+#loading-note {
+  padding: 24px 0;
+}
+
+/* ---------- View tabs ---------- */
+
+.view-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 0 0 var(--gap);
+  border-bottom: 1px solid var(--pwc-grey-200);
+}
+
+.view-tab {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  color: var(--pwc-grey-500);
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  padding: 12px 18px;
+  margin-bottom: -1px;
+}
+
+.view-tab:hover {
   color: var(--pwc-black);
 }
 
-.section-body {
-  min-height: 48px;
+.view-tab.is-active {
+  color: var(--pwc-black);
+  border-bottom-color: var(--pwc-orange);
 }
+
+.view-tab:focus-visible {
+  outline: 2px solid var(--pwc-orange);
+  outline-offset: -2px;
+}
+
+/* ---------- Tab panel grids ---------- */
+
+.tab-panel {
+  display: grid;
+  gap: var(--gap);
+  align-items: start;
+}
+
+.grid-overview {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "fy fy"
+    "kpi kpi"
+    "funnel funnel"
+    "accounts accounts"
+    "aging winrate";
+}
+
+.grid-size {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "opps opps"
+    "rankings rankings"
+    "industry industry"
+    "trend trend";
+}
+
+.grid-product {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "prod-rank prod-rank"
+    "prod-detail prod-detail";
+}
+
+.grid-recon {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "recon";
+}
+
+.area-fy { grid-area: fy; }
+.area-kpi { grid-area: kpi; }
+.area-funnel { grid-area: funnel; }
+.area-trend { grid-area: trend; }
+.area-rankings { grid-area: rankings; }
+.area-industry { grid-area: industry; }
+.area-accounts { grid-area: accounts; }
+.area-opps { grid-area: opps; }
+.area-aging { grid-area: aging; }
+.area-winrate { grid-area: winrate; }
+.area-product { grid-area: product; }
+.area-prod-rank { grid-area: prod-rank; }
+.area-prod-detail { grid-area: prod-detail; }
+.area-recon { grid-area: recon; }
+
+/* ---------- Hero KPI row: no card chrome ---------- */
+
+.fy-banner {
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--pwc-grey-100);
+  border-left: 3px solid var(--pwc-orange);
+  font-size: var(--fs-sm);
+  color: var(--pwc-black);
+}
+
+.hero {
+  padding: 4px 0 20px;
+  border-bottom: 1px solid var(--pwc-grey-200);
+}
+
+.hero-title {
+  margin: 0 0 10px;
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pwc-grey-500);
+}
+
+.hero .kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 0.7fr);
+  gap: 0;
+}
+
+.hero .kpi-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+  min-width: 0;
+  border-left: 1px solid var(--pwc-grey-200);
+}
+
+.hero .kpi-pair:first-child {
+  border-left: 0;
+}
+
+.hero .kpi-card {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 4px 20px;
+  min-width: 0;
+}
+
+.hero .kpi-pair:first-child .kpi-card:first-child {
+  padding-left: 0;
+}
+
+.hero .kpi-yoy {
+  padding-left: 8px;
+}
+
+.hero .kpi-yoy .kpi-value {
+  font-size: var(--fs-lg);
+  color: var(--pwc-grey-500);
+  font-weight: 600;
+}
+
+.hero .kpi-yoy .kpi-label {
+  font-size: var(--fs-caption);
+}
+
+.hero .kpi-value {
+  font-size: var(--fs-display);
+  color: var(--pwc-black);
+}
+
+.hero .kpi-pair:first-child .kpi-card:first-child .kpi-value {
+  color: var(--pwc-orange);
+}
+
+.hero .kpi-label {
+  font-size: var(--fs-sm);
+}
+
+/* ---------- Panels ---------- */
+
+.panel {
+  background: var(--pwc-grey-50);
+  border: 1px solid var(--pwc-grey-200);
+  border-radius: var(--radius);
+  padding: 18px 20px 20px;
+  min-width: 0;
+}
+
+.panel-primary {
+  background: var(--pwc-white);
+  border-color: var(--pwc-grey-300);
+  border-top: 3px solid var(--pwc-orange);
+  padding: 20px 24px 24px;
+}
+
+.panel h2 {
+  margin: 0 0 14px;
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--pwc-black);
+}
+
+.panel-primary h2 {
+  font-size: var(--fs-xl);
+}
+
+.section-body {
+  min-height: 40px;
+}
+
+.subsection-title {
+  margin: 22px 0 8px;
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+
+.ranking-panel h3 {
+  margin: 0 0 10px;
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+
+/* ---------- KPI cards inside panels (secondary) ---------- */
 
 .kpi-grid {
   display: grid;
@@ -114,49 +355,50 @@ body {
   background: var(--pwc-white);
   border: 1px solid var(--pwc-grey-200);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 16px 18px 18px;
+  padding: 12px 16px 14px;
   min-width: 0;
 }
 
 .kpi-value {
-  margin: 0 0 4px;
-  font-size: 1.45rem;
-  font-weight: 650;
+  margin: 0 0 2px;
+  font-size: var(--fs-xl);
+  font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--pwc-orange);
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
 .kpi-label {
   margin: 0;
   color: var(--pwc-grey-500);
-  font-size: 0.82rem;
+  font-size: var(--fs-caption);
 }
 
-.placeholder {
-  margin: 0;
-  color: var(--pwc-grey-500);
-  font-size: 0.92rem;
+.kpi-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 18px;
 }
+
+/* ---------- Toolbars / toggles ---------- */
 
 .chart-toolbar {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   margin-bottom: 14px;
 }
 
 .toggle-btn {
   appearance: none;
   background: var(--pwc-white);
-  border: 1px solid var(--pwc-grey-200);
-  border-radius: 999px;
+  border: 1px solid var(--pwc-grey-300);
+  border-radius: var(--radius);
   color: var(--pwc-grey-500);
   cursor: pointer;
   font: inherit;
-  font-size: 0.85rem;
-  padding: 6px 12px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  padding: 6px 14px;
 }
 
 .toggle-btn:hover {
@@ -170,40 +412,109 @@ body {
   color: var(--pwc-white);
 }
 
+/* ---------- Charts ---------- */
+
 .chart-wrap {
   position: relative;
-  height: 280px;
+  height: 260px;
 }
+
+.area-funnel .chart-wrap {
+  height: 380px;
+}
+
+.ranking-wrap {
+  height: 320px;
+}
+
+.industry-wrap {
+  height: 340px;
+}
+
+.accounts-wrap {
+  height: 360px;
+}
+
+.trend-wrap {
+  height: 300px;
+}
+
+.aging-wrap {
+  height: 240px;
+}
+
+.winrate-wrap {
+  height: 320px;
+}
+
+.product-rank-wrap {
+  height: 220px;
+}
+
+.product-partner-wrap {
+  height: 420px;
+}
+
+.product-split .subsection-title {
+  margin-top: 0;
+}
+
+.area-prod-detail .table-wrap {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+/* minmax(0, 1fr) lets columns shrink below the canvas's inline width;
+   with plain 1fr the chart can never resize back down. */
+.ranking-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+
+/* ---------- Tables ---------- */
 
 .table-wrap {
   overflow-x: auto;
+  border: 1px solid var(--pwc-grey-200);
+  border-radius: var(--radius);
+  background: var(--pwc-white);
 }
 
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.92rem;
+  font-size: var(--fs-sm);
 }
 
 .data-table caption {
   text-align: left;
-  font-weight: 650;
-  margin-bottom: 10px;
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pwc-grey-500);
+  padding: 10px 12px;
+  background: var(--pwc-white);
+  border-bottom: 1px solid var(--pwc-grey-200);
 }
 
 .data-table th,
 .data-table td {
   text-align: left;
-  padding: 8px 10px;
-  border-bottom: 1px solid var(--pwc-grey-200);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--pwc-grey-100);
   vertical-align: top;
 }
 
 .data-table th {
   background: var(--pwc-grey-100);
   color: var(--pwc-black);
-  font-weight: 650;
+  font-weight: 700;
   white-space: nowrap;
+  border-bottom: 1px solid var(--pwc-grey-200);
+  position: sticky;
+  top: 0;
 }
 
 .data-table th[data-sort-key] {
@@ -235,126 +546,94 @@ body {
   text-align: right;
 }
 
+.data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
 .data-table tbody tr:hover {
-  background: var(--pwc-grey-100);
+  background: var(--pwc-orange-50);
 }
 
 .empty-row {
   color: var(--pwc-grey-500);
 }
 
-.delta-kpis,
-.kpi-grid-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-bottom: 18px;
+.size-slider-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin-bottom: 10px;
 }
 
-.subsection-title {
-  margin: 18px 0 8px;
-  font-size: 0.95rem;
-  font-weight: 650;
-}
-
-.warning-note {
-  margin: 0 0 12px;
-  padding: 10px 12px;
-  background: var(--pwc-orange-100);
-  border: 1px solid var(--pwc-orange-200);
-  border-radius: var(--radius);
-  color: var(--pwc-black);
-  font-size: 0.88rem;
-}
-
-.card-warning {
-  border-color: var(--pwc-orange-200);
-}
-
-.flag-chip {
-  display: inline-block;
-  background: var(--pwc-orange-100);
-  border: 1px solid var(--pwc-orange-200);
-  border-radius: 999px;
-  color: var(--pwc-black);
-  font-size: 0.78rem;
-  font-weight: 650;
-  padding: 2px 8px;
+.size-slider-row label {
+  font-size: var(--fs-md);
+  font-weight: 700;
   white-space: nowrap;
 }
 
-.mismatch-details {
-  margin-top: 18px;
-  border: 1px solid var(--pwc-grey-200);
-  border-radius: var(--radius);
-  padding: 8px 14px 14px;
+.size-slider-row input[type="range"] {
+  flex: 1;
+  min-width: 180px;
+  accent-color: var(--pwc-orange);
+  height: 6px;
 }
 
-.mismatch-details summary {
-  cursor: pointer;
-  font-weight: 650;
-  padding: 8px 0;
+.size-threshold {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--pwc-orange);
+  min-width: 5.5rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 
-.mismatch-details h3 {
-  margin: 12px 0 8px;
-  font-size: 0.9rem;
+.size-summary {
+  margin: 0 0 12px;
+  color: var(--pwc-grey-500);
+  font-size: var(--fs-sm);
 }
 
-.ranking-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
+.area-opps .table-wrap,
+.area-recon .table-wrap {
+  max-height: 520px;
+  overflow-y: auto;
 }
 
-.ranking-panel h3 {
-  margin: 0 0 10px;
-  font-size: 0.95rem;
-  font-weight: 650;
+.recon-stat {
+  margin: 0 0 12px;
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
 }
 
-.ranking-wrap {
-  height: 360px;
+.recon-note {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  background: var(--pwc-grey-100);
+  border-left: 3px solid var(--pwc-orange);
+  font-size: var(--fs-sm);
+  color: var(--pwc-black);
 }
 
-.industry-wrap {
-  height: 400px;
-}
-
-.accounts-wrap {
-  height: 440px;
-}
-
-.trend-wrap {
-  height: 320px;
-}
-
-.aging-wrap {
-  height: 240px;
-}
-
-.winrate-wrap {
-  height: 360px;
-}
-
-.focus-chart-wrap {
-  height: 240px;
-}
-
-.focus-trend-wrap {
-  height: 220px;
-}
+/* ---------- Notes, callouts ---------- */
 
 .callout {
-  background: var(--pwc-orange-50);
-  border: 1px solid var(--pwc-grey-200);
-  border-radius: var(--radius);
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  background: var(--pwc-grey-100);
+  border-left: 3px solid var(--pwc-orange);
   padding: 12px 16px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .callout-value {
-  margin: 0 0 2px;
-  font-size: 1.25rem;
-  font-weight: 650;
+  margin: 0;
+  font-size: var(--fs-xl);
+  font-weight: 700;
   color: var(--pwc-orange);
   letter-spacing: -0.02em;
 }
@@ -362,42 +641,91 @@ body {
 .callout-label {
   margin: 0;
   color: var(--pwc-grey-500);
-  font-size: 0.88rem;
+  font-size: var(--fs-sm);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1200px) {
+  .grid-overview {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "fy"
+      "kpi"
+      "funnel"
+      "accounts"
+      "aging"
+      "winrate";
+  }
+
+  .grid-size {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "opps"
+      "rankings"
+      "industry"
+      "trend";
+  }
 }
 
 @media (max-width: 900px) {
+  .page {
+    padding: 20px 18px 40px;
+  }
+
+  .site-header h1 {
+    font-size: var(--fs-xl);
+  }
+
+  .grid-size {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "opps"
+      "rankings"
+      "industry"
+      "trend";
+  }
+
+  .product-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero .kpi-grid,
   .kpi-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .delta-kpis,
+  .hero .kpi-pair {
+    border-left: 0;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero .kpi-card {
+    border-left: 0;
+    padding: 10px 0;
+  }
+
+  .hero .kpi-value {
+    font-size: var(--fs-xl);
+  }
+
   .kpi-grid-3 {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .ranking-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .view-tab {
+    font-size: var(--fs-md);
+    padding: 10px 12px;
   }
 }
 
-@media (max-width: 640px) {
-  .page {
-    padding: 20px 14px 40px;
-  }
-
-  .site-header h1 {
-    font-size: 1.4rem;
-  }
-
-  .card {
-    padding: 16px;
-  }
-
-  .kpi-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .delta-kpis,
+@media (max-width: 620px) {
+  .hero .kpi-grid,
+  .kpi-grid,
   .kpi-grid-3 {
     grid-template-columns: 1fr;
   }

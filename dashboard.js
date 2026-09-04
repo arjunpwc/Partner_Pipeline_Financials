@@ -109,9 +109,11 @@
   ];
   let stageFunnelChart = null;
 
-  function kpiCard(label, value) {
+  function kpiCard(label, value, extraClass) {
     return (
-      '<article class="kpi-card">' +
+      '<article class="kpi-card' +
+      (extraClass ? " " + extraClass : "") +
+      '">' +
       '<p class="kpi-value">' +
       escapeHtml(value) +
       "</p>" +
@@ -122,15 +124,57 @@
     );
   }
 
-  function renderKpiCards(kpis) {
+  function nextFyLabel(label) {
+    var match = String(label || "").match(/FY(\d{2})/i);
+    if (!match) return "the next fiscal year";
+    var next = (parseInt(match[1], 10) + 1) % 100;
+    return "FY" + String(next).padStart(2, "0");
+  }
+
+  function formatYoy(value) {
+    if (value == null || value === "") {
+      return "—";
+    }
+    var n = Number(value);
+    if (!Number.isFinite(n)) return String(value);
+    var pct = (n * 100).toFixed(1) + "%";
+    return n > 0 ? "+" + pct : pct;
+  }
+
+  function yoyCaption(value) {
+    if (value == null || value === "") {
+      return "YoY Growth — prior year data not yet available";
+    }
+    return "YoY Growth";
+  }
+
+  function renderFyNote(fyLabel) {
+    var body = sectionBody("fy-note");
+    if (!body) return;
+    var label = fyLabel || "FY26";
+    body.textContent =
+      "Showing " + label + " metrics. Next refresh will incorporate " + nextFyLabel(label) + " data.";
+  }
+
+  function renderKpiCards(payload) {
     const body = sectionBody("kpi-cards");
     if (!body) return;
-    const data = kpis || {};
+    const data = (payload && payload.kpis) || payload || {};
+    const yoy = (payload && payload.yoy_growth) || {};
     body.innerHTML =
       '<div class="kpi-grid">' +
+      '<div class="kpi-pair">' +
       kpiCard("Total open pipeline", formatMillions(data.total_open_pipeline)) +
+      kpiCard(yoyCaption(yoy.total_open_pipeline), formatYoy(yoy.total_open_pipeline), "kpi-yoy") +
+      "</div>" +
+      '<div class="kpi-pair">' +
       kpiCard("Open opportunities", formatCount(data.open_opportunity_count)) +
+      kpiCard(yoyCaption(yoy.open_opportunity_count), formatYoy(yoy.open_opportunity_count), "kpi-yoy") +
+      "</div>" +
+      '<div class="kpi-pair">' +
       kpiCard("Total won", formatMillions(data.total_won)) +
+      kpiCard(yoyCaption(yoy.total_won), formatYoy(yoy.total_won), "kpi-yoy") +
+      "</div>" +
       kpiCard("Average deal size", formatMillions(data.average_deal_size)) +
       "</div>";
   }
@@ -211,7 +255,7 @@
       });
     } else if (view === "compare") {
       datasets.push({
-        label: "Partner Pipeline",
+        label: "All Pipeline",
         data: partnerRows.map(function (row) {
           return row.amount;
         }),
@@ -238,7 +282,7 @@
       });
     } else {
       datasets.push({
-        label: "Partner Pipeline",
+        label: "All Pipeline",
         data: partnerRows.map(function (row) {
           return row.amount;
         }),
@@ -253,12 +297,12 @@
     }
 
     let ariaLabel =
-      "Partner Pipeline by stage: " + funnelSummary(partnerRows);
+      "All Pipeline by stage: " + funnelSummary(partnerRows);
     if (view === "dcm") {
       ariaLabel = "DCM D&T pipeline by stage: " + funnelSummary(dcmRows);
     } else if (view === "compare") {
       ariaLabel =
-        "Side-by-side comparison of Partner Pipeline and DCM D&T by stage. Partner Pipeline: " +
+        "Side-by-side comparison of All Pipeline and DCM D&T by stage. All Pipeline: " +
         funnelSummary(partnerRows) +
         ". DCM D&T: " +
         funnelSummary(dcmRows);
@@ -331,12 +375,12 @@
 
     body.innerHTML =
       '<div class="chart-toolbar" role="group" aria-label="Stage funnel source">' +
-      '<button type="button" class="toggle-btn is-active" data-funnel-view="partner" aria-pressed="true">Partner Pipeline</button>' +
+      '<button type="button" class="toggle-btn is-active" data-funnel-view="partner" aria-pressed="true">All Pipeline</button>' +
       '<button type="button" class="toggle-btn" data-funnel-view="dcm" aria-pressed="false">DCM D&T</button>' +
       '<button type="button" class="toggle-btn" data-funnel-view="compare" aria-pressed="false">Compare</button>' +
       "</div>" +
       '<div class="chart-wrap">' +
-      '<canvas id="stage-funnel-chart" role="img" aria-label="Partner Pipeline stage funnel"></canvas>' +
+      '<canvas id="stage-funnel-chart" role="img" aria-label="All Pipeline stage funnel"></canvas>' +
       "</div>";
 
     const canvas = document.getElementById("stage-funnel-chart");
@@ -488,48 +532,173 @@
     paint();
   }
 
-  function wireOppsThresholdToggle() {
-    var section = document.getElementById("large-opps");
-    if (!section) return;
-    var heading = document.getElementById("large-opps-title");
-    var table10 = document.getElementById("opps-10m-table");
-    var table20 = document.getElementById("opps-20m-table");
-    var toolbar = section.querySelector("[aria-label='Opportunity amount threshold']");
-    if (!toolbar) return;
-    var btn10 = toolbar.querySelector('[data-opps-view="10m"]');
-    var btn20 = toolbar.querySelector('[data-opps-view="20m"]');
-    var n10 = document.querySelectorAll("#opps-10m-table tbody tr").length;
-    var n20 = document.querySelectorAll("#opps-20m-table tbody tr").length;
-    var empty10 = document.querySelector("#opps-10m-table .empty-row");
-    var empty20 = document.querySelector("#opps-20m-table .empty-row");
-    if (btn10) btn10.textContent = "≥ $10M (" + (empty10 ? 0 : n10) + ")";
-    if (btn20) btn20.textContent = "≥ $20M (" + (empty20 ? 0 : n20) + ")";
+  function renderOppsBySize(payload) {
+    var body = sectionBody("large-opps");
+    if (!body) return;
 
-    toolbar.addEventListener("click", function (event) {
-      var button = event.target.closest("[data-opps-view]");
-      if (!button) return;
-      var view = button.getAttribute("data-opps-view");
-      toolbar.querySelectorAll(".toggle-btn").forEach(function (btn) {
-        var active = btn === button;
-        btn.classList.toggle("is-active", active);
-        btn.setAttribute("aria-pressed", active ? "true" : "false");
+    var source = payload || {};
+    var opps = Array.isArray(source.all_open_opportunities)
+      ? source.all_open_opportunities
+      : [];
+    var maxAmount = Number(source.max_open_opportunity_amount);
+    if (!Number.isFinite(maxAmount) || maxAmount < 0) {
+      maxAmount = 0;
+      opps.forEach(function (row) {
+        var amt = Number(row.amount) || 0;
+        if (amt > maxAmount) maxAmount = amt;
       });
-      var is20 = view === "20m";
-      if (table10) table10.hidden = is20;
-      if (table20) table20.hidden = !is20;
-      if (heading) {
-        heading.textContent = is20 ? "Opportunities ≥ $20M" : "Opportunities ≥ $10M";
+    }
+    if (maxAmount <= 0) maxAmount = 1;
+
+    var threshold = 0;
+    var sortKey = "amount";
+    var sortDir = "desc";
+    var columns = [
+      { key: "name", label: "Opportunity Name", cls: "" },
+      { key: "partner", label: "Partner", cls: "" },
+      { key: "account", label: "Account", cls: "" },
+      { key: "stage", label: "Stage", cls: "" },
+      { key: "amount", label: "Amount", cls: "num" },
+      { key: "close_date", label: "Close Date", cls: "" },
+    ];
+
+    body.innerHTML =
+      '<div class="size-slider-row">' +
+      '<label for="min-deal-size">Minimum deal size</label>' +
+      '<input id="min-deal-size" type="range" min="0" max="' +
+      escapeHtml(String(Math.ceil(maxAmount))) +
+      '" step="100000" value="0" aria-valuemin="0" aria-valuemax="' +
+      escapeHtml(String(Math.ceil(maxAmount))) +
+      '" aria-valuenow="0" />' +
+      '<span id="min-deal-size-value" class="size-threshold">' +
+      escapeHtml(formatMillions(0)) +
+      "</span>" +
+      "</div>" +
+      '<p id="size-filter-summary" class="size-summary"></p>' +
+      '<div id="size-opps-table"></div>';
+
+    var slider = document.getElementById("min-deal-size");
+    var valueLabel = document.getElementById("min-deal-size-value");
+    var summary = document.getElementById("size-filter-summary");
+    var tableHost = document.getElementById("size-opps-table");
+
+    function filteredRows() {
+      return opps
+        .filter(function (row) {
+          return (Number(row.amount) || 0) >= threshold;
+        })
+        .slice()
+        .sort(function (a, b) {
+          return compareOpps(a, b, sortKey, sortDir);
+        });
+    }
+
+    function paint() {
+      var rows = filteredRows();
+      var total = 0;
+      rows.forEach(function (row) {
+        total += Number(row.amount) || 0;
+      });
+      if (valueLabel) valueLabel.textContent = formatMillions(threshold);
+      if (slider) {
+        slider.setAttribute("aria-valuenow", String(threshold));
+        slider.setAttribute(
+          "aria-valuetext",
+          formatMillions(threshold) + " minimum deal size"
+        );
       }
+      if (summary) {
+        summary.textContent =
+          formatCount(rows.length) +
+          " open opportunities totaling " +
+          formatMillions(total) +
+          " at or above " +
+          formatMillions(threshold);
+      }
+
+      var head = columns
+        .map(function (col) {
+          var aria =
+            col.key === sortKey
+              ? sortDir === "asc"
+                ? "ascending"
+                : "descending"
+              : "none";
+          return (
+            '<th scope="col" class="' +
+            col.cls +
+            '" data-sort-key="' +
+            col.key +
+            '" aria-sort="' +
+            aria +
+            '">' +
+            escapeHtml(col.label) +
+            "</th>"
+          );
+        })
+        .join("");
+
+      var tbody;
+      if (!rows.length) {
+        tbody =
+          '<tr><td class="empty-row" colspan="6">No open opportunities at or above this threshold.</td></tr>';
+      } else {
+        tbody = rows
+          .map(function (row) {
+            return (
+              "<tr>" +
+              "<td>" +
+              escapeHtml(row.name || "") +
+              "</td>" +
+              "<td>" +
+              escapeHtml(row.partner || "") +
+              "</td>" +
+              "<td>" +
+              escapeHtml(row.account || "—") +
+              "</td>" +
+              "<td>" +
+              escapeHtml(row.stage || "") +
+              "</td>" +
+              '<td class="num">' +
+              escapeHtml(formatMillions(row.amount)) +
+              "</td>" +
+              "<td>" +
+              escapeHtml(formatCloseDate(row.close_date)) +
+              "</td>" +
+              "</tr>"
+            );
+          })
+          .join("");
+      }
+
+      tableHost.innerHTML =
+        '<div class="table-wrap"><table class="data-table">' +
+        "<thead><tr>" +
+        head +
+        "</tr></thead><tbody>" +
+        tbody +
+        "</tbody></table></div>";
+
+      tableHost.querySelectorAll("th[data-sort-key]").forEach(function (th) {
+        th.addEventListener("click", function () {
+          var key = th.getAttribute("data-sort-key");
+          if (sortKey === key) {
+            sortDir = sortDir === "asc" ? "desc" : "asc";
+          } else {
+            sortKey = key;
+            sortDir = key === "amount" ? "desc" : "asc";
+          }
+          paint();
+        });
+      });
+    }
+
+    slider.addEventListener("input", function () {
+      threshold = Number(slider.value) || 0;
+      paint();
     });
-  }
 
-  function renderOpps10mTable(opps) {
-    renderOppsTable("opps-10m-table", opps, "Opportunities ≥ $10M");
-  }
-
-  function renderOpps20mTable(opps) {
-    renderOppsTable("opps-20m-table", opps, "Opportunities ≥ $20M");
-    wireOppsThresholdToggle();
+    paint();
   }
 
   const rankingCharts = {};
@@ -554,7 +723,7 @@
     };
   }
 
-  function drawRankingChart(canvasId, rows, color) {
+  function drawRankingChart(canvasId, rows, color, onBarClick) {
     if (typeof Chart === "undefined") return false;
     const canvas = document.getElementById(canvasId);
     if (!canvas) return false;
@@ -582,7 +751,7 @@
           {
             data: amounts,
             counts: counts,
-            backgroundColor: color,
+            backgroundColor: Array.isArray(color) ? color : color,
             borderSkipped: false,
             borderRadius: 4,
             barThickness: rows.length > 14 ? 12 : 16,
@@ -624,6 +793,13 @@
           },
         },
         layout: { padding: { right: 56 } },
+        onClick: onBarClick
+          ? function (_evt, elements) {
+              if (!elements.length) return;
+              var idx = elements[0].index;
+              if (rows[idx]) onBarClick(rows[idx].label);
+            }
+          : undefined,
       },
       plugins: [rankingBarLabelPlugin()],
     });
@@ -662,10 +838,10 @@
     if (!container) return;
     const rows = sortedRankingRows(partnerTotals, "partner");
     container.innerHTML =
-      "<h3>By Partner Pipeline name</h3>" +
+      "<h3>By All Pipeline name</h3>" +
       '<div class="chart-wrap ranking-wrap">' +
       '<canvas id="partner-ranking-canvas" role="img" aria-label="' +
-      escapeHtml(rankingAria("Pipeline amount by partner name", rows)) +
+      escapeHtml(rankingAria("Pipeline amount by All Pipeline name", rows)) +
       '"></canvas>' +
       "</div>";
     if (!drawRankingChart("partner-ranking-canvas", rows, PARTNER_BAR_COLOR)) {
@@ -681,10 +857,10 @@
     if (!container) return;
     const rows = sortedRankingRows(partnerCodeTotals, "product_code");
     container.innerHTML =
-      "<h3>By Partner Pipeline/product code</h3>" +
+      "<h3>By All Pipeline/product code</h3>" +
       '<div class="chart-wrap ranking-wrap">' +
       '<canvas id="partner-code-canvas" role="img" aria-label="' +
-      escapeHtml(rankingAria("Pipeline amount by partner product code", rows)) +
+      escapeHtml(rankingAria("Pipeline amount by All Pipeline product code", rows)) +
       '"></canvas>' +
       "</div>";
     if (!drawRankingChart("partner-code-canvas", rows, DCM_BAR_COLOR)) {
@@ -695,215 +871,82 @@
     }
   }
 
-  const FOCUS_PRODUCT_CODES = ["USH16", "USH17", "USG18"];
-  let productFocusData = {};
-  let productFocusStageChart = null;
-  let productFocusTrendChart = null;
-  let productFocusWired = false;
+  const PRODUCT_BREAKDOWN_KEYS = ["USH16", "USH17", "USG18", "No D&A"];
+  let productBreakdownData = {};
+  let selectedProductCode = "USH16";
 
-  function destroyProductFocusCharts() {
-    if (productFocusStageChart) {
-      productFocusStageChart.destroy();
-      productFocusStageChart = null;
-    }
-    if (productFocusTrendChart) {
-      productFocusTrendChart.destroy();
-      productFocusTrendChart = null;
-    }
-    if (rankingCharts["product-focus-partner-canvas"]) {
-      rankingCharts["product-focus-partner-canvas"].destroy();
-      rankingCharts["product-focus-partner-canvas"] = null;
-    }
-  }
-
-  function defaultProductFocusCode(focus) {
-    for (var i = 0; i < FOCUS_PRODUCT_CODES.length; i++) {
-      var code = FOCUS_PRODUCT_CODES[i];
-      var block = focus && focus[code];
-      if (block && !block.no_data) return code;
-    }
-    return FOCUS_PRODUCT_CODES[0];
-  }
-
-  function setProductFocusTabState(code) {
-    var toolbar = document.querySelector("#product-code-focus .chart-toolbar");
-    if (!toolbar) return;
-    toolbar.querySelectorAll("[data-focus-code]").forEach(function (btn) {
-      var active = btn.getAttribute("data-focus-code") === code;
-      btn.classList.toggle("is-active", active);
-      btn.setAttribute("aria-selected", active ? "true" : "false");
-      btn.setAttribute("aria-pressed", active ? "true" : "false");
-    });
-  }
-
-  function focusStageRows(breakdown) {
-    var byStage = {};
-    (breakdown || []).forEach(function (row) {
-      var name = row && row.stage != null ? String(row.stage) : "";
-      byStage[name] = {
-        stage: name,
-        count: Number(row.count) || 0,
-        amount: Number(row.amount) || 0,
-      };
-    });
-    var rows = FUNNEL_STAGES.map(function (stage) {
-      return byStage[stage] || { stage: stage, count: 0, amount: 0 };
-    });
-    Object.keys(byStage).forEach(function (name) {
-      if (name && FUNNEL_STAGES.indexOf(name) === -1) {
-        rows.push(byStage[name]);
-      }
-    });
-    return rows;
-  }
-
-  function topPartnerFromBreakdown(rows) {
-    var sorted = (rows || []).slice().sort(function (a, b) {
-      return (Number(b.amount) || 0) - (Number(a.amount) || 0);
-    });
-    if (!sorted.length) return { partner: "—", amount: 0 };
-    return {
-      partner: sorted[0].partner || "(blank)",
-      amount: Number(sorted[0].amount) || 0,
+  function productBlock(code) {
+    return (productBreakdownData && productBreakdownData[code]) || {
+      total: 0,
+      count: 0,
+      opportunities: [],
+      partner_totals: [],
     };
   }
 
-  function drawProductFocusStageChart(canvas, rows, code) {
-    if (typeof Chart === "undefined") return false;
-    if (productFocusStageChart) {
-      productFocusStageChart.destroy();
-      productFocusStageChart = null;
-    }
-    canvas.setAttribute("role", "img");
-    canvas.setAttribute(
-      "aria-label",
-      "Stage breakdown for " + code + ": " + funnelSummary(rows)
-    );
-    productFocusStageChart = new Chart(canvas.getContext("2d"), {
-      type: "bar",
-      data: {
-        labels: rows.map(function (row) {
-          return row.stage;
-        }),
-        datasets: [
-          {
-            data: rows.map(function (row) {
-              return row.amount;
-            }),
-            counts: rows.map(function (row) {
-              return row.count;
-            }),
-            backgroundColor: PARTNER_BAR_COLOR,
-            borderSkipped: false,
-            borderRadius: 4,
-            barThickness: 22,
-          },
-        ],
-      },
-      options: {
-        indexAxis: "y",
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function (ctx) {
-                return (
-                  formatMillions(ctx.parsed.x) +
-                  " · " +
-                  formatCount(ctx.dataset.counts[ctx.dataIndex]) +
-                  " opportunities"
-                );
-              },
-            },
-          },
-        },
-        scales: {
-          x: {
-            beginAtZero: true,
-            grid: { color: CHART_GRID_COLOR },
-            ticks: {
-              callback: function (value) {
-                return formatMillions(value);
-              },
-            },
-          },
-          y: { grid: { display: false }, ticks: { autoSkip: false } },
-        },
-        layout: { padding: { right: 72 } },
-      },
-      plugins: [stageBarLabelPlugin()],
+  function productRankingRows() {
+    return PRODUCT_BREAKDOWN_KEYS.map(function (code) {
+      var block = productBlock(code);
+      return {
+        label: code,
+        amount: Number(block.total) || 0,
+        count: Number(block.count) || 0,
+      };
+    }).sort(function (a, b) {
+      var delta = b.amount - a.amount;
+      if (delta) return delta;
+      return PRODUCT_BREAKDOWN_KEYS.indexOf(a.label) - PRODUCT_BREAKDOWN_KEYS.indexOf(b.label);
     });
-    return true;
   }
 
-  function drawProductFocusTrendChart(canvas, trendRows, code) {
-    if (typeof Chart === "undefined") return false;
-    if (productFocusTrendChart) {
-      productFocusTrendChart.destroy();
-      productFocusTrendChart = null;
+  function defaultProductCode() {
+    for (var i = 0; i < PRODUCT_BREAKDOWN_KEYS.length; i++) {
+      var code = PRODUCT_BREAKDOWN_KEYS[i];
+      if ((Number(productBlock(code).count) || 0) > 0) return code;
     }
-    var rows = (trendRows || []).slice().sort(function (a, b) {
-      return String(a.month || "").localeCompare(String(b.month || ""));
-    });
-    canvas.setAttribute("role", "img");
-    canvas.setAttribute(
-      "aria-label",
-      "Fiscal-year close-date trend for product code " + code
-    );
-    productFocusTrendChart = new Chart(canvas.getContext("2d"), {
-      type: "line",
-      data: {
-        labels: rows.map(function (row) {
-          return formatFyMonthLabel(row.month);
-        }),
-        datasets: [
-          {
-            label: "Amount by close month",
-            data: rows.map(function (row) {
-              return Number(row.amount) || 0;
-            }),
-            borderColor: PARTNER_BAR_COLOR,
-            backgroundColor: CHART_FILL_PRIMARY,
-            tension: 0.2,
-            fill: true,
-            pointRadius: 3,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: "index", intersect: false },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function (ctx) {
-                return formatMillions(ctx.parsed.y);
-              },
-            },
-          },
-        },
-        scales: {
-          x: { grid: { display: false } },
-          y: {
-            beginAtZero: true,
-            grid: { color: CHART_GRID_COLOR },
-            ticks: {
-              callback: function (value) {
-                return formatMillions(value);
-              },
-            },
-          },
-        },
-      },
-    });
-    return true;
+    return PRODUCT_BREAKDOWN_KEYS[0];
   }
 
-  function renderProductFocusOppsTable(container, opps) {
+  function productBarColors(rows) {
+    return rows.map(function (row) {
+      return row.label === "No D&A" ? DCM_BAR_COLOR : PARTNER_BAR_COLOR;
+    });
+  }
+
+  function renderProductRankingChart() {
+    var body = sectionBody("product-ranking");
+    if (!body) return;
+    var rows = productRankingRows();
+    body.innerHTML =
+      '<p class="size-summary">Open pipeline $ by product code. Opportunities whose code is missing, blank, or not USH16 / USH17 / USG18 are grouped as No D&amp;A. Click a bar to filter the breakdown.</p>' +
+      '<div class="chart-wrap product-rank-wrap">' +
+      '<canvas id="product-ranking-canvas" role="img" aria-label="' +
+      escapeHtml(rankingAria("Open pipeline amount by product code", rows)) +
+      '"></canvas>' +
+      "</div>";
+    if (
+      !drawRankingChart("product-ranking-canvas", rows, productBarColors(rows), function (label) {
+        paintProductBreakdown(label);
+      })
+    ) {
+      setPlaceholder(
+        "product-ranking",
+        "Chart.js failed to load, so product ranking cannot be shown."
+      );
+    }
+  }
+
+  function setProductCodeTabState(code) {
+    var toolbar = document.getElementById("product-code-tabs");
+    if (!toolbar) return;
+    toolbar.querySelectorAll("[data-product-code]").forEach(function (btn) {
+      var active = btn.getAttribute("data-product-code") === code;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-selected", active ? "true" : "false");
+    });
+  }
+
+  function renderProductOppsTable(container, opps) {
     var rows = Array.isArray(opps) ? opps.slice() : [];
     var sortKey = "amount";
     var sortDir = "desc";
@@ -940,7 +983,7 @@
       var body;
       if (!rows.length) {
         body =
-          '<tr><td class="empty-row" colspan="6">No opportunities in this list.</td></tr>';
+          '<tr><td class="empty-row" colspan="6">No open opportunities for this product code.</td></tr>';
       } else {
         body = rows
           .map(function (row) {
@@ -971,7 +1014,7 @@
       }
       container.innerHTML =
         '<div class="table-wrap"><table class="data-table">' +
-        "<caption>Top opportunities (" +
+        "<caption>Opportunities (" +
         formatCount(rows.length) +
         ")</caption>" +
         "<thead><tr>" +
@@ -996,93 +1039,96 @@
     paint();
   }
 
-  function renderProductCodeFocus(code) {
-    var panel = document.getElementById("product-code-focus-panel");
-    if (!panel) return;
-    destroyProductFocusCharts();
-
-    var selected = code;
-    if (FOCUS_PRODUCT_CODES.indexOf(selected) === -1) {
-      selected = defaultProductFocusCode(productFocusData);
+  function paintProductBreakdown(code) {
+    if (PRODUCT_BREAKDOWN_KEYS.indexOf(code) === -1) {
+      code = defaultProductCode();
     }
-    setProductFocusTabState(selected);
-    panel.setAttribute("aria-label", "Detail for product code " + selected);
+    selectedProductCode = code;
+    setProductCodeTabState(code);
 
-    var block = (productFocusData && productFocusData[selected]) || { no_data: true };
-    if (block.no_data) {
-      panel.innerHTML =
-        '<p class="placeholder">No open opportunities currently tagged with this product code</p>';
+    var block = productBlock(code);
+    var summary = document.getElementById("product-breakdown-summary");
+    if (summary) {
+      summary.textContent =
+        formatCount(block.count) +
+        " open opportunities totaling " +
+        formatMillions(block.total) +
+        " for " +
+        code;
+    }
+
+    var tableHost = document.getElementById("product-opps-table");
+    if (tableHost) renderProductOppsTable(tableHost, block.opportunities);
+
+    var partnerHost = document.getElementById("product-partner-chart");
+    if (!partnerHost) return;
+
+    var partnerRows = sortedRankingRows(block.partner_totals, "partner");
+    if (rankingCharts["product-partner-canvas"]) {
+      rankingCharts["product-partner-canvas"].destroy();
+      rankingCharts["product-partner-canvas"] = null;
+    }
+    if (!partnerRows.length) {
+      partnerHost.innerHTML =
+        '<p class="placeholder">No partners currently working this product code.</p>';
       return;
     }
-
-    var topPartner = topPartnerFromBreakdown(block.partner_breakdown);
-    var stageRows = focusStageRows(block.stage_breakdown);
-    var partnerRows = sortedRankingRows(block.partner_breakdown, "partner");
-
-    panel.innerHTML =
-      '<div class="kpi-grid kpi-grid-3">' +
-      kpiCard("Total pipeline $", formatMillions(block.total)) +
-      kpiCard("Opportunity count", formatCount(block.count)) +
-      kpiCard(
-        "Top partner by $ (" + formatMillions(topPartner.amount) + ")",
-        topPartner.partner
-      ) +
-      "</div>" +
-      '<h3 class="subsection-title">Stage breakdown</h3>' +
-      '<div class="chart-wrap focus-chart-wrap">' +
-      '<canvas id="product-focus-stage-canvas"></canvas>' +
-      "</div>" +
-      '<h3 class="subsection-title">Top opportunities</h3>' +
-      '<div id="product-focus-opps-table"></div>' +
-      '<h3 class="subsection-title">Partner Pipeline breakdown</h3>' +
-      '<div class="chart-wrap focus-chart-wrap">' +
-      '<canvas id="product-focus-partner-canvas" role="img" aria-label="' +
-      escapeHtml(rankingAria("Pipeline amount by partner for " + selected, partnerRows)) +
+    partnerHost.innerHTML =
+      '<div class="chart-wrap product-partner-wrap">' +
+      '<canvas id="product-partner-canvas" role="img" aria-label="' +
+      escapeHtml(rankingAria("Open pipeline amount by partner for " + code, partnerRows)) +
       '"></canvas>' +
-      "</div>" +
-      '<h3 class="subsection-title">Close-date trend</h3>' +
-      '<div class="chart-wrap focus-trend-wrap">' +
-      '<canvas id="product-focus-trend-canvas"></canvas>' +
       "</div>";
-
-    var tableHost = document.getElementById("product-focus-opps-table");
-    if (tableHost) renderProductFocusOppsTable(tableHost, block.top_opportunities);
-
-    var stageCanvas = document.getElementById("product-focus-stage-canvas");
-    var trendCanvas = document.getElementById("product-focus-trend-canvas");
-    var stageOk = stageCanvas && drawProductFocusStageChart(stageCanvas, stageRows, selected);
-    var partnerOk = drawRankingChart(
-      "product-focus-partner-canvas",
-      partnerRows,
-      PARTNER_BAR_COLOR
-    );
-    var trendOk = trendCanvas && drawProductFocusTrendChart(trendCanvas, block.trend, selected);
-    if (!stageOk && !partnerOk && !trendOk) {
-      panel.innerHTML =
-        '<p class="placeholder">Chart.js failed to load, so product-code charts cannot be shown.</p>';
-    }
+    drawRankingChart("product-partner-canvas", partnerRows, PARTNER_BAR_COLOR);
   }
 
-  function renderProductCodeFocusSection(focus) {
-    productFocusData = focus || {};
-    var toolbar = document.querySelector("#product-code-focus .chart-toolbar");
+  function renderProductTab(breakdown) {
+    productBreakdownData = breakdown || {};
+    selectedProductCode = defaultProductCode();
+    renderProductRankingChart();
+
+    var body = sectionBody("product-breakdown");
+    if (!body) return;
+
+    var buttons = PRODUCT_BREAKDOWN_KEYS.map(function (code) {
+      var block = productBlock(code);
+      return (
+        '<button type="button" class="toggle-btn" role="tab" data-product-code="' +
+        escapeHtml(code) +
+        '" aria-selected="false">' +
+        escapeHtml(code) +
+        " (" +
+        formatCount(block.count) +
+        ")</button>"
+      );
+    }).join("");
+
+    body.innerHTML =
+      '<div id="product-code-tabs" class="chart-toolbar" role="tablist" aria-label="Product code">' +
+      buttons +
+      "</div>" +
+      '<p id="product-breakdown-summary" class="size-summary"></p>' +
+      '<div class="product-split">' +
+      "<div>" +
+      '<h3 class="subsection-title">Opportunities</h3>' +
+      '<div id="product-opps-table"></div>' +
+      "</div>" +
+      "<div>" +
+      '<h3 class="subsection-title">Partners</h3>' +
+      '<div id="product-partner-chart"></div>' +
+      "</div>" +
+      "</div>";
+
+    var toolbar = document.getElementById("product-code-tabs");
     if (toolbar) {
-      toolbar.querySelectorAll("[data-focus-code]").forEach(function (btn) {
-        var code = btn.getAttribute("data-focus-code");
-        var block = productFocusData[code];
-        var count = block && !block.no_data ? formatCount(block.count) : "0";
-        btn.textContent = code + " (" + count + ")";
-      });
-    }
-    if (!productFocusWired && toolbar) {
-      productFocusWired = true;
       toolbar.addEventListener("click", function (event) {
-        var button = event.target.closest("[data-focus-code]");
+        var button = event.target.closest("[data-product-code]");
         if (!button) return;
-        renderProductCodeFocus(button.getAttribute("data-focus-code"));
+        paintProductBreakdown(button.getAttribute("data-product-code"));
       });
     }
-    renderProductCodeFocus(defaultProductFocusCode(productFocusData));
+
+    paintProductBreakdown(selectedProductCode);
   }
 
   function renderIndustryMix(industryTotals) {
@@ -1114,10 +1160,10 @@
       "</div>" +
       "</div>" +
       '<div class="ranking-panel">' +
-      "<h3>Partner Pipeline</h3>" +
+      "<h3>All Pipeline</h3>" +
       '<div class="chart-wrap industry-wrap">' +
       '<canvas id="industry-partner-canvas" role="img" aria-label="' +
-      escapeHtml(rankingAria("Partner Pipeline by industry", partnerRows)) +
+      escapeHtml(rankingAria("All Pipeline by industry", partnerRows)) +
       '"></canvas>' +
       "</div>" +
       "</div>";
@@ -1204,107 +1250,142 @@
     );
   }
 
-  function renderDeltaSummary(delta) {
-    const body = sectionBody("delta-summary");
+  function renderReconciliation(recon) {
+    var body = sectionBody("reconciliation");
     if (!body) return;
-    const data = delta || {};
-    const dupes = data.duplicate_partner_opps || [];
-    const amountMismatches = data.amount_mismatches || [];
-    const stageMismatches = data.stage_mismatches || [];
+    var data = recon || {};
+    var rows = Array.isArray(data.missing_from_dcm) ? data.missing_from_dcm.slice() : [];
+    var count = Number(data.count);
+    if (!Number.isFinite(count)) count = rows.length;
+    var total = Number(data.total);
+    if (!Number.isFinite(total)) {
+      total = 0;
+      rows.forEach(function (row) {
+        total += Number(row.amount) || 0;
+      });
+    }
 
-    const dupeRows = dupes
-      .map(function (row) {
-        const partners = Array.isArray(row.partners) ? row.partners.join(", ") : "";
-        return (
-          "<tr>" +
-          "<td>" +
-          escapeHtml(row.name || "") +
-          "</td>" +
-          "<td>" +
-          escapeHtml(partners) +
-          "</td>" +
-          '<td class="num">' +
-          escapeHtml(formatMillions(row.amount)) +
-          "</td>" +
-          "</tr>"
-        );
-      })
-      .join("");
+    var sortKey = "amount";
+    var sortDir = "desc";
+    var columns = [
+      { key: "name", label: "Opportunity Name", cls: "" },
+      { key: "partners", label: "Named partners", cls: "" },
+      { key: "account", label: "Account", cls: "" },
+      { key: "stage", label: "Stage", cls: "" },
+      { key: "amount", label: "Amount", cls: "num" },
+      { key: "close_date", label: "Close Date", cls: "" },
+    ];
 
-    const amountRows = amountMismatches
-      .map(function (row) {
-        return (
-          "<tr>" +
-          "<td>" +
-          escapeHtml(row.name || "") +
-          "</td>" +
-          '<td class="num">' +
-          escapeHtml(formatMillions(row.dcm_amount)) +
-          "</td>" +
-          '<td class="num">' +
-          escapeHtml(formatMillions(row.partner_amount)) +
-          "</td>" +
-          '<td class="num">' +
-          escapeHtml(formatMillions(row.difference)) +
-          "</td>" +
-          "</tr>"
-        );
-      })
-      .join("");
+    function partnerText(row) {
+      if (Array.isArray(row.partners)) return row.partners.join(", ");
+      return row.partners || "";
+    }
 
-    const stageRows = stageMismatches
-      .map(function (row) {
-        const dcm = Array.isArray(row.dcm_stages) ? row.dcm_stages.join(", ") : "";
-        const partner = Array.isArray(row.partner_stages)
-          ? row.partner_stages.join(", ")
-          : "";
-        return (
-          "<tr>" +
-          "<td>" +
-          escapeHtml(row.name || "") +
-          "</td>" +
-          "<td>" +
-          escapeHtml(dcm) +
-          "</td>" +
-          "<td>" +
-          escapeHtml(partner) +
-          "</td>" +
-          "</tr>"
-        );
-      })
-      .join("");
+    function compareRecon(a, b, key, dir) {
+      var av;
+      var bv;
+      if (key === "partners") {
+        av = partnerText(a);
+        bv = partnerText(b);
+      } else {
+        av = a[key];
+        bv = b[key];
+      }
+      var mul = dir === "asc" ? 1 : -1;
+      if (key === "amount") {
+        return ((Number(av) || 0) - (Number(bv) || 0)) * mul;
+      }
+      return String(av || "").localeCompare(String(bv || ""), undefined, {
+        numeric: true,
+        sensitivity: "base",
+      }) * mul;
+    }
+
+    function paintTable() {
+      rows.sort(function (a, b) {
+        return compareRecon(a, b, sortKey, sortDir);
+      });
+      var head = columns
+        .map(function (col) {
+          var aria =
+            col.key === sortKey ? (sortDir === "asc" ? "ascending" : "descending") : "none";
+          return (
+            '<th scope="col" class="' +
+            col.cls +
+            '" data-sort-key="' +
+            col.key +
+            '" aria-sort="' +
+            aria +
+            '">' +
+            escapeHtml(col.label) +
+            "</th>"
+          );
+        })
+        .join("");
+      var tbody;
+      if (!rows.length) {
+        tbody =
+          '<tr><td class="empty-row" colspan="6">No named-partner opportunities are missing from the DCM D&amp;T extract.</td></tr>';
+      } else {
+        tbody = rows
+          .map(function (row) {
+            return (
+              "<tr>" +
+              "<td>" +
+              escapeHtml(row.name || "") +
+              "</td>" +
+              "<td>" +
+              escapeHtml(partnerText(row) || "—") +
+              "</td>" +
+              "<td>" +
+              escapeHtml(row.account || "—") +
+              "</td>" +
+              "<td>" +
+              escapeHtml(row.stage || "") +
+              "</td>" +
+              '<td class="num">' +
+              escapeHtml(formatMillions(row.amount)) +
+              "</td>" +
+              "<td>" +
+              escapeHtml(formatCloseDate(row.close_date)) +
+              "</td>" +
+              "</tr>"
+            );
+          })
+          .join("");
+      }
+      var host = document.getElementById("recon-opps-table");
+      if (!host) return;
+      host.innerHTML =
+        '<div class="table-wrap"><table class="data-table">' +
+        "<thead><tr>" +
+        head +
+        "</tr></thead><tbody>" +
+        tbody +
+        "</tbody></table></div>";
+      host.querySelectorAll("th[data-sort-key]").forEach(function (th) {
+        th.addEventListener("click", function () {
+          var key = th.getAttribute("data-sort-key");
+          if (sortKey === key) {
+            sortDir = sortDir === "asc" ? "desc" : "asc";
+          } else {
+            sortKey = key;
+            sortDir = key === "amount" ? "desc" : "asc";
+          }
+          paintTable();
+        });
+      });
+    }
 
     body.innerHTML =
-      '<div class="kpi-grid delta-kpis">' +
-      kpiCard("Matched opportunities", formatCount(data.matched_count)) +
-      kpiCard("Only in DCM D&T", formatCount(data.only_in_dcm_count)) +
-      kpiCard("Only in Partner Pipeline", formatCount(data.only_in_partner_count)) +
-      "</div>" +
-      '<h3 class="subsection-title">Duplicate Partner Pipeline opportunities</h3>' +
-      '<p class="warning-note">These opportunities appear under two or more partners. They are double-counted if partner totals are summed naively.</p>' +
-      '<div class="table-wrap">' +
-      '<table class="data-table">' +
-      "<thead><tr><th>Opportunity Name</th><th>Partners</th><th class=\"num\">Amount</th></tr></thead>" +
-      "<tbody>" +
-      tableRowsOrEmpty(dupeRows, 3) +
-      "</tbody></table></div>" +
-      '<details class="mismatch-details">' +
-      "<summary>Amount and stage mismatches (" +
-      formatCount(amountMismatches.length + stageMismatches.length) +
-      ")</summary>" +
-      '<h3>Amount mismatches</h3>' +
-      '<div class="table-wrap"><table class="data-table">' +
-      "<thead><tr><th>Opportunity Name</th><th class=\"num\">DCM</th><th class=\"num\">Partner</th><th class=\"num\">Difference</th></tr></thead>" +
-      "<tbody>" +
-      tableRowsOrEmpty(amountRows, 4) +
-      "</tbody></table></div>" +
-      "<h3>Stage mismatches</h3>" +
-      '<div class="table-wrap"><table class="data-table">' +
-      "<thead><tr><th>Opportunity Name</th><th>DCM stages</th><th>Partner stages</th></tr></thead>" +
-      "<tbody>" +
-      tableRowsOrEmpty(stageRows, 3) +
-      "</tbody></table></div>" +
-      "</details>";
+      '<p class="recon-stat">' +
+      escapeHtml(formatCount(count)) +
+      " opportunities totaling " +
+      escapeHtml(formatMillions(total)) +
+      "</p>" +
+      '<p class="recon-note">These opportunities are logged under a DCM D&amp;T partner in the All Pipeline view but don\'t appear in the DCM D&amp;T extract - review whether they should be added.</p>' +
+      '<div id="recon-opps-table"></div>';
+    paintTable();
   }
 
   const FY_MONTH_ORDER = [7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6];
@@ -1644,7 +1725,7 @@
       '<div class="chart-wrap winrate-wrap">' +
       '<canvas id="win-rate-canvas" role="img" aria-label="' +
       escapeHtml(
-        "Win rate percent by partner, sorted descending. Data labels show underlying Won dollars. " +
+        "Win rate percent by All Pipeline, sorted descending. Data labels show underlying Won dollars. " +
           rows
             .map(function (row) {
               const rate =
@@ -1736,57 +1817,6 @@
     });
   }
 
-  function renderDataQualityFlags(flags) {
-    const body = sectionBody("data-quality-flags");
-    if (!body) return;
-    const source = flags || {};
-    const nearZero = source.amount_le_1 || [];
-    const stale = source.target_interact_close_over_365d || [];
-
-    function flagRow(row, flagLabel) {
-      return (
-        "<tr>" +
-        "<td><span class=\"flag-chip\">" +
-        escapeHtml(flagLabel) +
-        "</span></td>" +
-        "<td>" +
-        escapeHtml(row.name || "") +
-        "</td>" +
-        "<td>" +
-        escapeHtml(row.partner || "") +
-        "</td>" +
-        "<td>" +
-        escapeHtml(row.stage || "") +
-        "</td>" +
-        '<td class="num">' +
-        escapeHtml(formatMillions(row.amount)) +
-        "</td>" +
-        "<td>" +
-        escapeHtml(formatCloseDate(row.close_date)) +
-        "</td>" +
-        "</tr>"
-      );
-    }
-
-    const rowsHtml =
-      nearZero.map(function (row) {
-        return flagRow(row, "Near-zero amount");
-      }).join("") +
-      stale.map(function (row) {
-        return flagRow(row, "Stale Target/Interact");
-      }).join("");
-
-    body.innerHTML =
-      '<p class="warning-note">These rows may distort KPIs, rankings, and win rates. Near-zero amounts are $1 or less. Stale Target/Interact opportunities have a close date more than 365 days out.</p>' +
-      '<div class="table-wrap"><table class="data-table">' +
-      "<thead><tr>" +
-      "<th>Flag</th><th>Opportunity Name</th><th>Partner</th><th>Stage</th>" +
-      '<th class="num">Amount</th><th>Close Date</th>' +
-      "</tr></thead><tbody>" +
-      tableRowsOrEmpty(rowsHtml, 6) +
-      "</tbody></table></div>";
-  }
-
   function renderDashboard(data) {
     if (!data || typeof data !== "object") {
       showError("pipeline.json did not contain a valid data object.");
@@ -1800,20 +1830,22 @@
     dashboard.hidden = false;
 
     const sections = [
-      ["kpi-cards", renderKpiCards, data.kpis],
+      ["fy-note", renderFyNote, data.fy_label],
+      ["kpi-cards", renderKpiCards, { kpis: data.kpis, yoy_growth: data.yoy_growth }],
       ["stage-funnel", renderStageFunnel, data.stage_totals],
-      ["opps-10m-table", renderOpps10mTable, data.opps_over_10m],
-      ["opps-20m-table", renderOpps20mTable, data.opps_over_20m],
+      ["large-opps", renderOppsBySize, {
+        all_open_opportunities: data.all_open_opportunities,
+        max_open_opportunity_amount: data.max_open_opportunity_amount,
+      }],
       ["partner-ranking-chart", renderPartnerRanking, data.partner_totals],
       ["partner-code-chart", renderPartnerCodeRanking, data.partner_code_totals],
-      ["product-code-focus", renderProductCodeFocusSection, data.product_code_focus],
+      ["product-ranking", renderProductTab, data.product_breakdown],
       ["industry-mix-chart", renderIndustryMix, data.industry_totals],
       ["top-accounts-chart", renderTopAccounts, data.top_accounts],
-      ["delta-summary", renderDeltaSummary, data.delta],
       ["trend-chart", renderTrend, data.trend],
       ["aging-histogram", renderAging, data.aging],
       ["win-rate-chart", renderWinRate, data.win_rate_by_partner],
-      ["data-quality-flags", renderDataQualityFlags, data.data_quality_flags],
+      ["reconciliation", renderReconciliation, data.reconciliation],
     ];
 
     sections.forEach(function (entry) {
@@ -1824,6 +1856,65 @@
         setPlaceholder(sectionId, "This section failed to render: " + err.message);
       }
     });
+
+    setupViewTabs();
+  }
+
+  // Charts built inside a hidden panel measure 0px, so re-measure on reveal.
+  function resizeChartsIn(panel) {
+    if (!panel || typeof Chart === "undefined" || typeof Chart.getChart !== "function") {
+      return;
+    }
+    panel.querySelectorAll("canvas").forEach(function (canvas) {
+      const chart = Chart.getChart(canvas);
+      if (chart) chart.resize();
+    });
+  }
+
+  function setupViewTabs() {
+    const tablist = document.getElementById("view-tabs");
+    if (!tablist || tablist.dataset.wired === "true") return;
+    tablist.dataset.wired = "true";
+
+    const tabs = Array.prototype.slice.call(tablist.querySelectorAll("[data-tab-target]"));
+    if (!tabs.length) return;
+
+    function activate(targetId, focusTab) {
+      tabs.forEach(function (tab) {
+        const isActive = tab.getAttribute("data-tab-target") === targetId;
+        tab.classList.toggle("is-active", isActive);
+        tab.setAttribute("aria-selected", isActive ? "true" : "false");
+        tab.tabIndex = isActive ? 0 : -1;
+        if (isActive && focusTab) tab.focus();
+
+        const panel = document.getElementById(tab.getAttribute("data-tab-target"));
+        if (panel) panel.hidden = !isActive;
+        if (isActive) resizeChartsIn(panel);
+      });
+    }
+
+    tablist.addEventListener("click", function (event) {
+      const button = event.target.closest("[data-tab-target]");
+      if (!button) return;
+      activate(button.getAttribute("data-tab-target"), false);
+    });
+
+    tablist.addEventListener("keydown", function (event) {
+      if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+      const current = tabs.findIndex(function (tab) {
+        return tab.classList.contains("is-active");
+      });
+      if (current === -1) return;
+      const step = event.key === "ArrowRight" ? 1 : -1;
+      const next = tabs[(current + step + tabs.length) % tabs.length];
+      event.preventDefault();
+      activate(next.getAttribute("data-tab-target"), true);
+    });
+
+    const initial = tabs.find(function (tab) {
+      return tab.getAttribute("aria-selected") === "true";
+    });
+    activate((initial || tabs[0]).getAttribute("data-tab-target"), false);
   }
 
   async function loadDashboard() {

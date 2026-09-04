@@ -1,5 +1,11 @@
 {
-  "generated_at": "2026-09-03T22:13:58.930002+00:00",
+  "generated_at": "2026-09-04T03:07:08.966105+00:00",
+  "fy_label": "FY26",
+  "yoy_growth": {
+    "total_open_pipeline": null,
+    "open_opportunity_count": null,
+    "total_won": null
+  },
   "kpis": {
     "total_open_pipeline": 423876293.0,
     "open_opportunity_count": 104,
@@ -62,6 +68,7 @@
       "name": "WFRD IT Mgd Svcs and Agentic BPO",
       "partner": "Saurabh Sarbaliya",
       "lead": "Robert Stephens",
+      "account": "WEATHERFORD INTERNATIONAL PUBLIC LIMITED COMPANY",
       "stage": "Interact",
       "amount": 84250000.0,
       "close_date": "2026-12-31"
@@ -70,6 +77,7 @@
       "name": "HGV Oracle Financial Lending & Leasing Services",
       "partner": "Yeon Lee",
       "lead": "Christopher Black",
+      "account": "Hilton Grand Vacations Inc.",
       "stage": "Interact",
       "amount": 19030000.0,
       "close_date": "2027-03-31"
@@ -78,6 +86,7 @@
       "name": "Wave 3 FY27 UPS FCE Amendment 7",
       "partner": "Brad Housour",
       "lead": "Troy Lutes",
+      "account": "United Parcel Service, Inc.",
       "stage": "Interact",
       "amount": 17140000.0,
       "close_date": "2026-10-30"
@@ -86,6 +95,7 @@
       "name": "Masimo ERP",
       "partner": "Rattan Singh",
       "lead": "Jeff Greenberg",
+      "account": "Masimo Corporation",
       "stage": "Propose",
       "amount": 16370000.0,
       "close_date": "2027-02-26"
@@ -94,6 +104,7 @@
       "name": "NetJets Finance Evolution - Oracle ERP Implementation - Release 1",
       "partner": "Brad Housour",
       "lead": "Wai Ming Li",
+      "account": "NetJets Inc.",
       "stage": "Propose",
       "amount": 16310000.0,
       "close_date": "2026-09-30"
@@ -102,6 +113,7 @@
       "name": "MunichRE:  Oracle Finance Transformation Remaining GSI EntitiesP3/P4- #Oracle_INS",
       "partner": "Tojo Johnson",
       "lead": "Tony Bowers",
+      "account": "Munich Reinsurance America, Inc.",
       "stage": "Won",
       "amount": 15452825.0,
       "close_date": "2026-08-28"
@@ -110,6 +122,7 @@
       "name": "Finance Transformation / Strategic Ledger - R2 Implementation - Yr 1",
       "partner": "Ajeetha Menezes; Tojo Johnson; Yeon Lee",
       "lead": "Maria Blanco",
+      "account": "Citigroup Inc.",
       "stage": "Interact",
       "amount": 15000000.0,
       "close_date": "2027-04-30"
@@ -118,6 +131,7 @@
       "name": "Pfizer - Finance AI Build #DigitalFinance #PLSAI",
       "partner": "Saurabh Sarbaliya",
       "lead": "Saurabh Sarbaliya",
+      "account": "Pfizer Inc.",
       "stage": "Interact",
       "amount": 15000000.0,
       "close_date": "2026-11-06"
@@ -126,6 +140,7 @@
       "name": "Modernization of Financial and Regulatory Reporting Processes - Phase 2 #RegReporting #RiskData #RRCostOpt\u200b",
       "partner": "Yeon Lee",
       "lead": "Pradeep Pandey",
+      "account": "TD Bank, National Association",
       "stage": "Interact",
       "amount": 14000000.0,
       "close_date": "2026-12-31"
@@ -134,6 +149,7 @@
       "name": "Trimble - ERP Cloud Transformation/Implementation",
       "partner": "Samir Mehta; Satyen Popat",
       "lead": "Ernesto Solera",
+      "account": "Trimble Inc.",
       "stage": "Propose",
       "amount": 11755000.0,
       "close_date": "2026-10-15"
@@ -142,6 +158,7 @@
       "name": "Fanatics xOp Co - Oracle AES ERP Fin/SCM/ERP/HCM",
       "partner": "Saurabh Sarbaliya",
       "lead": "Todd Lee",
+      "account": "Fanatics Holdings, Inc.",
       "stage": "Close",
       "amount": 11000000.0,
       "close_date": "2026-10-31"
@@ -150,6 +167,7 @@
       "name": "Citi Strategic Ledger - FIN R1 Renewal Contract - AMENDMENT #1 (Apr 26-Dec 26)",
       "partner": "Yeon Lee",
       "lead": "Yeon Lee",
+      "account": "Citigroup Inc.",
       "stage": "Won",
       "amount": 10626386.0,
       "close_date": "2026-07-10"
@@ -158,6 +176,7 @@
       "name": "Regions Bank: ERP Transformation and Implementation",
       "partner": "Yeon Lee",
       "lead": "Arjun Katyal",
+      "account": "Regions Bank",
       "stage": "Interact",
       "amount": 10400001.0,
       "close_date": "2027-01-29"
@@ -166,6 +185,7 @@
       "name": "Athene:  Oracle Cloud Migration #Oracle_AWM",
       "partner": "Brad Housour",
       "lead": "Tony Bowers",
+      "account": "Athene Usa Corporation",
       "stage": "Interact",
       "amount": 10000000.0,
       "close_date": "2027-04-05"
@@ -174,6 +194,7 @@
       "name": "Agentic Process Transformation #PLSAI",
       "partner": "Saurabh Sarbaliya",
       "lead": "Kevin McLellan",
+      "account": "Becton, Dickinson and Company",
       "stage": "Propose",
       "amount": 10000000.0,
       "close_date": "2027-03-31"
@@ -184,11 +205,951 @@
       "name": "WFRD IT Mgd Svcs and Agentic BPO",
       "partner": "Saurabh Sarbaliya",
       "lead": "Robert Stephens",
+      "account": "WEATHERFORD INTERNATIONAL PUBLIC LIMITED COMPANY",
       "stage": "Interact",
       "amount": 84250000.0,
       "close_date": "2026-12-31"
     }
   ],
+  "all_open_opportunities": [
+    {
+      "name": "WFRD IT Mgd Svcs and Agentic BPO",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Robert Stephens",
+      "account": "WEATHERFORD INTERNATIONAL PUBLIC LIMITED COMPANY",
+      "stage": "Interact",
+      "amount": 84250000.0,
+      "close_date": "2026-12-31"
+    },
+    {
+      "name": "HGV Oracle Financial Lending & Leasing Services",
+      "partner": "Yeon Lee",
+      "lead": "Christopher Black",
+      "account": "Hilton Grand Vacations Inc.",
+      "stage": "Interact",
+      "amount": 19030000.0,
+      "close_date": "2027-03-31"
+    },
+    {
+      "name": "Wave 3 FY27 UPS FCE Amendment 7",
+      "partner": "Brad Housour",
+      "lead": "Troy Lutes",
+      "account": "United Parcel Service, Inc.",
+      "stage": "Interact",
+      "amount": 17140000.0,
+      "close_date": "2026-10-30"
+    },
+    {
+      "name": "Masimo ERP",
+      "partner": "Rattan Singh",
+      "lead": "Jeff Greenberg",
+      "account": "Masimo Corporation",
+      "stage": "Propose",
+      "amount": 16370000.0,
+      "close_date": "2027-02-26"
+    },
+    {
+      "name": "NetJets Finance Evolution - Oracle ERP Implementation - Release 1",
+      "partner": "Brad Housour",
+      "lead": "Wai Ming Li",
+      "account": "NetJets Inc.",
+      "stage": "Propose",
+      "amount": 16310000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "Finance Transformation / Strategic Ledger - R2 Implementation - Yr 1",
+      "partner": "Ajeetha Menezes; Tojo Johnson; Yeon Lee",
+      "lead": "Maria Blanco",
+      "account": "Citigroup Inc.",
+      "stage": "Interact",
+      "amount": 15000000.0,
+      "close_date": "2027-04-30"
+    },
+    {
+      "name": "Pfizer - Finance AI Build #DigitalFinance #PLSAI",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Saurabh Sarbaliya",
+      "account": "Pfizer Inc.",
+      "stage": "Interact",
+      "amount": 15000000.0,
+      "close_date": "2026-11-06"
+    },
+    {
+      "name": "Modernization of Financial and Regulatory Reporting Processes - Phase 2 #RegReporting #RiskData #RRCostOpt\u200b",
+      "partner": "Yeon Lee",
+      "lead": "Pradeep Pandey",
+      "account": "TD Bank, National Association",
+      "stage": "Interact",
+      "amount": 14000000.0,
+      "close_date": "2026-12-31"
+    },
+    {
+      "name": "Trimble - ERP Cloud Transformation/Implementation",
+      "partner": "Samir Mehta; Satyen Popat",
+      "lead": "Ernesto Solera",
+      "account": "Trimble Inc.",
+      "stage": "Propose",
+      "amount": 11755000.0,
+      "close_date": "2026-10-15"
+    },
+    {
+      "name": "Regions Bank: ERP Transformation and Implementation",
+      "partner": "Yeon Lee",
+      "lead": "Arjun Katyal",
+      "account": "Regions Bank",
+      "stage": "Interact",
+      "amount": 10400001.0,
+      "close_date": "2027-01-29"
+    },
+    {
+      "name": "Athene:  Oracle Cloud Migration #Oracle_AWM",
+      "partner": "Brad Housour",
+      "lead": "Tony Bowers",
+      "account": "Athene Usa Corporation",
+      "stage": "Interact",
+      "amount": 10000000.0,
+      "close_date": "2027-04-05"
+    },
+    {
+      "name": "Agentic Process Transformation #PLSAI",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Kevin McLellan",
+      "account": "Becton, Dickinson and Company",
+      "stage": "Propose",
+      "amount": 10000000.0,
+      "close_date": "2027-03-31"
+    },
+    {
+      "name": "Cianbro Oracle Fusion Re-Implementation",
+      "partner": "Samir Mehta",
+      "lead": "Karim Bibawi",
+      "account": "The Cianbro Companies",
+      "stage": "Propose",
+      "amount": 9600000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "Rogers MLSE Finance Implementation",
+      "partner": "Samir Mehta",
+      "lead": "Ernesto Solera",
+      "account": "Rogers Communications Inc.",
+      "stage": "Propose",
+      "amount": 8500000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "JLL Fin Trans - Delivery Partner IFW #DigitalFinance",
+      "partner": "Satyen Popat",
+      "lead": "Elizabeth Payne",
+      "account": "Jones Lang Lasalle Incorporated",
+      "stage": "Interact",
+      "amount": 8300000.0,
+      "close_date": "2026-10-15"
+    },
+    {
+      "name": "Phase ERP PPM Implementation",
+      "partner": "Samir Mehta",
+      "lead": "Karim Bibawi",
+      "account": "Iron Mountain Inc",
+      "stage": "Interact",
+      "amount": 8200000.0,
+      "close_date": "2026-10-30"
+    },
+    {
+      "name": "TD US FRP - Ledger Migration and FInancial Reporting Modernization",
+      "partner": "Yeon Lee",
+      "lead": "Yeon Lee",
+      "account": "TD Bank, National Association",
+      "stage": "Interact",
+      "amount": 8000000.0,
+      "close_date": "2027-01-22"
+    },
+    {
+      "name": "Oracle Cloud Implementation #AI-APP",
+      "partner": "Satyen Popat; Saurabh Sarbaliya",
+      "lead": "Devon Snyder",
+      "account": "Acuity Brands INC.",
+      "stage": "Propose",
+      "amount": 7100000.0,
+      "close_date": "2026-10-31"
+    },
+    {
+      "name": "Sensata aerospace carve out - Implementation Phase",
+      "partner": "Brad Housour; Faisal Ghadially; Samir Mehta; Saurabh Sarbaliya",
+      "lead": "Don Rupprecht",
+      "account": "Sensata Technologies, Inc",
+      "stage": "Propose",
+      "amount": 6884898.0,
+      "close_date": "2026-11-30"
+    },
+    {
+      "name": "CMG - Oracle Finance COA Redesign - Impl Ph1",
+      "partner": "Brad Housour",
+      "lead": "Dino Orfanos",
+      "account": "Chipotle Mexican Grill",
+      "stage": "Propose",
+      "amount": 6880000.0,
+      "close_date": "2026-09-25"
+    },
+    {
+      "name": "TD Bank:  FRP Finance PeopleSoft GL Replacement #Oracle_BCM #BCMTECH",
+      "partner": "Yeon Lee",
+      "lead": "Yeon Lee",
+      "account": "The Toronto-Dominion Bank",
+      "stage": "Propose",
+      "amount": 6600000.0,
+      "close_date": "2026-11-30"
+    },
+    {
+      "name": "Sensata aerospace carveout  - Global Design Only",
+      "partner": "Faisal Ghadially; Samir Mehta",
+      "lead": "Ernesto Solera",
+      "account": "Sensata Technologies, Inc",
+      "stage": "Propose",
+      "amount": 6004083.0,
+      "close_date": "2026-11-16"
+    },
+    {
+      "name": "Jefferies - Oracle Financials Cloud Migration #Oracle_AWM",
+      "partner": "Brad Housour",
+      "lead": "Tapan Nagori",
+      "account": "Jefferies Financial Group Inc.",
+      "stage": "Interact",
+      "amount": 5000000.0,
+      "close_date": "2027-01-04"
+    },
+    {
+      "name": "ERP transformation - Oracle, Workday",
+      "partner": "Jithendra Pai Brahmavar",
+      "lead": "Don Sobczak",
+      "account": "Workiva Inc.",
+      "stage": "Propose",
+      "amount": 5000000.0,
+      "close_date": "2026-12-31"
+    },
+    {
+      "name": "Nutanix Cloud ERP",
+      "partner": "Jithendra Pai Brahmavar",
+      "lead": "Aditya Eswarapragada",
+      "account": "Nutanix, Inc.",
+      "stage": "Interact",
+      "amount": 5000000.0,
+      "close_date": "2027-06-30"
+    },
+    {
+      "name": "Astellas - Detailed Design CY2026 | Part of PJ OM RFP",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "",
+      "account": "Astellas Pharma Inc.",
+      "stage": "Propose",
+      "amount": 4500000.0,
+      "close_date": "2026-11-30"
+    },
+    {
+      "name": "Pfizer - Forecasting Enterprise Initiative #3 #DigitalFinance #PLSAI",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Kaiser Kaiserani",
+      "account": "Pfizer Inc.",
+      "stage": "Propose",
+      "amount": 4200000.0,
+      "close_date": "2026-10-09"
+    },
+    {
+      "name": "BSC - #GBS #DVT #PLSAI #AI - AI Transformation Phase 3",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Kevin McLellan",
+      "account": "Boston Scientific Corporation",
+      "stage": "Interact",
+      "amount": 4000000.0,
+      "close_date": "2026-10-30"
+    },
+    {
+      "name": "TSVC Fusion Cloud - Phase 2 - Field Svc",
+      "partner": "Brad Housour",
+      "lead": "Brad Housour",
+      "account": "TSVC, Inc.",
+      "stage": "Propose",
+      "amount": 4000000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "BMCD - PPM Phase 1 - Adoption & Config Validation",
+      "partner": "Brad Housour; Samir Mehta",
+      "lead": "Karim Bibawi",
+      "account": "Burns & McDonnell, Inc",
+      "stage": "Propose",
+      "amount": 3900000.0,
+      "close_date": "2026-10-30"
+    },
+    {
+      "name": "Palo Alto Networks - CyberArk Data Migration & Bus. Support CO1 #O2C",
+      "partner": "Satyen Popat",
+      "lead": "Jeffrey Mandler",
+      "account": "Palo Alto Networks, Inc.",
+      "stage": "Propose",
+      "amount": 3466000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "RS&H - Oracle Fusion ERP Global Design",
+      "partner": "Brad Housour",
+      "lead": "Karim Bibawi",
+      "account": "Rs and H Inc.",
+      "stage": "Propose",
+      "amount": 3450000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "BP&C (ANICO, ARGO) - Phase 2 Oracle Implementation FDI and Accounting Hub",
+      "partner": "Brad Housour",
+      "lead": "Tony Bowers",
+      "account": "Clearbrook Group Services Inc.",
+      "stage": "Interact",
+      "amount": 3000000.0,
+      "close_date": "2026-10-16"
+    },
+    {
+      "name": "TSVC Fusion Cloud - Phase 2 - Sales, CDM & Mktg",
+      "partner": "Brad Housour",
+      "lead": "Brad Housour",
+      "account": "TSVC, Inc.",
+      "stage": "Propose",
+      "amount": 3000000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "CHS Business Transformation - Asset Maintenance Implementation",
+      "partner": "Ken Becker",
+      "lead": "Madeleine McDonnell",
+      "account": "Community Health Systems Inc.",
+      "stage": "Interact",
+      "amount": 3000000.0,
+      "close_date": "2027-04-30"
+    },
+    {
+      "name": "HCM Op Model Phase 2",
+      "partner": "Ken Becker",
+      "lead": "Madeleine McDonnell",
+      "account": "Community Health Systems Inc.",
+      "stage": "Interact",
+      "amount": 3000000.0,
+      "close_date": "2026-10-31"
+    },
+    {
+      "name": "CHS Enterprise Pricing and Strategic Sourcing Phase 2",
+      "partner": "Ken Becker",
+      "lead": "Madeleine McDonnell",
+      "account": "Community Health Systems Inc.",
+      "stage": "Interact",
+      "amount": 3000000.0,
+      "close_date": "2026-10-31"
+    },
+    {
+      "name": "Roku: Oracle ERP and SCM",
+      "partner": "Satyen Popat",
+      "lead": "Adam Stafford",
+      "account": "Roku Inc.",
+      "stage": "Propose",
+      "amount": 2500000.0,
+      "close_date": "2026-12-31"
+    },
+    {
+      "name": "Oracle Cloud Managed Services #enablingfunctions",
+      "partner": "Rattan Singh",
+      "lead": "Todd Lee",
+      "account": "Laboratory Corporation Of America Holdings",
+      "stage": "Propose",
+      "amount": 2500000.0,
+      "close_date": "2026-10-31"
+    },
+    {
+      "name": "MetLife: Versant Migration to Workday Financials",
+      "partner": "Yeon Lee",
+      "lead": "Mike Roberts",
+      "account": "MetLife, Inc.",
+      "stage": "Interact",
+      "amount": 2500000.0,
+      "close_date": "2027-06-01"
+    },
+    {
+      "name": "IPS Oracle Cloud Global PPM Workforce Planning, Resource Mgt",
+      "partner": "Brad Housour",
+      "lead": "Brad Housour",
+      "account": "IPS-INTEGRATED PROJECT SERVICES, LLC",
+      "stage": "Interact",
+      "amount": 2200000.0,
+      "close_date": "2026-10-16"
+    },
+    {
+      "name": "DPR - Global Design",
+      "partner": "Satyen Popat; Saurabh Sarbaliya",
+      "lead": "Karim Bibawi",
+      "account": "Dpr Construction Inc.",
+      "stage": "Interact",
+      "amount": 2100000.0,
+      "close_date": "2027-02-01"
+    },
+    {
+      "name": "Chewy Rebates",
+      "partner": "Brad Housour; Satyen Popat",
+      "lead": "Kaushik Narayanan",
+      "account": "Chewy, Inc",
+      "stage": "Interact",
+      "amount": 2000000.0,
+      "close_date": "2026-11-30"
+    },
+    {
+      "name": "AEO - Oracle HCM Enhancements",
+      "partner": "Sunil Warier",
+      "lead": "Jay Chatterjee",
+      "account": "American Eagle Outfitters, Inc.",
+      "stage": "Interact",
+      "amount": 1945000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "MUFG Oracle Financials AES Production Support",
+      "partner": "Tojo Johnson; Yeon Lee",
+      "lead": "Sanjeev Agrawal",
+      "account": "MUFG Bank, Ltd.",
+      "stage": "Interact",
+      "amount": 1900000.0,
+      "close_date": "2027-03-12"
+    },
+    {
+      "name": "AI Enabled Finance Transformation - Implement",
+      "partner": "Faisal Ghadially",
+      "lead": "Matthew Ritter",
+      "account": "The Cleveland Clinic Foundation",
+      "stage": "Interact",
+      "amount": 1800000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "ACV - MI ACV Reporting Support",
+      "partner": "Satyen Popat",
+      "lead": "Supakorn Chanchaowanich",
+      "account": "S&P Global Inc.",
+      "stage": "Propose",
+      "amount": 1738000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "Project Ocean ERP SOW Redwood Initiative",
+      "partner": "Jithendra Pai Brahmavar",
+      "lead": "Frank Kobyluch",
+      "account": "NetApp Inc.",
+      "stage": "Interact",
+      "amount": 1596000.0,
+      "close_date": "2026-11-27"
+    },
+    {
+      "name": "Cloud ERP Financials + Palantir",
+      "partner": "Brad Housour; Samir Mehta",
+      "lead": "Karim Bibawi",
+      "account": "West Shore Home, LLC",
+      "stage": "Propose",
+      "amount": 1550000.0,
+      "close_date": "2026-11-27"
+    },
+    {
+      "name": "EBS to Cloud Phase Zero/Design",
+      "partner": "Rattan Singh",
+      "lead": "Rattan Singh",
+      "account": "Vertex Pharmaceuticals Inc.",
+      "stage": "Interact",
+      "amount": 1500000.0,
+      "close_date": "2026-12-18"
+    },
+    {
+      "name": "Oracle Cloud ERP/EPM - AES",
+      "partner": "Sunil Warier",
+      "lead": "Mohinder Mahal",
+      "account": "Total Quality Logistics, LLC",
+      "stage": "Interact",
+      "amount": 1500000.0,
+      "close_date": "2026-12-31"
+    },
+    {
+      "name": "MUFG JP AFCS Phase R0 DDCT",
+      "partner": "Ajeetha Menezes; Tojo Johnson",
+      "lead": "Ajeetha Menezes",
+      "account": "MUFG Bank, Ltd.",
+      "stage": "Propose",
+      "amount": 1152604.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "Gray Media - Oracle Fusion and EPM Imp Takeover",
+      "partner": "Samir Mehta",
+      "lead": "Eric Butts",
+      "account": "Gray Media, Inc.",
+      "stage": "Interact",
+      "amount": 1088500.0,
+      "close_date": "2026-09-25"
+    },
+    {
+      "name": "USAA ARM Accounting Rules (3 sources) and AI",
+      "partner": "Brad Housour",
+      "lead": "Paras Sachdeva",
+      "account": "United Services Automobile Association",
+      "stage": "Interact",
+      "amount": 1050000.0,
+      "close_date": "2026-10-30"
+    },
+    {
+      "name": "Project Deliver RT2 - Freeze Support",
+      "partner": "Sunil Warier",
+      "lead": "Ernesto Solera",
+      "account": "Unifirst Corporation",
+      "stage": "Propose",
+      "amount": 1049526.0,
+      "close_date": "2026-09-15"
+    },
+    {
+      "name": "Rogers Communications Inc- Order Entry Cockpit Solution",
+      "partner": "Samir Mehta",
+      "lead": "Ernesto Solera",
+      "account": "Rogers Communications Inc.",
+      "stage": "Propose",
+      "amount": 1000000.0,
+      "close_date": "2027-01-29"
+    },
+    {
+      "name": "PwC/Jacobs Alliance - Accelerated Infrastructure Build #AI",
+      "partner": "Brad Housour",
+      "lead": "Jerry Miller",
+      "account": "Jacobs Engineering Group Inc.",
+      "stage": "Interact",
+      "amount": 1000000.0,
+      "close_date": "2026-10-01"
+    },
+    {
+      "name": "BSC -  #GBS  #DVT #PLSAI #AI  - AI Operations Managed Services",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Kevin McLellan",
+      "account": "Boston Scientific Corporation",
+      "stage": "Interact",
+      "amount": 1000000.0,
+      "close_date": "2026-10-02"
+    },
+    {
+      "name": "MetLife: GRR Migration to Workday Financials Accounting Center",
+      "partner": "Yeon Lee",
+      "lead": "Mike Roberts",
+      "account": "MetLife, Inc.",
+      "stage": "Interact",
+      "amount": 1000000.0,
+      "close_date": "2027-06-01"
+    },
+    {
+      "name": "JLL Fin Trans - Program Orchestration",
+      "partner": "Satyen Popat",
+      "lead": "Elizabeth Payne",
+      "account": "Jones Lang Lasalle Incorporated",
+      "stage": "Interact",
+      "amount": 1000000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "Pfizer - Finance Agentification AI RFI Phase 0 #DigitalFinance #agentic #TrustAI",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Jai Joshi",
+      "account": "Pfizer Inc.",
+      "stage": "Interact",
+      "amount": 1000000.0,
+      "close_date": "2026-10-01"
+    },
+    {
+      "name": "HPE - Networking Business Finance Transformation",
+      "partner": "Satyen Popat; Saurabh Sarbaliya",
+      "lead": "Brian Updike",
+      "account": "Hewlett Packard Enterprise Company",
+      "stage": "Propose",
+      "amount": 990000.0,
+      "close_date": "2026-09-25"
+    },
+    {
+      "name": "Fermi - CBS Expansion SCM Enhancements",
+      "partner": "Brad Housour",
+      "lead": "John Liu",
+      "account": "Fermi Inc.",
+      "stage": "Propose",
+      "amount": 800000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "Ameritas:  Oracle FDI Implementation",
+      "partner": "Brad Housour",
+      "lead": "Tony Bowers",
+      "account": "Ameritas Mutual Holding Company",
+      "stage": "Interact",
+      "amount": 798000.0,
+      "close_date": "2026-10-31"
+    },
+    {
+      "name": "Veralto Corp | AES-TBD | HCM | 12M | NEW",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Kevin McLellan",
+      "account": "Veralto Corporation",
+      "stage": "Interact",
+      "amount": 750000.0,
+      "close_date": "2026-09-26"
+    },
+    {
+      "name": "Change Request: Odyssey Oracle Cloud Finance/Procurement Implementation",
+      "partner": "Samir Mehta",
+      "lead": "Karim Bibawi",
+      "account": "Homeserve USA Corp.",
+      "stage": "Propose",
+      "amount": 730000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "MetLife: Extend Business Day Solution",
+      "partner": "Yeon Lee",
+      "lead": "Mike Roberts",
+      "account": "MetLife, Inc.",
+      "stage": "Interact",
+      "amount": 600000.0,
+      "close_date": "2027-02-01"
+    },
+    {
+      "name": "Cloud Software Kyriba Implementation",
+      "partner": "Samir Mehta",
+      "lead": "Naman Kuwadia",
+      "account": "Cloud Software Group Inc",
+      "stage": "Propose",
+      "amount": 550000.0,
+      "close_date": "2026-10-02"
+    },
+    {
+      "name": "RSI - AI POC opportunity - POC first Warranty Claim Form",
+      "partner": "Brad Housour",
+      "lead": "Brad Housour",
+      "account": "Republic Services INC.",
+      "stage": "Interact",
+      "amount": 500000.0,
+      "close_date": "2026-10-23"
+    },
+    {
+      "name": "OCI_LandingZone+",
+      "partner": "Faisal Ghadially",
+      "lead": "Alexis Hall",
+      "account": "Rogers Communications Inc.",
+      "stage": "Interact",
+      "amount": 500000.0,
+      "close_date": "2026-11-16"
+    },
+    {
+      "name": "Finance Data & AI Acceleration (Phase 1)",
+      "partner": "Satyen Popat",
+      "lead": "Satyen Popat",
+      "account": "ARM Limited",
+      "stage": "Propose",
+      "amount": 500000.0,
+      "close_date": "2026-08-30"
+    },
+    {
+      "name": "OCI Observability in Fusion SaaS & PaaS",
+      "partner": "Faisal Ghadially",
+      "lead": "Syed Rehman",
+      "account": "Arizona Public Service Company",
+      "stage": "Interact",
+      "amount": 500000.0,
+      "close_date": "2026-10-30"
+    },
+    {
+      "name": "OCI_Data Platform Migration",
+      "partner": "Satyen Popat; Tojo Johnson",
+      "lead": "William Tate",
+      "account": "Jones Lang Lasalle Incorporated",
+      "stage": "Interact",
+      "amount": 500000.0,
+      "close_date": "2026-11-16"
+    },
+    {
+      "name": "Lucid Data Strategy & Governance",
+      "partner": "Satyen Popat",
+      "lead": "Kaiser Kaiserani",
+      "account": "Lucid Group, Inc.",
+      "stage": "Interact",
+      "amount": 400000.0,
+      "close_date": "2026-12-09"
+    },
+    {
+      "name": "GrantGuard X UTSW",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Benjamin Scott",
+      "account": "The University of Texas Southwestern Medical Center",
+      "stage": "Interact",
+      "amount": 400000.0,
+      "close_date": "2026-10-30"
+    },
+    {
+      "name": "Sonar QTR Assessment",
+      "partner": "Satyen Popat",
+      "lead": "David Crowell",
+      "account": "SonarSource, Inc.",
+      "stage": "Propose",
+      "amount": 400000.0,
+      "close_date": "2026-08-28"
+    },
+    {
+      "name": "MUFG JP AFCS Phase R1 Basic Design",
+      "partner": "Ajeetha Menezes; Tojo Johnson",
+      "lead": "Ajeetha Menezes",
+      "account": "MUFG Bank, Ltd.",
+      "stage": "Propose",
+      "amount": 381081.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "WAL - Oracle AI",
+      "partner": "Brad Housour; Saurabh Sarbaliya",
+      "lead": "Tapan Nagori",
+      "account": "Western Alliance Bank",
+      "stage": "Propose",
+      "amount": 350000.0,
+      "close_date": "2026-12-18"
+    },
+    {
+      "name": "Oracle Cloud - Phase 2a FDI Pull Thru",
+      "partner": "Brad Housour; Sunil Warier",
+      "lead": "Angela Levy",
+      "account": "American Eagle Outfitters, Inc.",
+      "stage": "Interact",
+      "amount": 350000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "CSG APP and Oracle AI",
+      "partner": "Satyen Popat",
+      "lead": "Satyen Popat",
+      "account": "Cloud Software Group Inc",
+      "stage": "Interact",
+      "amount": 300000.0,
+      "close_date": "2026-09-11"
+    },
+    {
+      "name": "FY26 Accounting Advisory",
+      "partner": "Satyen Popat",
+      "lead": "",
+      "account": "Sirius XM Radio LLC",
+      "stage": "Interact",
+      "amount": 300000.0,
+      "close_date": "2026-09-18"
+    },
+    {
+      "name": "AtkinsRealis ERP / EBS integrations, resource & roadmap, OU re-configuration",
+      "partner": "Samir Mehta",
+      "lead": "Rosslyn Cooper",
+      "account": "AtkinsR\u00e9alis Group Inc.",
+      "stage": "Interact",
+      "amount": 300000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "Textron Systems -Oracle Cloud Validation Assessment",
+      "partner": "Sunil Warier",
+      "lead": "Christopher Menyhart",
+      "account": "Textron Inc.",
+      "stage": "Interact",
+      "amount": 265000.0,
+      "close_date": "2026-10-02"
+    },
+    {
+      "name": "Agentic HR AI Transformation - Phase 0",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Kevin McLellan",
+      "account": "Veralto Corporation",
+      "stage": "Interact",
+      "amount": 250000.0,
+      "close_date": "2026-12-30"
+    },
+    {
+      "name": "UPS Reporting CoE Flex Resources (Surge 11) - AP Reports Delivery",
+      "partner": "Brad Housour",
+      "lead": "Brad Housour",
+      "account": "United Parcel Service, Inc.",
+      "stage": "Propose",
+      "amount": 210000.0,
+      "close_date": "2026-09-25"
+    },
+    {
+      "name": "UPS Reporting CoE Flex Resources (Surge 12) - Subledger Reporting",
+      "partner": "Brad Housour",
+      "lead": "Brad Housour",
+      "account": "United Parcel Service, Inc.",
+      "stage": "Interact",
+      "amount": 210000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "RSI Local Warranty AI Solution POC",
+      "partner": "Brad Housour",
+      "lead": "Brad Housour",
+      "account": "Republic Services INC.",
+      "stage": "Interact",
+      "amount": 180000.0,
+      "close_date": "2026-10-30"
+    },
+    {
+      "name": "HAE - Sept '26 to May '27 - OM Tech Lead - Sekar Bala",
+      "partner": "Faisal Ghadially",
+      "lead": "Faisal Ghadially",
+      "account": "Haemonetics Corporation",
+      "stage": "Propose",
+      "amount": 173600.0,
+      "close_date": "2026-08-21"
+    },
+    {
+      "name": "Esko: Platform and Pricing Strategy  #BMR-XaaS #BMT-TMT #AISupported",
+      "partner": "Rattan Singh; Saurabh Sarbaliya",
+      "lead": "Kevin McLellan",
+      "account": "ESKO - GRAPHICS BV",
+      "stage": "Interact",
+      "amount": 150000.0,
+      "close_date": "2026-08-30"
+    },
+    {
+      "name": "HPE - DISE Assessment - Phase 1 #DISE",
+      "partner": "Satyen Popat",
+      "lead": "",
+      "account": "Hewlett Packard Enterprise Company",
+      "stage": "Propose",
+      "amount": 150000.0,
+      "close_date": "2027-01-08"
+    },
+    {
+      "name": "BP&C (ANICO, ARGO) - FP&A Implementation CO #6",
+      "partner": "Brad Housour",
+      "lead": "Tony Bowers",
+      "account": "Clearbrook Group Services Inc.",
+      "stage": "Propose",
+      "amount": 140000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "Ultragenyx ERP Strategy & Roadmap",
+      "partner": "Rattan Singh",
+      "lead": "Rattan Singh",
+      "account": "Ultragenyx Pharmaceutical Inc.",
+      "stage": "Interact",
+      "amount": 100000.0,
+      "close_date": "2027-04-02"
+    },
+    {
+      "name": "Hach Commercial Excellence (Contingent Fee)",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Kevin McLellan",
+      "account": "Hach Company",
+      "stage": "Interact",
+      "amount": 100000.0,
+      "close_date": "2027-04-30"
+    },
+    {
+      "name": "Hach Commercial Excellence (Fixed Fee)",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Kevin McLellan",
+      "account": "Hach Company",
+      "stage": "Interact",
+      "amount": 100000.0,
+      "close_date": "2027-04-30"
+    },
+    {
+      "name": "MRE GSI, HSB UK TE Support",
+      "partner": "Tojo Johnson",
+      "lead": "Tony Bowers",
+      "account": "Munich Reinsurance America, Inc.",
+      "stage": "Interact",
+      "amount": 100000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "WFRD Oracle D1 - Headcount Report Changes",
+      "partner": "Brad Housour",
+      "lead": "Brad Housour",
+      "account": "WEATHERFORD INTERNATIONAL PUBLIC LIMITED COMPANY",
+      "stage": "Interact",
+      "amount": 100000.0,
+      "close_date": "2026-10-30"
+    },
+    {
+      "name": "MetLife Phase 2 - Data Conversion - MGCC Conversion Approach",
+      "partner": "Yeon Lee",
+      "lead": "Mike Roberts",
+      "account": "MetLife, Inc.",
+      "stage": "Interact",
+      "amount": 67000.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "#APP Oracle Cloud ERP - Agent Powered Performance",
+      "partner": "Satyen Popat",
+      "lead": "Robert Roman",
+      "account": "Ziff Davis, Inc.",
+      "stage": "Interact",
+      "amount": 50000.0,
+      "close_date": "2026-10-01"
+    },
+    {
+      "name": "Build a Thon for TR team",
+      "partner": "Saurabh Sarbaliya",
+      "lead": "Cornell Staeger",
+      "account": "PepsiCo, Inc.",
+      "stage": "Interact",
+      "amount": 50000.0,
+      "close_date": "2026-10-01"
+    },
+    {
+      "name": "Tama - AI Training",
+      "partner": "Brad Housour; Satyen Popat",
+      "lead": "Satyen Popat",
+      "account": "Tama Group",
+      "stage": "Interact",
+      "amount": 50000.0,
+      "close_date": "2026-11-30"
+    },
+    {
+      "name": "MetLife: Workday Finance Phase 2 - Jira Enhancements",
+      "partner": "Yeon Lee",
+      "lead": "Mike Roberts",
+      "account": "MetLife, Inc.",
+      "stage": "Interact",
+      "amount": 22000.0,
+      "close_date": "2027-02-01"
+    },
+    {
+      "name": "GEHC DCT Phase 1: $0 Scope, Schedule, and AI Agent Updates (CR #2)",
+      "partner": "Rattan Singh",
+      "lead": "Michael McCarron",
+      "account": "GE Precision Healthcare LLC",
+      "stage": "Propose",
+      "amount": 0.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "MSFT FIN Gaming Oracle - CR 3 for Assist with SIT [Zero dollars CR for documentation]",
+      "partner": "Jithendra Pai Brahmavar",
+      "lead": "Jithendra Pai Brahmavar",
+      "account": "Microsoft Corporation",
+      "stage": "Propose",
+      "amount": 0.0,
+      "close_date": "2026-09-30"
+    },
+    {
+      "name": "WWT FAH IMPL resource change",
+      "partner": "Samir Mehta",
+      "lead": "Samir Mehta",
+      "account": "World Wide Technology Holding Co. LLC",
+      "stage": "Propose",
+      "amount": 0.0,
+      "close_date": "2026-08-21"
+    }
+  ],
+  "max_open_opportunity_amount": 84250000.0,
   "partner_totals": [
     {
       "partner": "Saurabh Sarbaliya",
@@ -325,33 +1286,11 @@
       "source": "partner_joined_to_dcm_codes"
     }
   ],
-  "product_code_focus": {
+  "product_breakdown": {
     "USH16": {
       "total": 1680000.0,
       "count": 6,
-      "stage_breakdown": [
-        {
-          "stage": "Target",
-          "count": 2,
-          "amount": 650000.0
-        },
-        {
-          "stage": "Interact",
-          "count": 3,
-          "amount": 530000.0
-        },
-        {
-          "stage": "Propose",
-          "count": 1,
-          "amount": 500000.0
-        },
-        {
-          "stage": "Won",
-          "count": 1,
-          "amount": 0.0
-        }
-      ],
-      "top_opportunities": [
+      "opportunities": [
         {
           "name": "Finance Data & AI Acceleration (Phase 1)",
           "partner": "Satyen Popat",
@@ -405,18 +1344,9 @@
           "stage": "Interact",
           "amount": 50000.0,
           "close_date": "2026-11-30"
-        },
-        {
-          "name": "AIDEN - Change Order",
-          "partner": "Saurabh Sarbaliya",
-          "lead": "Saurabh Sarbaliya",
-          "account": "Fanatics Holdings, Inc.",
-          "stage": "Won",
-          "amount": 0.0,
-          "close_date": "2026-08-31"
         }
       ],
-      "partner_breakdown": [
+      "partner_totals": [
         {
           "partner": "Satyen Popat",
           "amount": 950000.0,
@@ -425,7 +1355,7 @@
         {
           "partner": "Saurabh Sarbaliya",
           "amount": 500000.0,
-          "count": 2
+          "count": 1
         },
         {
           "partner": "Brad Housour",
@@ -437,80 +1367,12 @@
           "amount": 50000.0,
           "count": 1
         }
-      ],
-      "trend": [
-        {
-          "month": "2026-07",
-          "amount": 0.0
-        },
-        {
-          "month": "2026-08",
-          "amount": 500000.0
-        },
-        {
-          "month": "2026-09",
-          "amount": 300000.0
-        },
-        {
-          "month": "2026-10",
-          "amount": 180000.0
-        },
-        {
-          "month": "2026-11",
-          "amount": 550000.0
-        },
-        {
-          "month": "2026-12",
-          "amount": 0.0
-        },
-        {
-          "month": "2027-01",
-          "amount": 0.0
-        },
-        {
-          "month": "2027-02",
-          "amount": 0.0
-        },
-        {
-          "month": "2027-03",
-          "amount": 0.0
-        },
-        {
-          "month": "2027-04",
-          "amount": 150000.0
-        },
-        {
-          "month": "2027-05",
-          "amount": 0.0
-        },
-        {
-          "month": "2027-06",
-          "amount": 0.0
-        }
-      ],
-      "no_data": false
+      ]
     },
     "USH17": {
       "total": 10053685.0,
       "count": 6,
-      "stage_breakdown": [
-        {
-          "stage": "Interact",
-          "count": 3,
-          "amount": 8310000.0
-        },
-        {
-          "stage": "Propose",
-          "count": 3,
-          "amount": 1743685.0
-        },
-        {
-          "stage": "Won",
-          "count": 2,
-          "amount": 1325000.0
-        }
-      ],
-      "top_opportunities": [
+      "opportunities": [
         {
           "name": "TD US FRP - Ledger Migration and FInancial Reporting Modernization",
           "partner": "Yeon Lee",
@@ -519,15 +1381,6 @@
           "stage": "Interact",
           "amount": 8000000.0,
           "close_date": "2027-01-22"
-        },
-        {
-          "name": "Dollar General - FDI Extension",
-          "partner": "Brad Housour",
-          "lead": "Brad Housour",
-          "account": "Dollar General Corporation",
-          "stage": "Won",
-          "amount": 1225000.0,
-          "close_date": "2026-07-31"
         },
         {
           "name": "MUFG JP AFCS Phase R0 DDCT",
@@ -566,15 +1419,6 @@
           "close_date": "2026-09-30"
         },
         {
-          "name": "UPS Reporting CoE Flex Resources (Surge 12) - FDI Delivery",
-          "partner": "Brad Housour",
-          "lead": "Brad Housour",
-          "account": "United Parcel Service, Inc.",
-          "stage": "Won",
-          "amount": 100000.0,
-          "close_date": "2026-08-07"
-        },
-        {
           "name": "WFRD Oracle D1 - Headcount Report Changes",
           "partner": "Brad Housour",
           "lead": "Brad Housour",
@@ -584,101 +1428,28 @@
           "close_date": "2026-10-30"
         }
       ],
-      "partner_breakdown": [
+      "partner_totals": [
         {
           "partner": "Yeon Lee",
           "amount": 8000000.0,
           "count": 1
         },
         {
-          "partner": "Brad Housour",
-          "amount": 1845000.0,
-          "count": 5
-        },
-        {
           "partner": "Ajeetha Menezes; Tojo Johnson",
           "amount": 1533685.0,
           "count": 2
+        },
+        {
+          "partner": "Brad Housour",
+          "amount": 520000.0,
+          "count": 3
         }
-      ],
-      "trend": [
-        {
-          "month": "2026-07",
-          "amount": 1225000.0
-        },
-        {
-          "month": "2026-08",
-          "amount": 100000.0
-        },
-        {
-          "month": "2026-09",
-          "amount": 1953685.0
-        },
-        {
-          "month": "2026-10",
-          "amount": 100000.0
-        },
-        {
-          "month": "2026-11",
-          "amount": 0.0
-        },
-        {
-          "month": "2026-12",
-          "amount": 0.0
-        },
-        {
-          "month": "2027-01",
-          "amount": 8000000.0
-        },
-        {
-          "month": "2027-02",
-          "amount": 0.0
-        },
-        {
-          "month": "2027-03",
-          "amount": 0.0
-        },
-        {
-          "month": "2027-04",
-          "amount": 0.0
-        },
-        {
-          "month": "2027-05",
-          "amount": 0.0
-        },
-        {
-          "month": "2027-06",
-          "amount": 0.0
-        }
-      ],
-      "no_data": false
+      ]
     },
     "USG18": {
       "total": 25595000.0,
       "count": 13,
-      "stage_breakdown": [
-        {
-          "stage": "Propose",
-          "count": 3,
-          "amount": 13200000.0
-        },
-        {
-          "stage": "Won",
-          "count": 5,
-          "amount": 12949386.0
-        },
-        {
-          "stage": "Target",
-          "count": 7,
-          "amount": 8595000.0
-        },
-        {
-          "stage": "Interact",
-          "count": 3,
-          "amount": 3800000.0
-        }
-      ],
-      "top_opportunities": [
+      "opportunities": [
         {
           "name": "TD Bank:  FRP Finance PeopleSoft GL Replacement #Oracle_BCM #BCMTECH",
           "partner": "Yeon Lee",
@@ -687,15 +1458,6 @@
           "stage": "Propose",
           "amount": 13200000.0,
           "close_date": "2026-11-30"
-        },
-        {
-          "name": "Citi Strategic Ledger - FIN R1 Renewal Contract - AMENDMENT #1 (Apr 26-Dec 26)",
-          "partner": "Yeon Lee",
-          "lead": "Yeon Lee",
-          "account": "Citigroup Inc.",
-          "stage": "Won",
-          "amount": 10626386.0,
-          "close_date": "2026-07-10"
         },
         {
           "name": "Platform Selection, Phase 0 and Implementation",
@@ -725,15 +1487,6 @@
           "close_date": "2026-12-18"
         },
         {
-          "name": "Fermi - CBS Expansion",
-          "partner": "Brad Housour",
-          "lead": "Brad Housour",
-          "account": "Fermi Inc.",
-          "stage": "Won",
-          "amount": 1200000.0,
-          "close_date": "2026-08-21"
-        },
-        {
           "name": "TD Bank:  FRP Risk Retail R2   #Oracle_BCM #BCMTECH",
           "partner": "Yeon Lee",
           "lead": "Yeon Lee",
@@ -741,15 +1494,6 @@
           "stage": "Target",
           "amount": 1000000.0,
           "close_date": "2026-09-30"
-        },
-        {
-          "name": "TQL Oracle Acquisition Enablement",
-          "partner": "Sunil Warier",
-          "lead": "Sunil Warier",
-          "account": "",
-          "stage": "Target",
-          "amount": 750000.0,
-          "close_date": "2026-10-30"
         },
         {
           "name": "Oracle ERP Stabilization",
@@ -761,20 +1505,74 @@
           "close_date": "2026-11-27"
         },
         {
-          "name": "WWT FAH IMPL",
+          "name": "TQL Oracle Acquisition Enablement",
+          "partner": "Sunil Warier",
+          "lead": "Sunil Warier",
+          "account": "",
+          "stage": "Target",
+          "amount": 750000.0,
+          "close_date": "2026-10-30"
+        },
+        {
+          "name": "Oracle ERP Phase 0",
+          "partner": "Satyen Popat",
+          "lead": "Satyen Popat",
+          "account": "",
+          "stage": "Target",
+          "amount": 500000.0,
+          "close_date": "2027-04-30"
+        },
+        {
+          "name": "Rogers MLSE Finance Implementation ERP & EPM",
+          "partner": "Samir Mehta",
+          "lead": "Samir Mehta",
+          "account": "",
+          "stage": "Target",
+          "amount": 495000.0,
+          "close_date": "2026-12-31"
+        },
+        {
+          "name": "Suspect Oracle ERP cloud",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "",
+          "stage": "Target",
+          "amount": 100000.0,
+          "close_date": "2026-12-30"
+        },
+        {
+          "name": "Ultragenyx ERP Strategy & Roadmap",
+          "partner": "Rattan Singh",
+          "lead": "Rattan Singh",
+          "account": "Ultragenyx Pharmaceutical Inc.",
+          "stage": "Interact",
+          "amount": 100000.0,
+          "close_date": "2027-04-02"
+        },
+        {
+          "name": "MSFT FIN Gaming Oracle - CR 3 for Assist with SIT [Zero dollars CR for documentation]",
+          "partner": "Jithendra Pai Brahmavar",
+          "lead": "Jithendra Pai Brahmavar",
+          "account": "Microsoft Corporation",
+          "stage": "Propose",
+          "amount": 0.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "WWT FAH IMPL resource change",
           "partner": "Samir Mehta",
           "lead": "Samir Mehta",
           "account": "World Wide Technology Holding Co. LLC",
-          "stage": "Won",
-          "amount": 550000.0,
-          "close_date": "2026-07-17"
+          "stage": "Propose",
+          "amount": 0.0,
+          "close_date": "2026-08-21"
         }
       ],
-      "partner_breakdown": [
+      "partner_totals": [
         {
           "partner": "Yeon Lee",
-          "amount": 24826386.0,
-          "count": 3
+          "amount": 14200000.0,
+          "count": 2
         },
         {
           "partner": "Rattan Singh",
@@ -783,13 +1581,8 @@
         },
         {
           "partner": "Brad Housour",
-          "amount": 3578000.0,
-          "count": 4
-        },
-        {
-          "partner": "Samir Mehta",
-          "amount": 1540000.0,
-          "count": 4
+          "amount": 2300000.0,
+          "count": 2
         },
         {
           "partner": "Sunil Warier",
@@ -802,62 +1595,1021 @@
           "count": 1
         },
         {
+          "partner": "Samir Mehta",
+          "amount": 495000.0,
+          "count": 2
+        },
+        {
           "partner": "Jithendra Pai Brahmavar",
           "amount": 0.0,
           "count": 1
         }
-      ],
-      "trend": [
+      ]
+    },
+    "No D&A": {
+      "total": 409787957.0,
+      "count": 98,
+      "opportunities": [
         {
-          "month": "2026-07",
-          "amount": 11176386.0
+          "name": "WFRD IT Mgd Svcs and Agentic BPO",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Robert Stephens",
+          "account": "WEATHERFORD INTERNATIONAL PUBLIC LIMITED COMPANY",
+          "stage": "Interact",
+          "amount": 84250000.0,
+          "close_date": "2026-12-31"
         },
         {
-          "month": "2026-08",
-          "amount": 1278000.0
+          "name": "HGV Oracle Financial Lending & Leasing Services",
+          "partner": "Yeon Lee",
+          "lead": "Christopher Black",
+          "account": "Hilton Grand Vacations Inc.",
+          "stage": "Interact",
+          "amount": 19030000.0,
+          "close_date": "2027-03-31"
         },
         {
-          "month": "2026-09",
-          "amount": 1495000.0
+          "name": "Wave 3 FY27 UPS FCE Amendment 7",
+          "partner": "Brad Housour",
+          "lead": "Troy Lutes",
+          "account": "United Parcel Service, Inc.",
+          "stage": "Interact",
+          "amount": 17140000.0,
+          "close_date": "2026-10-30"
         },
         {
-          "month": "2026-10",
-          "amount": 2950000.0
+          "name": "Masimo ERP",
+          "partner": "Rattan Singh",
+          "lead": "Jeff Greenberg",
+          "account": "Masimo Corporation",
+          "stage": "Propose",
+          "amount": 16370000.0,
+          "close_date": "2027-02-26"
         },
         {
-          "month": "2026-11",
-          "amount": 13950000.0
+          "name": "NetJets Finance Evolution - Oracle ERP Implementation - Release 1",
+          "partner": "Brad Housour",
+          "lead": "Wai Ming Li",
+          "account": "NetJets Inc.",
+          "stage": "Propose",
+          "amount": 16310000.0,
+          "close_date": "2026-09-30"
         },
         {
-          "month": "2026-12",
-          "amount": 2095000.0
+          "name": "Finance Transformation / Strategic Ledger - R2 Implementation - Yr 1",
+          "partner": "Ajeetha Menezes; Tojo Johnson; Yeon Lee",
+          "lead": "Maria Blanco",
+          "account": "Citigroup Inc.",
+          "stage": "Interact",
+          "amount": 15000000.0,
+          "close_date": "2027-04-30"
         },
         {
-          "month": "2027-01",
-          "amount": 5000000.0
+          "name": "Pfizer - Finance AI Build #DigitalFinance #PLSAI",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Saurabh Sarbaliya",
+          "account": "Pfizer Inc.",
+          "stage": "Interact",
+          "amount": 15000000.0,
+          "close_date": "2026-11-06"
         },
         {
-          "month": "2027-02",
-          "amount": 0.0
+          "name": "Modernization of Financial and Regulatory Reporting Processes - Phase 2 #RegReporting #RiskData #RRCostOpt\u200b",
+          "partner": "Yeon Lee",
+          "lead": "Pradeep Pandey",
+          "account": "TD Bank, National Association",
+          "stage": "Interact",
+          "amount": 14000000.0,
+          "close_date": "2026-12-31"
         },
         {
-          "month": "2027-03",
-          "amount": 0.0
+          "name": "Trimble - ERP Cloud Transformation/Implementation",
+          "partner": "Samir Mehta; Satyen Popat",
+          "lead": "Ernesto Solera",
+          "account": "Trimble Inc.",
+          "stage": "Propose",
+          "amount": 11755000.0,
+          "close_date": "2026-10-15"
         },
         {
-          "month": "2027-04",
-          "amount": 600000.0
+          "name": "Regions Bank: ERP Transformation and Implementation",
+          "partner": "Yeon Lee",
+          "lead": "Arjun Katyal",
+          "account": "Regions Bank",
+          "stage": "Interact",
+          "amount": 10400001.0,
+          "close_date": "2027-01-29"
         },
         {
-          "month": "2027-05",
-          "amount": 0.0
+          "name": "Agentic Process Transformation #PLSAI",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Kevin McLellan",
+          "account": "Becton, Dickinson and Company",
+          "stage": "Propose",
+          "amount": 10000000.0,
+          "close_date": "2027-03-31"
         },
         {
-          "month": "2027-06",
-          "amount": 0.0
+          "name": "Athene:  Oracle Cloud Migration #Oracle_AWM",
+          "partner": "Brad Housour",
+          "lead": "Tony Bowers",
+          "account": "Athene Usa Corporation",
+          "stage": "Interact",
+          "amount": 10000000.0,
+          "close_date": "2027-04-05"
+        },
+        {
+          "name": "Cianbro Oracle Fusion Re-Implementation",
+          "partner": "Samir Mehta",
+          "lead": "Karim Bibawi",
+          "account": "The Cianbro Companies",
+          "stage": "Propose",
+          "amount": 9600000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "Rogers MLSE Finance Implementation",
+          "partner": "Samir Mehta",
+          "lead": "Ernesto Solera",
+          "account": "Rogers Communications Inc.",
+          "stage": "Propose",
+          "amount": 8500000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "JLL Fin Trans - Delivery Partner IFW #DigitalFinance",
+          "partner": "Satyen Popat",
+          "lead": "Elizabeth Payne",
+          "account": "Jones Lang Lasalle Incorporated",
+          "stage": "Interact",
+          "amount": 8300000.0,
+          "close_date": "2026-10-15"
+        },
+        {
+          "name": "Phase ERP PPM Implementation",
+          "partner": "Samir Mehta",
+          "lead": "Karim Bibawi",
+          "account": "Iron Mountain Inc",
+          "stage": "Interact",
+          "amount": 8200000.0,
+          "close_date": "2026-10-30"
+        },
+        {
+          "name": "Oracle Cloud Implementation #AI-APP",
+          "partner": "Satyen Popat; Saurabh Sarbaliya",
+          "lead": "Devon Snyder",
+          "account": "Acuity Brands INC.",
+          "stage": "Propose",
+          "amount": 7100000.0,
+          "close_date": "2026-10-31"
+        },
+        {
+          "name": "Sensata aerospace carve out - Implementation Phase",
+          "partner": "Brad Housour; Faisal Ghadially; Samir Mehta; Saurabh Sarbaliya",
+          "lead": "Don Rupprecht",
+          "account": "Sensata Technologies, Inc",
+          "stage": "Propose",
+          "amount": 6884898.0,
+          "close_date": "2026-11-30"
+        },
+        {
+          "name": "CMG - Oracle Finance COA Redesign - Impl Ph1",
+          "partner": "Brad Housour",
+          "lead": "Dino Orfanos",
+          "account": "Chipotle Mexican Grill",
+          "stage": "Propose",
+          "amount": 6880000.0,
+          "close_date": "2026-09-25"
+        },
+        {
+          "name": "Sensata aerospace carveout  - Global Design Only",
+          "partner": "Faisal Ghadially; Samir Mehta",
+          "lead": "Ernesto Solera",
+          "account": "Sensata Technologies, Inc",
+          "stage": "Propose",
+          "amount": 6004083.0,
+          "close_date": "2026-11-16"
+        },
+        {
+          "name": "ERP transformation - Oracle, Workday",
+          "partner": "Jithendra Pai Brahmavar",
+          "lead": "Don Sobczak",
+          "account": "Workiva Inc.",
+          "stage": "Propose",
+          "amount": 5000000.0,
+          "close_date": "2026-12-31"
+        },
+        {
+          "name": "Jefferies - Oracle Financials Cloud Migration #Oracle_AWM",
+          "partner": "Brad Housour",
+          "lead": "Tapan Nagori",
+          "account": "Jefferies Financial Group Inc.",
+          "stage": "Interact",
+          "amount": 5000000.0,
+          "close_date": "2027-01-04"
+        },
+        {
+          "name": "Nutanix Cloud ERP",
+          "partner": "Jithendra Pai Brahmavar",
+          "lead": "Aditya Eswarapragada",
+          "account": "Nutanix, Inc.",
+          "stage": "Interact",
+          "amount": 5000000.0,
+          "close_date": "2027-06-30"
+        },
+        {
+          "name": "Astellas - Detailed Design CY2026 | Part of PJ OM RFP",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "",
+          "account": "Astellas Pharma Inc.",
+          "stage": "Propose",
+          "amount": 4500000.0,
+          "close_date": "2026-11-30"
+        },
+        {
+          "name": "Pfizer - Forecasting Enterprise Initiative #3 #DigitalFinance #PLSAI",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Kaiser Kaiserani",
+          "account": "Pfizer Inc.",
+          "stage": "Propose",
+          "amount": 4200000.0,
+          "close_date": "2026-10-09"
+        },
+        {
+          "name": "BSC - #GBS #DVT #PLSAI #AI - AI Transformation Phase 3",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Kevin McLellan",
+          "account": "Boston Scientific Corporation",
+          "stage": "Interact",
+          "amount": 4000000.0,
+          "close_date": "2026-10-30"
+        },
+        {
+          "name": "TSVC Fusion Cloud - Phase 2 - Field Svc",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "TSVC, Inc.",
+          "stage": "Propose",
+          "amount": 4000000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "BMCD - PPM Phase 1 - Adoption & Config Validation",
+          "partner": "Brad Housour; Samir Mehta",
+          "lead": "Karim Bibawi",
+          "account": "Burns & McDonnell, Inc",
+          "stage": "Propose",
+          "amount": 3900000.0,
+          "close_date": "2026-10-30"
+        },
+        {
+          "name": "Data Management Regulatory Additional Remediation Planning Change Order #RegResponse",
+          "partner": "Yeon Lee",
+          "lead": "Yeon Lee",
+          "account": "",
+          "stage": "Target",
+          "amount": 3735000.0,
+          "close_date": "2026-10-30"
+        },
+        {
+          "name": "Palo Alto Networks - CyberArk Data Migration & Bus. Support CO1 #O2C",
+          "partner": "Satyen Popat",
+          "lead": "Jeffrey Mandler",
+          "account": "Palo Alto Networks, Inc.",
+          "stage": "Propose",
+          "amount": 3466000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "RS&H - Oracle Fusion ERP Global Design",
+          "partner": "Brad Housour",
+          "lead": "Karim Bibawi",
+          "account": "Rs and H Inc.",
+          "stage": "Propose",
+          "amount": 3450000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "BP&C (ANICO, ARGO) - Phase 2 Oracle Implementation FDI and Accounting Hub",
+          "partner": "Brad Housour",
+          "lead": "Tony Bowers",
+          "account": "Clearbrook Group Services Inc.",
+          "stage": "Interact",
+          "amount": 3000000.0,
+          "close_date": "2026-10-16"
+        },
+        {
+          "name": "CHS Business Transformation - Asset Maintenance Implementation",
+          "partner": "Ken Becker",
+          "lead": "Madeleine McDonnell",
+          "account": "Community Health Systems Inc.",
+          "stage": "Interact",
+          "amount": 3000000.0,
+          "close_date": "2027-04-30"
+        },
+        {
+          "name": "CHS Enterprise Pricing and Strategic Sourcing Phase 2",
+          "partner": "Ken Becker",
+          "lead": "Madeleine McDonnell",
+          "account": "Community Health Systems Inc.",
+          "stage": "Interact",
+          "amount": 3000000.0,
+          "close_date": "2026-10-31"
+        },
+        {
+          "name": "HCM Op Model Phase 2",
+          "partner": "Ken Becker",
+          "lead": "Madeleine McDonnell",
+          "account": "Community Health Systems Inc.",
+          "stage": "Interact",
+          "amount": 3000000.0,
+          "close_date": "2026-10-31"
+        },
+        {
+          "name": "TSVC Fusion Cloud - Phase 2 - Sales, CDM & Mktg",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "TSVC, Inc.",
+          "stage": "Propose",
+          "amount": 3000000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "MetLife: Versant Migration to Workday Financials",
+          "partner": "Yeon Lee",
+          "lead": "Mike Roberts",
+          "account": "MetLife, Inc.",
+          "stage": "Interact",
+          "amount": 2500000.0,
+          "close_date": "2027-06-01"
+        },
+        {
+          "name": "Oracle Cloud Managed Services #enablingfunctions",
+          "partner": "Rattan Singh",
+          "lead": "Todd Lee",
+          "account": "Laboratory Corporation Of America Holdings",
+          "stage": "Propose",
+          "amount": 2500000.0,
+          "close_date": "2026-10-31"
+        },
+        {
+          "name": "Roku: Oracle ERP and SCM",
+          "partner": "Satyen Popat",
+          "lead": "Adam Stafford",
+          "account": "Roku Inc.",
+          "stage": "Propose",
+          "amount": 2500000.0,
+          "close_date": "2026-12-31"
+        },
+        {
+          "name": "DPR - Global Design",
+          "partner": "Satyen Popat; Saurabh Sarbaliya",
+          "lead": "Karim Bibawi",
+          "account": "Dpr Construction Inc.",
+          "stage": "Interact",
+          "amount": 2100000.0,
+          "close_date": "2027-02-01"
+        },
+        {
+          "name": "Chewy Rebates",
+          "partner": "Brad Housour; Satyen Popat",
+          "lead": "Kaushik Narayanan",
+          "account": "Chewy, Inc",
+          "stage": "Interact",
+          "amount": 2000000.0,
+          "close_date": "2026-11-30"
+        },
+        {
+          "name": "AEO - Oracle HCM Enhancements",
+          "partner": "Sunil Warier",
+          "lead": "Jay Chatterjee",
+          "account": "American Eagle Outfitters, Inc.",
+          "stage": "Interact",
+          "amount": 1945000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "MUFG Oracle Financials AES Production Support",
+          "partner": "Tojo Johnson; Yeon Lee",
+          "lead": "Sanjeev Agrawal",
+          "account": "MUFG Bank, Ltd.",
+          "stage": "Interact",
+          "amount": 1900000.0,
+          "close_date": "2027-03-12"
+        },
+        {
+          "name": "AI Enabled Finance Transformation - Implement",
+          "partner": "Faisal Ghadially",
+          "lead": "Matthew Ritter",
+          "account": "The Cleveland Clinic Foundation",
+          "stage": "Interact",
+          "amount": 1800000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "ACV - MI ACV Reporting Support",
+          "partner": "Satyen Popat",
+          "lead": "Supakorn Chanchaowanich",
+          "account": "S&P Global Inc.",
+          "stage": "Propose",
+          "amount": 1738000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "Project Ocean ERP SOW Redwood Initiative",
+          "partner": "Jithendra Pai Brahmavar",
+          "lead": "Frank Kobyluch",
+          "account": "NetApp Inc.",
+          "stage": "Interact",
+          "amount": 1596000.0,
+          "close_date": "2026-11-27"
+        },
+        {
+          "name": "Cloud ERP Financials + Palantir",
+          "partner": "Brad Housour; Samir Mehta",
+          "lead": "Karim Bibawi",
+          "account": "West Shore Home, LLC",
+          "stage": "Propose",
+          "amount": 1550000.0,
+          "close_date": "2026-11-27"
+        },
+        {
+          "name": "Oracle Cloud ERP/EPM - AES",
+          "partner": "Sunil Warier",
+          "lead": "Mohinder Mahal",
+          "account": "Total Quality Logistics, LLC",
+          "stage": "Interact",
+          "amount": 1500000.0,
+          "close_date": "2026-12-31"
+        },
+        {
+          "name": "TSVC Fusion Cloud - Phase 2 - HCM expansion",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "",
+          "stage": "Target",
+          "amount": 1500000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "Gray Media - Oracle Fusion and EPM Imp Takeover",
+          "partner": "Samir Mehta",
+          "lead": "Eric Butts",
+          "account": "Gray Media, Inc.",
+          "stage": "Interact",
+          "amount": 1088500.0,
+          "close_date": "2026-09-25"
+        },
+        {
+          "name": "USAA ARM Accounting Rules (3 sources) and AI",
+          "partner": "Brad Housour",
+          "lead": "Paras Sachdeva",
+          "account": "United Services Automobile Association",
+          "stage": "Interact",
+          "amount": 1050000.0,
+          "close_date": "2026-10-30"
+        },
+        {
+          "name": "Project Deliver RT2 - Freeze Support",
+          "partner": "Sunil Warier",
+          "lead": "Ernesto Solera",
+          "account": "Unifirst Corporation",
+          "stage": "Propose",
+          "amount": 1049526.0,
+          "close_date": "2026-09-15"
+        },
+        {
+          "name": "BSC -  #GBS  #DVT #PLSAI #AI  - AI Operations Managed Services",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Kevin McLellan",
+          "account": "Boston Scientific Corporation",
+          "stage": "Interact",
+          "amount": 1000000.0,
+          "close_date": "2026-10-02"
+        },
+        {
+          "name": "JLL Fin Trans - Program Orchestration",
+          "partner": "Satyen Popat",
+          "lead": "Elizabeth Payne",
+          "account": "Jones Lang Lasalle Incorporated",
+          "stage": "Interact",
+          "amount": 1000000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "MetLife: GRR Migration to Workday Financials Accounting Center",
+          "partner": "Yeon Lee",
+          "lead": "Mike Roberts",
+          "account": "MetLife, Inc.",
+          "stage": "Interact",
+          "amount": 1000000.0,
+          "close_date": "2027-06-01"
+        },
+        {
+          "name": "Pfizer - Finance Agentification AI RFI Phase 0 #DigitalFinance #agentic #TrustAI",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Jai Joshi",
+          "account": "Pfizer Inc.",
+          "stage": "Interact",
+          "amount": 1000000.0,
+          "close_date": "2026-10-01"
+        },
+        {
+          "name": "PwC/Jacobs Alliance - Accelerated Infrastructure Build #AI",
+          "partner": "Brad Housour",
+          "lead": "Jerry Miller",
+          "account": "Jacobs Engineering Group Inc.",
+          "stage": "Interact",
+          "amount": 1000000.0,
+          "close_date": "2026-10-01"
+        },
+        {
+          "name": "Rogers Communications Inc- Order Entry Cockpit Solution",
+          "partner": "Samir Mehta",
+          "lead": "Ernesto Solera",
+          "account": "Rogers Communications Inc.",
+          "stage": "Propose",
+          "amount": 1000000.0,
+          "close_date": "2027-01-29"
+        },
+        {
+          "name": "HPE - Networking Business Finance Transformation",
+          "partner": "Satyen Popat; Saurabh Sarbaliya",
+          "lead": "Brian Updike",
+          "account": "Hewlett Packard Enterprise Company",
+          "stage": "Propose",
+          "amount": 990000.0,
+          "close_date": "2026-09-25"
+        },
+        {
+          "name": "Trimble - Detailed Shared Services and COE design and transitioning planning",
+          "partner": "Satyen Popat",
+          "lead": "Satyen Popat",
+          "account": "",
+          "stage": "Target",
+          "amount": 985000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "Fermi - CBS Expansion SCM Enhancements",
+          "partner": "Brad Housour",
+          "lead": "John Liu",
+          "account": "Fermi Inc.",
+          "stage": "Propose",
+          "amount": 800000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "Ameritas:  Oracle FDI Implementation",
+          "partner": "Brad Housour",
+          "lead": "Tony Bowers",
+          "account": "Ameritas Mutual Holding Company",
+          "stage": "Interact",
+          "amount": 798000.0,
+          "close_date": "2026-10-31"
+        },
+        {
+          "name": "Veralto Corp | AES-TBD | HCM | 12M | NEW",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Kevin McLellan",
+          "account": "Veralto Corporation",
+          "stage": "Interact",
+          "amount": 750000.0,
+          "close_date": "2026-09-26"
+        },
+        {
+          "name": "Change Request: Odyssey Oracle Cloud Finance/Procurement Implementation",
+          "partner": "Samir Mehta",
+          "lead": "Karim Bibawi",
+          "account": "Homeserve USA Corp.",
+          "stage": "Propose",
+          "amount": 730000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "MetLife: Extend Business Day Solution",
+          "partner": "Yeon Lee",
+          "lead": "Mike Roberts",
+          "account": "MetLife, Inc.",
+          "stage": "Interact",
+          "amount": 600000.0,
+          "close_date": "2027-02-01"
+        },
+        {
+          "name": "Cloud Software Kyriba Implementation",
+          "partner": "Samir Mehta",
+          "lead": "Naman Kuwadia",
+          "account": "Cloud Software Group Inc",
+          "stage": "Propose",
+          "amount": 550000.0,
+          "close_date": "2026-10-02"
+        },
+        {
+          "name": "OCI Observability in Fusion SaaS & PaaS",
+          "partner": "Faisal Ghadially",
+          "lead": "Syed Rehman",
+          "account": "Arizona Public Service Company",
+          "stage": "Interact",
+          "amount": 500000.0,
+          "close_date": "2026-10-30"
+        },
+        {
+          "name": "OCI_Data Platform Migration",
+          "partner": "Satyen Popat; Tojo Johnson",
+          "lead": "William Tate",
+          "account": "Jones Lang Lasalle Incorporated",
+          "stage": "Interact",
+          "amount": 500000.0,
+          "close_date": "2026-11-16"
+        },
+        {
+          "name": "OCI_LandingZone+",
+          "partner": "Faisal Ghadially",
+          "lead": "Alexis Hall",
+          "account": "Rogers Communications Inc.",
+          "stage": "Interact",
+          "amount": 500000.0,
+          "close_date": "2026-11-16"
+        },
+        {
+          "name": "RSI - AI POC opportunity - POC first Warranty Claim Form",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "Republic Services INC.",
+          "stage": "Interact",
+          "amount": 500000.0,
+          "close_date": "2026-10-23"
+        },
+        {
+          "name": "GrantGuard X UTSW",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Benjamin Scott",
+          "account": "The University of Texas Southwestern Medical Center",
+          "stage": "Interact",
+          "amount": 400000.0,
+          "close_date": "2026-10-30"
+        },
+        {
+          "name": "Lucid Data Strategy & Governance",
+          "partner": "Satyen Popat",
+          "lead": "Kaiser Kaiserani",
+          "account": "Lucid Group, Inc.",
+          "stage": "Interact",
+          "amount": 400000.0,
+          "close_date": "2026-12-09"
+        },
+        {
+          "name": "RSI - AP Automation through AI  #APP",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "",
+          "stage": "Target",
+          "amount": 400000.0,
+          "close_date": "2027-01-29"
+        },
+        {
+          "name": "Sonar QTR Assessment",
+          "partner": "Satyen Popat",
+          "lead": "David Crowell",
+          "account": "SonarSource, Inc.",
+          "stage": "Propose",
+          "amount": 400000.0,
+          "close_date": "2026-08-28"
+        },
+        {
+          "name": "Oracle Cloud - Phase 2a FDI Pull Thru",
+          "partner": "Brad Housour; Sunil Warier",
+          "lead": "Angela Levy",
+          "account": "American Eagle Outfitters, Inc.",
+          "stage": "Interact",
+          "amount": 350000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "WAL - Oracle AI",
+          "partner": "Brad Housour; Saurabh Sarbaliya",
+          "lead": "Tapan Nagori",
+          "account": "Western Alliance Bank",
+          "stage": "Propose",
+          "amount": 350000.0,
+          "close_date": "2026-12-18"
+        },
+        {
+          "name": "JLL Lease Revenue Forecasting",
+          "partner": "Tojo Johnson",
+          "lead": "Tojo Johnson",
+          "account": "",
+          "stage": "Target",
+          "amount": 325348.0,
+          "close_date": "2026-10-09"
+        },
+        {
+          "name": "AtkinsRealis ERP / EBS integrations, resource & roadmap, OU re-configuration",
+          "partner": "Samir Mehta",
+          "lead": "Rosslyn Cooper",
+          "account": "AtkinsR\u00e9alis Group Inc.",
+          "stage": "Interact",
+          "amount": 300000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "FY26 Accounting Advisory",
+          "partner": "Satyen Popat",
+          "lead": "",
+          "account": "Sirius XM Radio LLC",
+          "stage": "Interact",
+          "amount": 300000.0,
+          "close_date": "2026-09-18"
+        },
+        {
+          "name": "Textron Systems -Oracle Cloud Validation Assessment",
+          "partner": "Sunil Warier",
+          "lead": "Christopher Menyhart",
+          "account": "Textron Inc.",
+          "stage": "Interact",
+          "amount": 265000.0,
+          "close_date": "2026-10-02"
+        },
+        {
+          "name": "Agentic HR AI Transformation - Phase 0",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Kevin McLellan",
+          "account": "Veralto Corporation",
+          "stage": "Interact",
+          "amount": 250000.0,
+          "close_date": "2026-12-30"
+        },
+        {
+          "name": "Williams #APP - Narrative Reporting",
+          "partner": "Satyen Popat",
+          "lead": "Satyen Popat",
+          "account": "",
+          "stage": "Target",
+          "amount": 250000.0,
+          "close_date": "2027-01-29"
+        },
+        {
+          "name": "HAE - Sept '26 to May '27 - OM Tech Lead - Sekar Bala",
+          "partner": "Faisal Ghadially",
+          "lead": "Faisal Ghadially",
+          "account": "Haemonetics Corporation",
+          "stage": "Propose",
+          "amount": 173600.0,
+          "close_date": "2026-08-21"
+        },
+        {
+          "name": "Esko: Platform and Pricing Strategy  #BMR-XaaS #BMT-TMT #AISupported",
+          "partner": "Rattan Singh; Saurabh Sarbaliya",
+          "lead": "Kevin McLellan",
+          "account": "ESKO - GRAPHICS BV",
+          "stage": "Interact",
+          "amount": 150000.0,
+          "close_date": "2026-08-30"
+        },
+        {
+          "name": "HPE - DISE Assessment - Phase 1 #DISE",
+          "partner": "Satyen Popat",
+          "lead": "",
+          "account": "Hewlett Packard Enterprise Company",
+          "stage": "Propose",
+          "amount": 150000.0,
+          "close_date": "2027-01-08"
+        },
+        {
+          "name": "BP&C (ANICO, ARGO) - FP&A Implementation CO #6",
+          "partner": "Brad Housour",
+          "lead": "Tony Bowers",
+          "account": "Clearbrook Group Services Inc.",
+          "stage": "Propose",
+          "amount": 140000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "HPE WC Forecast Phase 2 #APP",
+          "partner": "Satyen Popat",
+          "lead": "Satyen Popat",
+          "account": "",
+          "stage": "Target",
+          "amount": 100000.0,
+          "close_date": "2026-09-25"
+        },
+        {
+          "name": "Hach Commercial Excellence (Contingent Fee)",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Kevin McLellan",
+          "account": "Hach Company",
+          "stage": "Interact",
+          "amount": 100000.0,
+          "close_date": "2027-04-30"
+        },
+        {
+          "name": "Hach Commercial Excellence (Fixed Fee)",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Kevin McLellan",
+          "account": "Hach Company",
+          "stage": "Interact",
+          "amount": 100000.0,
+          "close_date": "2027-04-30"
+        },
+        {
+          "name": "MRE GSI, HSB UK TE Support",
+          "partner": "Tojo Johnson",
+          "lead": "Tony Bowers",
+          "account": "Munich Reinsurance America, Inc.",
+          "stage": "Interact",
+          "amount": 100000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "Suspect HPE SCM Implementation",
+          "partner": "Satyen Popat",
+          "lead": "Satyen Popat",
+          "account": "",
+          "stage": "Target",
+          "amount": 100000.0,
+          "close_date": "2026-12-30"
+        },
+        {
+          "name": "MetLife Phase 2 - Data Conversion - MGCC Conversion Approach",
+          "partner": "Yeon Lee",
+          "lead": "Mike Roberts",
+          "account": "MetLife, Inc.",
+          "stage": "Interact",
+          "amount": 67000.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "#APP Oracle Cloud ERP - Agent Powered Performance",
+          "partner": "Satyen Popat",
+          "lead": "Robert Roman",
+          "account": "Ziff Davis, Inc.",
+          "stage": "Interact",
+          "amount": 50000.0,
+          "close_date": "2026-10-01"
+        },
+        {
+          "name": "Build a Thon for TR team",
+          "partner": "Saurabh Sarbaliya",
+          "lead": "Cornell Staeger",
+          "account": "PepsiCo, Inc.",
+          "stage": "Interact",
+          "amount": 50000.0,
+          "close_date": "2026-10-01"
+        },
+        {
+          "name": "MetLife: Workday Finance Phase 2 - Jira Enhancements",
+          "partner": "Yeon Lee",
+          "lead": "Mike Roberts",
+          "account": "MetLife, Inc.",
+          "stage": "Interact",
+          "amount": 22000.0,
+          "close_date": "2027-02-01"
+        },
+        {
+          "name": "OCI / APP suspect - Rob/Brad to status week of 7/6",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "",
+          "stage": "Target",
+          "amount": 1.0,
+          "close_date": "2027-03-15"
+        },
+        {
+          "name": "GEHC DCT Phase 1: $0 Scope, Schedule, and AI Agent Updates (CR #2)",
+          "partner": "Rattan Singh",
+          "lead": "Michael McCarron",
+          "account": "GE Precision Healthcare LLC",
+          "stage": "Propose",
+          "amount": 0.0,
+          "close_date": "2026-09-30"
+        },
+        {
+          "name": "RSI PO Requisition Agent POC",
+          "partner": "Brad Housour",
+          "lead": "Brad Housour",
+          "account": "",
+          "stage": "Target",
+          "amount": 0.0,
+          "close_date": "2027-01-29"
         }
       ],
-      "no_data": false
+      "partner_totals": [
+        {
+          "partner": "Saurabh Sarbaliya",
+          "amount": 125600000.0,
+          "count": 14
+        },
+        {
+          "partner": "Brad Housour",
+          "amount": 74968001.0,
+          "count": 19
+        },
+        {
+          "partner": "Yeon Lee",
+          "amount": 51354001.0,
+          "count": 9
+        },
+        {
+          "partner": "Samir Mehta",
+          "amount": 29968500.0,
+          "count": 8
+        },
+        {
+          "partner": "Satyen Popat",
+          "amount": 19739000.0,
+          "count": 14
+        },
+        {
+          "partner": "Rattan Singh",
+          "amount": 18870000.0,
+          "count": 3
+        },
+        {
+          "partner": "Ajeetha Menezes; Tojo Johnson; Yeon Lee",
+          "amount": 15000000.0,
+          "count": 1
+        },
+        {
+          "partner": "Samir Mehta; Satyen Popat",
+          "amount": 11755000.0,
+          "count": 1
+        },
+        {
+          "partner": "Jithendra Pai Brahmavar",
+          "amount": 11596000.0,
+          "count": 3
+        },
+        {
+          "partner": "Satyen Popat; Saurabh Sarbaliya",
+          "amount": 10190000.0,
+          "count": 3
+        },
+        {
+          "partner": "Ken Becker",
+          "amount": 9000000.0,
+          "count": 3
+        },
+        {
+          "partner": "Brad Housour; Faisal Ghadially; Samir Mehta; Saurabh Sarbaliya",
+          "amount": 6884898.0,
+          "count": 1
+        },
+        {
+          "partner": "Faisal Ghadially; Samir Mehta",
+          "amount": 6004083.0,
+          "count": 1
+        },
+        {
+          "partner": "Brad Housour; Samir Mehta",
+          "amount": 5450000.0,
+          "count": 2
+        },
+        {
+          "partner": "Sunil Warier",
+          "amount": 4759526.0,
+          "count": 4
+        },
+        {
+          "partner": "Faisal Ghadially",
+          "amount": 2973600.0,
+          "count": 4
+        },
+        {
+          "partner": "Brad Housour; Satyen Popat",
+          "amount": 2000000.0,
+          "count": 1
+        },
+        {
+          "partner": "Tojo Johnson; Yeon Lee",
+          "amount": 1900000.0,
+          "count": 1
+        },
+        {
+          "partner": "Satyen Popat; Tojo Johnson",
+          "amount": 500000.0,
+          "count": 1
+        },
+        {
+          "partner": "Tojo Johnson",
+          "amount": 425348.0,
+          "count": 2
+        },
+        {
+          "partner": "Brad Housour; Saurabh Sarbaliya",
+          "amount": 350000.0,
+          "count": 1
+        },
+        {
+          "partner": "Brad Housour; Sunil Warier",
+          "amount": 350000.0,
+          "count": 1
+        },
+        {
+          "partner": "Rattan Singh; Saurabh Sarbaliya",
+          "amount": 150000.0,
+          "count": 1
+        }
+      ]
     }
   },
   "industry_totals": {
@@ -1048,168 +2800,82 @@
     "top_5_pct_of_pipeline": 0.3377,
     "pipeline_total": 507923161.0
   },
-  "delta": {
-    "matched_count": 36,
-    "only_in_dcm_count": 19,
-    "only_in_partner_count": 119,
-    "only_in_dcm_names": [
-      "#APP Haemonetics",
-      "Data Management Regulatory Additional Remediation Planning Change Order #RegResponse",
-      "HPE WC Forecast Phase 2 #APP",
-      "JLL Lease Revenue Forecasting",
-      "OCI / APP suspect - Rob/Brad to status week of 7/6",
-      "Oracle ERP Phase 0",
-      "Oracle ERP Stabilization",
-      "Pfizer Domain Lab Rollout",
-      "Platform Selection, Phase 0 and Implementation",
-      "RSI - AP Automation through AI  #APP",
-      "RSI PO Requisition Agent POC",
-      "Rogers MLSE Finance Implementation ERP & EPM",
-      "Suspect HPE SCM Implementation",
-      "Suspect Oracle ERP cloud",
-      "TD Bank:  FRP Risk Retail R2   #Oracle_BCM #BCMTECH",
-      "TQL Oracle Acquisition Enablement",
-      "TSVC Fusion Cloud - Phase 2 - HCM expansion",
-      "Trimble - Detailed Shared Services and COE design and transitioning planning",
-      "Williams #APP - Narrative Reporting"
+  "reconciliation": {
+    "named_partners": [
+      "Sunil Warier",
+      "Ajeetha Menezes",
+      "Tojo Johnson",
+      "Yeon Lee",
+      "Brad Housour",
+      "Saurabh Sarbaliya",
+      "Satyen Popat",
+      "Samir Mehta",
+      "Rattan Singh",
+      "Ken Becker",
+      "Faisal Ghadially",
+      "Jithendra Pai Brahmavar"
     ],
-    "only_in_partner_names": [
-      "#APP Oracle Cloud ERP - Agent Powered Performance",
-      "ACV - MI ACV Reporting Support",
-      "AEO - Oracle HCM Enhancements",
-      "AI Enabled Finance Transformation - Implement",
-      "Agentic HR AI Transformation - Phase 0",
-      "Agentic Process Transformation #PLSAI",
-      "Ameritas:  Oracle FDI Implementation",
-      "Astellas - Detailed Design CY2026 | Part of PJ OM RFP",
-      "Athene:  Oracle Cloud Migration #Oracle_AWM",
-      "AtkinsRealis ERP / EBS integrations, resource & roadmap, OU re-configuration",
-      "Axcelis / Veeco Ph0 ERP Assessment",
-      "BJC Bus Transformation - $0 To Support Flex - Expenses",
-      "BJC Bus Transformation - CR1.0 - $0 To Support Flex - All Fees",
-      "BJC Business Transformation - CO 15 AP, Vendor Mgmt and D&A Support",
-      "BJC Business Transformation - CO 16 - HCM, Deployment & D&A Support",
-      "BJC Business Transformation - CO 17 - Payroll & S&C Support",
-      "BJC Business Transformation - CO 18 - SCM Security & Testing Support",
-      "BMCD - PPM Phase 1 - Adoption & Config Validation",
-      "BP&C (ANICO, ARGO) - FP&A Implementation CO #6",
-      "BP&C (ANICO, ARGO) - Phase 2 Oracle Implementation FDI and Accounting Hub",
-      "BSC -  #GBS  #DVT #PLSAI #AI  - AI Operations Managed Services",
-      "BSC - #GBS #APP #PLSAI #AI - Pharos Stabilization and Requirements Gathering",
-      "BSC - #GBS #DVT #PLSAI #AI - AI Transformation Phase 3",
-      "BSC - #GBS #DVT #PLSAI #AI - Pharos MVP2 Phase",
-      "BTI Model Assessment",
-      "Build a Thon for TR team",
-      "CHS Business Transformation - Asset Maintenance Implementation",
-      "CHS Enterprise Pricing Assessment",
-      "CHS Enterprise Pricing and Strategic Sourcing Phase 2",
-      "CMG - Oracle Finance COA Redesign - Impl Ph1",
-      "CO01: Termination",
-      "CRH ACM - Eco Material - Oracle SCM and FDI",
-      "Change Request: Odyssey Oracle Cloud Finance/Procurement Implementation",
-      "Chewy Rebates",
-      "Cianbro Oracle Fusion Re-Implementation",
-      "Cloud ERP Financials + Palantir",
-      "Cloud Software Kyriba Implementation",
-      "Customer Delivery Operating Model and Roadmap",
-      "DPR - Global Design",
-      "ERP transformation - Oracle, Workday",
-      "Emerson - Demand Planning and Forecasting Phase 1 - Architecture and Data",
-      "Esko: Platform and Pricing Strategy  #BMR-XaaS #BMT-TMT #AISupported",
-      "FY26 Accounting Advisory",
-      "Fanatics Collectibles - Amazon MX and Canada Order Integration",
-      "Fanatics xOp Co - Oracle AES ERP Fin/SCM/ERP/HCM",
-      "Fermi - CBS Expansion SCM Enhancements",
-      "Finance & Tech Offshoring July extension",
-      "Finance Transformation / Strategic Ledger - R2 Implementation - Yr 1",
-      "GEHC DCT Phase 1: $0 Scope, Schedule, and AI Agent Updates (CR #2)",
-      "Global DBU Process Design & PPM Scope Confirmation - Change Order 01",
-      "GrantGuard X UTSW",
-      "Gray Media - Oracle Fusion and EPM Imp Takeover",
-      "HAE Oracle Phase 2 CO16 April 2027 Go Live",
-      "HCM Op Model Phase 2",
-      "HGV Oracle Financial Lending & Leasing Services",
-      "HPE - DISE Assessment - Phase 1 #DISE",
-      "HPE - Networking Business Finance Transformation",
-      "HPE - SSP Methodology Harmonization",
-      "Hach Commercial Excellence (Contingent Fee)",
-      "Hach Commercial Excellence (Fixed Fee)",
-      "JLL Fin Trans - Delivery Partner IFW #DigitalFinance",
-      "JLL Fin Trans - Program Orchestration",
-      "Jefferies - Oracle Financials Cloud Migration #Oracle_AWM",
-      "Lucid Data Strategy & Governance",
-      "MRE GSI, HSB UK TE Support",
-      "MSFT FIN Gaming Oracle - CR for Tech and Func RICEW",
-      "MUFG Oracle Financials AES Production Support",
-      "Masimo ERP",
-      "MetLife Phase 2 - Data Conversion - MGCC Conversion Approach",
-      "MetLife: Extend Business Day Solution",
-      "MetLife: GRR Migration to Workday Financials Accounting Center",
-      "MetLife: Versant Migration to Workday Financials",
-      "MetLife: Workday Finance Phase 2 - Jira Enhancements",
-      "MetLife: Workday Financials Transformation Phase 2 - ACC-Investments / ATP",
-      "Modernization of Financial and Regulatory Reporting Processes - Phase 2 #RegReporting #RiskData #RRCostOpt\u200b",
-      "MunichRE:  Oracle Finance Transformation Remaining GSI Entities P2 Extension",
-      "MunichRE:  Oracle Finance Transformation Remaining GSI EntitiesP3/P4- #Oracle_INS",
-      "MunichRE: Oracle Finance Transformation - Consolidated Release - P2 GSI Upsell #Oracle_INS",
-      "NetApp #O2C Process and AI Assessment",
-      "NetJets Finance Evolution - Oracle ERP Implementation - Release 1",
-      "Nutanix Cloud ERP",
-      "OCI Observability in Fusion SaaS & PaaS",
-      "OCI_Data Platform Migration",
-      "OCI_LandingZone+",
-      "Oracle Cloud - Phase 2a FDI Pull Thru",
-      "Oracle Cloud ERP/EPM - AES",
-      "Oracle Cloud Implementation #AI-APP",
-      "Oracle Cloud Managed Services #enablingfunctions",
-      "Palo Alto Networks - CyberArk Data Migration & Bus. Support CO1 #O2C",
-      "Pfizer - Finance Agentification AI RFI Phase 0 #DigitalFinance #agentic #TrustAI",
-      "Pfizer - Forecasting Enterprise Initiative #3 #DigitalFinance #PLSAI",
-      "Phase ERP PPM Implementation",
-      "Project Deliver RT2 - Freeze Support",
-      "Project Ocean ERP SOW Redwood Initiative",
-      "PwC Support for STOBG Board Retreat",
-      "PwC/Jacobs Alliance - Accelerated Infrastructure Build #AI",
-      "R2P Remediation Planning",
-      "RS&H - Oracle Fusion ERP Global Design",
-      "Regeneron -System Transformation - Oracle Pre-Implementation Assessment (N)",
-      "Regions Bank: ERP Transformation and Implementation",
-      "Rogers - Sport Co. HCM Integration and Talent Transformation",
-      "Rogers Communications Inc- Order Entry Cockpit Solution",
-      "Rogers MLSE Finance Implementation",
-      "Roku: Oracle ERP and SCM",
-      "Sensata aerospace carve out - Implementation Phase",
-      "Sensata aerospace carveout  - Global Design Only",
-      "Sonar QTR Assessment",
-      "TD CECL Refinement Short Term Initiatives #CMCT",
-      "Textron Systems -Oracle Cloud Validation Assessment",
-      "Trimble  - Oracle ERP Global Design",
-      "Trimble - ERP Cloud Transformation/Implementation",
-      "Trimble Finance Function Outsourcing Pilot",
-      "UC Davis - FDI Implementation",
-      "UNF-DELIVER-Cloud AES (RT1+RT2+RT MDM) - CO#2",
-      "USAA ARM Accounting Rules (3 sources) and AI",
-      "Veralto Corp | AES-TBD | HCM | 12M | NEW",
-      "WAL - Oracle AI",
-      "WFRD IT Mgd Svcs and Agentic BPO",
-      "Wave 3 FY27 UPS FCE Amendment 7"
-    ],
-    "amount_mismatches": [
+    "missing_from_dcm": [
       {
-        "name": "Fermi - CBS Expansion",
-        "dcm_amount": 3600000.0,
-        "partner_amount": 1200000.0,
-        "difference": -2400000.0
+        "name": "WFRD IT Mgd Svcs and Agentic BPO",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "WEATHERFORD INTERNATIONAL PUBLIC LIMITED COMPANY",
+        "stage": "Interact",
+        "amount": 84250000.0,
+        "close_date": "2026-12-31"
       },
       {
-        "name": "TD Bank:  FRP Finance PeopleSoft GL Replacement #Oracle_BCM #BCMTECH",
-        "dcm_amount": 13200000.0,
-        "partner_amount": 6600000.0,
-        "difference": -6600000.0
-      }
-    ],
-    "stage_mismatches": [],
-    "duplicate_partner_opps": [
+        "name": "HGV Oracle Financial Lending & Leasing Services",
+        "partners": [
+          "Yeon Lee"
+        ],
+        "account": "Hilton Grand Vacations Inc.",
+        "stage": "Interact",
+        "amount": 19030000.0,
+        "close_date": "2027-03-31"
+      },
+      {
+        "name": "Wave 3 FY27 UPS FCE Amendment 7",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "United Parcel Service, Inc.",
+        "stage": "Interact",
+        "amount": 17140000.0,
+        "close_date": "2026-10-30"
+      },
+      {
+        "name": "Masimo ERP",
+        "partners": [
+          "Rattan Singh"
+        ],
+        "account": "Masimo Corporation",
+        "stage": "Propose",
+        "amount": 16370000.0,
+        "close_date": "2027-02-26"
+      },
+      {
+        "name": "NetJets Finance Evolution - Oracle ERP Implementation - Release 1",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "NetJets Inc.",
+        "stage": "Propose",
+        "amount": 16310000.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "MunichRE:  Oracle Finance Transformation Remaining GSI EntitiesP3/P4- #Oracle_INS",
+        "partners": [
+          "Tojo Johnson"
+        ],
+        "account": "Munich Reinsurance America, Inc.",
+        "stage": "Won",
+        "amount": 15452825.0,
+        "close_date": "2026-08-28"
+      },
       {
         "name": "Finance Transformation / Strategic Ledger - R2 Implementation - Yr 1",
         "partners": [
@@ -1217,8 +2883,20 @@
           "Tojo Johnson",
           "Yeon Lee"
         ],
+        "account": "Citigroup Inc.",
+        "stage": "Interact",
         "amount": 15000000.0,
-        "partner_count": 3
+        "close_date": "2027-04-30"
+      },
+      {
+        "name": "Modernization of Financial and Regulatory Reporting Processes - Phase 2 #RegReporting #RiskData #RRCostOpt\u200b",
+        "partners": [
+          "Yeon Lee"
+        ],
+        "account": "TD Bank, National Association",
+        "stage": "Interact",
+        "amount": 14000000.0,
+        "close_date": "2026-12-31"
       },
       {
         "name": "Trimble - ERP Cloud Transformation/Implementation",
@@ -1226,8 +2904,100 @@
           "Samir Mehta",
           "Satyen Popat"
         ],
+        "account": "Trimble Inc.",
+        "stage": "Propose",
         "amount": 11755000.0,
-        "partner_count": 2
+        "close_date": "2026-10-15"
+      },
+      {
+        "name": "Fanatics xOp Co - Oracle AES ERP Fin/SCM/ERP/HCM",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Fanatics Holdings, Inc.",
+        "stage": "Close",
+        "amount": 11000000.0,
+        "close_date": "2026-10-31"
+      },
+      {
+        "name": "Regions Bank: ERP Transformation and Implementation",
+        "partners": [
+          "Yeon Lee"
+        ],
+        "account": "Regions Bank",
+        "stage": "Interact",
+        "amount": 10400001.0,
+        "close_date": "2027-01-29"
+      },
+      {
+        "name": "Agentic Process Transformation #PLSAI",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Becton, Dickinson and Company",
+        "stage": "Propose",
+        "amount": 10000000.0,
+        "close_date": "2027-03-31"
+      },
+      {
+        "name": "Athene:  Oracle Cloud Migration #Oracle_AWM",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "Athene Usa Corporation",
+        "stage": "Interact",
+        "amount": 10000000.0,
+        "close_date": "2027-04-05"
+      },
+      {
+        "name": "Cianbro Oracle Fusion Re-Implementation",
+        "partners": [
+          "Samir Mehta"
+        ],
+        "account": "The Cianbro Companies",
+        "stage": "Propose",
+        "amount": 9600000.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "Rogers MLSE Finance Implementation",
+        "partners": [
+          "Samir Mehta"
+        ],
+        "account": "Rogers Communications Inc.",
+        "stage": "Propose",
+        "amount": 8500000.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "JLL Fin Trans - Delivery Partner IFW #DigitalFinance",
+        "partners": [
+          "Satyen Popat"
+        ],
+        "account": "Jones Lang Lasalle Incorporated",
+        "stage": "Interact",
+        "amount": 8300000.0,
+        "close_date": "2026-10-15"
+      },
+      {
+        "name": "Phase ERP PPM Implementation",
+        "partners": [
+          "Samir Mehta"
+        ],
+        "account": "Iron Mountain Inc",
+        "stage": "Interact",
+        "amount": 8200000.0,
+        "close_date": "2026-10-30"
+      },
+      {
+        "name": "HAE Oracle Phase 2 CO16 April 2027 Go Live",
+        "partners": [
+          "Faisal Ghadially"
+        ],
+        "account": "Haemonetics Corporation",
+        "stage": "Won",
+        "amount": 7935555.0,
+        "close_date": "2026-08-31"
       },
       {
         "name": "Oracle Cloud Implementation #AI-APP",
@@ -1235,8 +3005,20 @@
           "Satyen Popat",
           "Saurabh Sarbaliya"
         ],
+        "account": "Acuity Brands INC.",
+        "stage": "Propose",
         "amount": 7100000.0,
-        "partner_count": 2
+        "close_date": "2026-10-31"
+      },
+      {
+        "name": "Rogers - Sport Co. HCM Integration and Talent Transformation",
+        "partners": [
+          "Samir Mehta"
+        ],
+        "account": "Rogers Communications Inc.",
+        "stage": "Won",
+        "amount": 7050000.0,
+        "close_date": "2026-08-31"
       },
       {
         "name": "Sensata aerospace carve out - Implementation Phase",
@@ -1246,8 +3028,20 @@
           "Samir Mehta",
           "Saurabh Sarbaliya"
         ],
+        "account": "Sensata Technologies, Inc",
+        "stage": "Propose",
         "amount": 6884898.0,
-        "partner_count": 4
+        "close_date": "2026-11-30"
+      },
+      {
+        "name": "CMG - Oracle Finance COA Redesign - Impl Ph1",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "Chipotle Mexican Grill",
+        "stage": "Propose",
+        "amount": 6880000.0,
+        "close_date": "2026-09-25"
       },
       {
         "name": "Sensata aerospace carveout  - Global Design Only",
@@ -1255,8 +3049,80 @@
           "Faisal Ghadially",
           "Samir Mehta"
         ],
+        "account": "Sensata Technologies, Inc",
+        "stage": "Propose",
         "amount": 6004083.0,
-        "partner_count": 2
+        "close_date": "2026-11-16"
+      },
+      {
+        "name": "ERP transformation - Oracle, Workday",
+        "partners": [
+          "Jithendra Pai Brahmavar"
+        ],
+        "account": "Workiva Inc.",
+        "stage": "Propose",
+        "amount": 5000000.0,
+        "close_date": "2026-12-31"
+      },
+      {
+        "name": "Jefferies - Oracle Financials Cloud Migration #Oracle_AWM",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "Jefferies Financial Group Inc.",
+        "stage": "Interact",
+        "amount": 5000000.0,
+        "close_date": "2027-01-04"
+      },
+      {
+        "name": "Nutanix Cloud ERP",
+        "partners": [
+          "Jithendra Pai Brahmavar"
+        ],
+        "account": "Nutanix, Inc.",
+        "stage": "Interact",
+        "amount": 5000000.0,
+        "close_date": "2027-06-30"
+      },
+      {
+        "name": "Astellas - Detailed Design CY2026 | Part of PJ OM RFP",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Astellas Pharma Inc.",
+        "stage": "Propose",
+        "amount": 4500000.0,
+        "close_date": "2026-11-30"
+      },
+      {
+        "name": "Customer Delivery Operating Model and Roadmap",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Core Scientific Inc.",
+        "stage": "Won",
+        "amount": 4242400.0,
+        "close_date": "2026-08-31"
+      },
+      {
+        "name": "Pfizer - Forecasting Enterprise Initiative #3 #DigitalFinance #PLSAI",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Pfizer Inc.",
+        "stage": "Propose",
+        "amount": 4200000.0,
+        "close_date": "2026-10-09"
+      },
+      {
+        "name": "BSC - #GBS #DVT #PLSAI #AI - AI Transformation Phase 3",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Boston Scientific Corporation",
+        "stage": "Interact",
+        "amount": 4000000.0,
+        "close_date": "2026-10-30"
       },
       {
         "name": "BMCD - PPM Phase 1 - Adoption & Config Validation",
@@ -1264,8 +3130,30 @@
           "Brad Housour",
           "Samir Mehta"
         ],
+        "account": "Burns & McDonnell, Inc",
+        "stage": "Propose",
         "amount": 3900000.0,
-        "partner_count": 2
+        "close_date": "2026-10-30"
+      },
+      {
+        "name": "Palo Alto Networks - CyberArk Data Migration & Bus. Support CO1 #O2C",
+        "partners": [
+          "Satyen Popat"
+        ],
+        "account": "Palo Alto Networks, Inc.",
+        "stage": "Propose",
+        "amount": 3466000.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "RS&H - Oracle Fusion ERP Global Design",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "Rs and H Inc.",
+        "stage": "Propose",
+        "amount": 3450000.0,
+        "close_date": "2026-09-30"
       },
       {
         "name": "Trimble  - Oracle ERP Global Design",
@@ -1273,8 +3161,100 @@
           "Samir Mehta",
           "Satyen Popat"
         ],
+        "account": "Trimble Inc.",
+        "stage": "Won",
         "amount": 3145000.0,
-        "partner_count": 2
+        "close_date": "2026-07-10"
+      },
+      {
+        "name": "BP&C (ANICO, ARGO) - Phase 2 Oracle Implementation FDI and Accounting Hub",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "Clearbrook Group Services Inc.",
+        "stage": "Interact",
+        "amount": 3000000.0,
+        "close_date": "2026-10-16"
+      },
+      {
+        "name": "CHS Business Transformation - Asset Maintenance Implementation",
+        "partners": [
+          "Ken Becker"
+        ],
+        "account": "Community Health Systems Inc.",
+        "stage": "Interact",
+        "amount": 3000000.0,
+        "close_date": "2027-04-30"
+      },
+      {
+        "name": "CHS Enterprise Pricing and Strategic Sourcing Phase 2",
+        "partners": [
+          "Ken Becker"
+        ],
+        "account": "Community Health Systems Inc.",
+        "stage": "Interact",
+        "amount": 3000000.0,
+        "close_date": "2026-10-31"
+      },
+      {
+        "name": "HCM Op Model Phase 2",
+        "partners": [
+          "Ken Becker"
+        ],
+        "account": "Community Health Systems Inc.",
+        "stage": "Interact",
+        "amount": 3000000.0,
+        "close_date": "2026-10-31"
+      },
+      {
+        "name": "Trimble Finance Function Outsourcing Pilot",
+        "partners": [
+          "Satyen Popat"
+        ],
+        "account": "Trimble Inc.",
+        "stage": "Won",
+        "amount": 2852000.0,
+        "close_date": "2026-08-21"
+      },
+      {
+        "name": "MetLife: Versant Migration to Workday Financials",
+        "partners": [
+          "Yeon Lee"
+        ],
+        "account": "MetLife, Inc.",
+        "stage": "Interact",
+        "amount": 2500000.0,
+        "close_date": "2027-06-01"
+      },
+      {
+        "name": "Oracle Cloud Managed Services #enablingfunctions",
+        "partners": [
+          "Rattan Singh"
+        ],
+        "account": "Laboratory Corporation Of America Holdings",
+        "stage": "Propose",
+        "amount": 2500000.0,
+        "close_date": "2026-10-31"
+      },
+      {
+        "name": "Roku: Oracle ERP and SCM",
+        "partners": [
+          "Satyen Popat"
+        ],
+        "account": "Roku Inc.",
+        "stage": "Propose",
+        "amount": 2500000.0,
+        "close_date": "2026-12-31"
+      },
+      {
+        "name": "CRH ACM - Eco Material - Oracle SCM and FDI",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "Oldcastle Services Inc.",
+        "stage": "Won",
+        "amount": 2345855.0,
+        "close_date": "2026-07-13"
       },
       {
         "name": "DPR - Global Design",
@@ -1282,8 +3262,10 @@
           "Satyen Popat",
           "Saurabh Sarbaliya"
         ],
+        "account": "Dpr Construction Inc.",
+        "stage": "Interact",
         "amount": 2100000.0,
-        "partner_count": 2
+        "close_date": "2027-02-01"
       },
       {
         "name": "Chewy Rebates",
@@ -1291,8 +3273,20 @@
           "Brad Housour",
           "Satyen Popat"
         ],
+        "account": "Chewy, Inc",
+        "stage": "Interact",
         "amount": 2000000.0,
-        "partner_count": 2
+        "close_date": "2026-11-30"
+      },
+      {
+        "name": "AEO - Oracle HCM Enhancements",
+        "partners": [
+          "Sunil Warier"
+        ],
+        "account": "American Eagle Outfitters, Inc.",
+        "stage": "Interact",
+        "amount": 1945000.0,
+        "close_date": "2026-09-30"
       },
       {
         "name": "MUFG Oracle Financials AES Production Support",
@@ -1300,8 +3294,60 @@
           "Tojo Johnson",
           "Yeon Lee"
         ],
+        "account": "MUFG Bank, Ltd.",
+        "stage": "Interact",
         "amount": 1900000.0,
-        "partner_count": 2
+        "close_date": "2027-03-12"
+      },
+      {
+        "name": "AI Enabled Finance Transformation - Implement",
+        "partners": [
+          "Faisal Ghadially"
+        ],
+        "account": "The Cleveland Clinic Foundation",
+        "stage": "Interact",
+        "amount": 1800000.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "ACV - MI ACV Reporting Support",
+        "partners": [
+          "Satyen Popat"
+        ],
+        "account": "S&P Global Inc.",
+        "stage": "Propose",
+        "amount": 1738000.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "MunichRE: Oracle Finance Transformation - Consolidated Release - P2 GSI Upsell #Oracle_INS",
+        "partners": [
+          "Tojo Johnson"
+        ],
+        "account": "Munich Reinsurance America, Inc.",
+        "stage": "Won",
+        "amount": 1674999.0,
+        "close_date": "2026-07-31"
+      },
+      {
+        "name": "Project Ocean ERP SOW Redwood Initiative",
+        "partners": [
+          "Jithendra Pai Brahmavar"
+        ],
+        "account": "NetApp Inc.",
+        "stage": "Interact",
+        "amount": 1596000.0,
+        "close_date": "2026-11-27"
+      },
+      {
+        "name": "MunichRE:  Oracle Finance Transformation Remaining GSI Entities P2 Extension",
+        "partners": [
+          "Tojo Johnson"
+        ],
+        "account": "Munich Reinsurance America, Inc.",
+        "stage": "Won",
+        "amount": 1590000.0,
+        "close_date": "2026-07-06"
       },
       {
         "name": "Cloud ERP Financials + Palantir",
@@ -1309,17 +3355,140 @@
           "Brad Housour",
           "Samir Mehta"
         ],
+        "account": "West Shore Home, LLC",
+        "stage": "Propose",
         "amount": 1550000.0,
-        "partner_count": 2
+        "close_date": "2026-11-27"
       },
       {
-        "name": "MUFG JP AFCS Phase R0 DDCT",
+        "name": "Oracle Cloud ERP/EPM - AES",
         "partners": [
-          "Ajeetha Menezes",
-          "Tojo Johnson"
+          "Sunil Warier"
         ],
-        "amount": 1152604.0,
-        "partner_count": 2
+        "account": "Total Quality Logistics, LLC",
+        "stage": "Interact",
+        "amount": 1500000.0,
+        "close_date": "2026-12-31"
+      },
+      {
+        "name": "Regeneron -System Transformation - Oracle Pre-Implementation Assessment (N)",
+        "partners": [
+          "Rattan Singh"
+        ],
+        "account": "Regeneron Pharmaceuticals, Inc.",
+        "stage": "Won",
+        "amount": 1270000.0,
+        "close_date": "2026-08-28"
+      },
+      {
+        "name": "Gray Media - Oracle Fusion and EPM Imp Takeover",
+        "partners": [
+          "Samir Mehta"
+        ],
+        "account": "Gray Media, Inc.",
+        "stage": "Interact",
+        "amount": 1088500.0,
+        "close_date": "2026-09-25"
+      },
+      {
+        "name": "BSC - #GBS #DVT #PLSAI #AI - Pharos MVP2 Phase",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Boston Scientific Corporation",
+        "stage": "Close",
+        "amount": 1050000.0,
+        "close_date": "2026-09-25"
+      },
+      {
+        "name": "USAA ARM Accounting Rules (3 sources) and AI",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "United Services Automobile Association",
+        "stage": "Interact",
+        "amount": 1050000.0,
+        "close_date": "2026-10-30"
+      },
+      {
+        "name": "Project Deliver RT2 - Freeze Support",
+        "partners": [
+          "Sunil Warier"
+        ],
+        "account": "Unifirst Corporation",
+        "stage": "Propose",
+        "amount": 1049526.0,
+        "close_date": "2026-09-15"
+      },
+      {
+        "name": "BSC -  #GBS  #DVT #PLSAI #AI  - AI Operations Managed Services",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Boston Scientific Corporation",
+        "stage": "Interact",
+        "amount": 1000000.0,
+        "close_date": "2026-10-02"
+      },
+      {
+        "name": "JLL Fin Trans - Program Orchestration",
+        "partners": [
+          "Satyen Popat"
+        ],
+        "account": "Jones Lang Lasalle Incorporated",
+        "stage": "Interact",
+        "amount": 1000000.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "MetLife: GRR Migration to Workday Financials Accounting Center",
+        "partners": [
+          "Yeon Lee"
+        ],
+        "account": "MetLife, Inc.",
+        "stage": "Interact",
+        "amount": 1000000.0,
+        "close_date": "2027-06-01"
+      },
+      {
+        "name": "Pfizer - Finance Agentification AI RFI Phase 0 #DigitalFinance #agentic #TrustAI",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Pfizer Inc.",
+        "stage": "Interact",
+        "amount": 1000000.0,
+        "close_date": "2026-10-01"
+      },
+      {
+        "name": "PwC/Jacobs Alliance - Accelerated Infrastructure Build #AI",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "Jacobs Engineering Group Inc.",
+        "stage": "Interact",
+        "amount": 1000000.0,
+        "close_date": "2026-10-01"
+      },
+      {
+        "name": "Rogers Communications Inc- Order Entry Cockpit Solution",
+        "partners": [
+          "Samir Mehta"
+        ],
+        "account": "Rogers Communications Inc.",
+        "stage": "Propose",
+        "amount": 1000000.0,
+        "close_date": "2027-01-29"
+      },
+      {
+        "name": "UC Davis - FDI Implementation",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "UC Davis Health System",
+        "stage": "Close",
+        "amount": 1000000.0,
+        "close_date": "2026-10-30"
       },
       {
         "name": "HPE - Networking Business Finance Transformation",
@@ -1327,8 +3496,50 @@
           "Satyen Popat",
           "Saurabh Sarbaliya"
         ],
+        "account": "Hewlett Packard Enterprise Company",
+        "stage": "Propose",
         "amount": 990000.0,
-        "partner_count": 2
+        "close_date": "2026-09-25"
+      },
+      {
+        "name": "MSFT FIN Gaming Oracle - CR for Tech and Func RICEW",
+        "partners": [
+          "Jithendra Pai Brahmavar"
+        ],
+        "account": "Microsoft Corporation",
+        "stage": "Won",
+        "amount": 834600.0,
+        "close_date": "2026-07-24"
+      },
+      {
+        "name": "Fermi - CBS Expansion SCM Enhancements",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "Fermi Inc.",
+        "stage": "Propose",
+        "amount": 800000.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "Ameritas:  Oracle FDI Implementation",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "Ameritas Mutual Holding Company",
+        "stage": "Interact",
+        "amount": 798000.0,
+        "close_date": "2026-10-31"
+      },
+      {
+        "name": "R2P Remediation Planning",
+        "partners": [
+          "Ken Becker"
+        ],
+        "account": "Community Health Systems Inc.",
+        "stage": "Won",
+        "amount": 755000.0,
+        "close_date": "2026-10-31"
       },
       {
         "name": "CO01: Termination",
@@ -1336,8 +3547,100 @@
           "Samir Mehta",
           "Saurabh Sarbaliya"
         ],
+        "account": "Comcast Corporation",
+        "stage": "Won",
         "amount": 750000.0,
-        "partner_count": 2
+        "close_date": "2026-08-31"
+      },
+      {
+        "name": "Veralto Corp | AES-TBD | HCM | 12M | NEW",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Veralto Corporation",
+        "stage": "Interact",
+        "amount": 750000.0,
+        "close_date": "2026-09-26"
+      },
+      {
+        "name": "Change Request: Odyssey Oracle Cloud Finance/Procurement Implementation",
+        "partners": [
+          "Samir Mehta"
+        ],
+        "account": "Homeserve USA Corp.",
+        "stage": "Propose",
+        "amount": 730000.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "BJC Business Transformation - CO 16 - HCM, Deployment & D&A Support",
+        "partners": [
+          "Ken Becker"
+        ],
+        "account": "BJC HealthCare",
+        "stage": "Won",
+        "amount": 635000.0,
+        "close_date": "2026-08-07"
+      },
+      {
+        "name": "MetLife: Extend Business Day Solution",
+        "partners": [
+          "Yeon Lee"
+        ],
+        "account": "MetLife, Inc.",
+        "stage": "Interact",
+        "amount": 600000.0,
+        "close_date": "2027-02-01"
+      },
+      {
+        "name": "CHS Enterprise Pricing Assessment",
+        "partners": [
+          "Ken Becker"
+        ],
+        "account": "Community Health Systems Inc.",
+        "stage": "Won",
+        "amount": 585000.0,
+        "close_date": "2026-07-15"
+      },
+      {
+        "name": "BSC - #GBS #APP #PLSAI #AI - Pharos Stabilization and Requirements Gathering",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Boston Scientific Corporation",
+        "stage": "Won",
+        "amount": 560000.0,
+        "close_date": "2026-07-24"
+      },
+      {
+        "name": "Cloud Software Kyriba Implementation",
+        "partners": [
+          "Samir Mehta"
+        ],
+        "account": "Cloud Software Group Inc",
+        "stage": "Propose",
+        "amount": 550000.0,
+        "close_date": "2026-10-02"
+      },
+      {
+        "name": "Emerson - Demand Planning and Forecasting Phase 1 - Architecture and Data",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "Emerson Electric Co.",
+        "stage": "Won",
+        "amount": 525000.0,
+        "close_date": "2026-07-17"
+      },
+      {
+        "name": "OCI Observability in Fusion SaaS & PaaS",
+        "partners": [
+          "Faisal Ghadially"
+        ],
+        "account": "Arizona Public Service Company",
+        "stage": "Interact",
+        "amount": 500000.0,
+        "close_date": "2026-10-30"
       },
       {
         "name": "OCI_Data Platform Migration",
@@ -1345,17 +3648,90 @@
           "Satyen Popat",
           "Tojo Johnson"
         ],
+        "account": "Jones Lang Lasalle Incorporated",
+        "stage": "Interact",
         "amount": 500000.0,
-        "partner_count": 2
+        "close_date": "2026-11-16"
       },
       {
-        "name": "MUFG JP AFCS Phase R1 Basic Design",
+        "name": "OCI_LandingZone+",
         "partners": [
-          "Ajeetha Menezes",
-          "Tojo Johnson"
+          "Faisal Ghadially"
         ],
-        "amount": 381081.0,
-        "partner_count": 2
+        "account": "Rogers Communications Inc.",
+        "stage": "Interact",
+        "amount": 500000.0,
+        "close_date": "2026-11-16"
+      },
+      {
+        "name": "BJC Business Transformation - CO 15 AP, Vendor Mgmt and D&A Support",
+        "partners": [
+          "Ken Becker"
+        ],
+        "account": "BJC HealthCare",
+        "stage": "Won",
+        "amount": 492000.0,
+        "close_date": "2026-08-21"
+      },
+      {
+        "name": "Axcelis / Veeco Ph0 ERP Assessment",
+        "partners": [
+          "Samir Mehta"
+        ],
+        "account": "Axcelis Technologies, Inc.",
+        "stage": "Close",
+        "amount": 450000.0,
+        "close_date": "2026-10-02"
+      },
+      {
+        "name": "BJC Business Transformation - CO 17 - Payroll & S&C Support",
+        "partners": [
+          "Ken Becker"
+        ],
+        "account": "BJC HealthCare",
+        "stage": "Won",
+        "amount": 430000.0,
+        "close_date": "2026-09-25"
+      },
+      {
+        "name": "GrantGuard X UTSW",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "The University of Texas Southwestern Medical Center",
+        "stage": "Interact",
+        "amount": 400000.0,
+        "close_date": "2026-10-30"
+      },
+      {
+        "name": "Lucid Data Strategy & Governance",
+        "partners": [
+          "Satyen Popat"
+        ],
+        "account": "Lucid Group, Inc.",
+        "stage": "Interact",
+        "amount": 400000.0,
+        "close_date": "2026-12-09"
+      },
+      {
+        "name": "Sonar QTR Assessment",
+        "partners": [
+          "Satyen Popat"
+        ],
+        "account": "SonarSource, Inc.",
+        "stage": "Propose",
+        "amount": 400000.0,
+        "close_date": "2026-08-28"
+      },
+      {
+        "name": "BJC Business Transformation - CO 18 - SCM Security & Testing Support",
+        "partners": [
+          "Ken Becker"
+        ],
+        "account": "BJC HealthCare",
+        "stage": "Won",
+        "amount": 370000.0,
+        "close_date": "2026-09-25"
       },
       {
         "name": "Oracle Cloud - Phase 2a FDI Pull Thru",
@@ -1363,8 +3739,10 @@
           "Brad Housour",
           "Sunil Warier"
         ],
+        "account": "American Eagle Outfitters, Inc.",
+        "stage": "Interact",
         "amount": 350000.0,
-        "partner_count": 2
+        "close_date": "2026-09-30"
       },
       {
         "name": "WAL - Oracle AI",
@@ -1372,8 +3750,110 @@
           "Brad Housour",
           "Saurabh Sarbaliya"
         ],
+        "account": "Western Alliance Bank",
+        "stage": "Propose",
         "amount": 350000.0,
-        "partner_count": 2
+        "close_date": "2026-12-18"
+      },
+      {
+        "name": "MetLife: Workday Financials Transformation Phase 2 - ACC-Investments / ATP",
+        "partners": [
+          "Yeon Lee"
+        ],
+        "account": "MetLife, Inc.",
+        "stage": "Won",
+        "amount": 319000.0,
+        "close_date": "2026-07-31"
+      },
+      {
+        "name": "AtkinsRealis ERP / EBS integrations, resource & roadmap, OU re-configuration",
+        "partners": [
+          "Samir Mehta"
+        ],
+        "account": "AtkinsR\u00e9alis Group Inc.",
+        "stage": "Interact",
+        "amount": 300000.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "FY26 Accounting Advisory",
+        "partners": [
+          "Satyen Popat"
+        ],
+        "account": "Sirius XM Radio LLC",
+        "stage": "Interact",
+        "amount": 300000.0,
+        "close_date": "2026-09-18"
+      },
+      {
+        "name": "TD CECL Refinement Short Term Initiatives #CMCT",
+        "partners": [
+          "Yeon Lee"
+        ],
+        "account": "TD Bank, National Association",
+        "stage": "Won",
+        "amount": 300000.0,
+        "close_date": "2026-07-31"
+      },
+      {
+        "name": "Textron Systems -Oracle Cloud Validation Assessment",
+        "partners": [
+          "Sunil Warier"
+        ],
+        "account": "Textron Inc.",
+        "stage": "Interact",
+        "amount": 265000.0,
+        "close_date": "2026-10-02"
+      },
+      {
+        "name": "Agentic HR AI Transformation - Phase 0",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Veralto Corporation",
+        "stage": "Interact",
+        "amount": 250000.0,
+        "close_date": "2026-12-30"
+      },
+      {
+        "name": "NetApp #O2C Process and AI Assessment",
+        "partners": [
+          "Satyen Popat"
+        ],
+        "account": "NetApp Inc.",
+        "stage": "Won",
+        "amount": 246000.0,
+        "close_date": "2026-08-28"
+      },
+      {
+        "name": "Finance & Tech Offshoring July extension",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Lazard, Inc.",
+        "stage": "Won",
+        "amount": 200000.0,
+        "close_date": "2026-07-03"
+      },
+      {
+        "name": "HPE - SSP Methodology Harmonization",
+        "partners": [
+          "Satyen Popat"
+        ],
+        "account": "Hewlett Packard Enterprise Company",
+        "stage": "Won",
+        "amount": 198000.0,
+        "close_date": "2026-07-31"
+      },
+      {
+        "name": "BTI Model Assessment",
+        "partners": [
+          "Satyen Popat"
+        ],
+        "account": "Hewlett Packard Enterprise Company",
+        "stage": "Close",
+        "amount": 193946.0,
+        "close_date": "2026-12-31"
       },
       {
         "name": "Esko: Platform and Pricing Strategy  #BMR-XaaS #BMT-TMT #AISupported",
@@ -1381,17 +3861,100 @@
           "Rattan Singh",
           "Saurabh Sarbaliya"
         ],
+        "account": "ESKO - GRAPHICS BV",
+        "stage": "Interact",
         "amount": 150000.0,
-        "partner_count": 2
+        "close_date": "2026-08-30"
       },
       {
-        "name": "Tama - AI Training",
+        "name": "HPE - DISE Assessment - Phase 1 #DISE",
         "partners": [
-          "Brad Housour",
           "Satyen Popat"
         ],
+        "account": "Hewlett Packard Enterprise Company",
+        "stage": "Propose",
+        "amount": 150000.0,
+        "close_date": "2027-01-08"
+      },
+      {
+        "name": "BP&C (ANICO, ARGO) - FP&A Implementation CO #6",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "Clearbrook Group Services Inc.",
+        "stage": "Propose",
+        "amount": 140000.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "Hach Commercial Excellence (Contingent Fee)",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Hach Company",
+        "stage": "Interact",
+        "amount": 100000.0,
+        "close_date": "2027-04-30"
+      },
+      {
+        "name": "Hach Commercial Excellence (Fixed Fee)",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "Hach Company",
+        "stage": "Interact",
+        "amount": 100000.0,
+        "close_date": "2027-04-30"
+      },
+      {
+        "name": "MRE GSI, HSB UK TE Support",
+        "partners": [
+          "Tojo Johnson"
+        ],
+        "account": "Munich Reinsurance America, Inc.",
+        "stage": "Interact",
+        "amount": 100000.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "MetLife Phase 2 - Data Conversion - MGCC Conversion Approach",
+        "partners": [
+          "Yeon Lee"
+        ],
+        "account": "MetLife, Inc.",
+        "stage": "Interact",
+        "amount": 67000.0,
+        "close_date": "2026-09-30"
+      },
+      {
+        "name": "#APP Oracle Cloud ERP - Agent Powered Performance",
+        "partners": [
+          "Satyen Popat"
+        ],
+        "account": "Ziff Davis, Inc.",
+        "stage": "Interact",
         "amount": 50000.0,
-        "partner_count": 2
+        "close_date": "2026-10-01"
+      },
+      {
+        "name": "Build a Thon for TR team",
+        "partners": [
+          "Saurabh Sarbaliya"
+        ],
+        "account": "PepsiCo, Inc.",
+        "stage": "Interact",
+        "amount": 50000.0,
+        "close_date": "2026-10-01"
+      },
+      {
+        "name": "PwC Support for STOBG Board Retreat",
+        "partners": [
+          "Brad Housour"
+        ],
+        "account": "Sto Building Group Inc.",
+        "stage": "Won",
+        "amount": 25000.0,
+        "close_date": "2026-08-03"
       },
       {
         "name": "Fanatics Collectibles - Amazon MX and Canada Order Integration",
@@ -1399,71 +3962,74 @@
           "Satyen Popat",
           "Saurabh Sarbaliya"
         ],
-        "amount": 22951.0,
-        "partner_count": 2
-      }
-    ]
-  },
-  "data_quality_flags": {
-    "amount_le_1": [
-      {
-        "name": "AIDEN - Change Order",
-        "partner": "Saurabh Sarbaliya",
+        "account": "Fanatics SPV, LLC",
         "stage": "Won",
-        "amount": 0.0,
-        "close_date": "2026-08-31"
+        "amount": 22951.0,
+        "close_date": "2026-08-14"
+      },
+      {
+        "name": "MetLife: Workday Finance Phase 2 - Jira Enhancements",
+        "partners": [
+          "Yeon Lee"
+        ],
+        "account": "MetLife, Inc.",
+        "stage": "Interact",
+        "amount": 22000.0,
+        "close_date": "2027-02-01"
+      },
+      {
+        "name": "Global DBU Process Design & PPM Scope Confirmation - Change Order 01",
+        "partners": [
+          "Samir Mehta"
+        ],
+        "account": "Iron Mountain Inc",
+        "stage": "Close",
+        "amount": 1.0,
+        "close_date": "2026-12-21"
       },
       {
         "name": "BJC Bus Transformation - $0 To Support Flex - Expenses",
-        "partner": "Ken Becker",
+        "partners": [
+          "Ken Becker"
+        ],
+        "account": "BJC HealthCare",
         "stage": "Won",
         "amount": 0.0,
         "close_date": "2026-09-01"
       },
       {
         "name": "BJC Bus Transformation - CR1.0 - $0 To Support Flex - All Fees",
-        "partner": "Ken Becker",
+        "partners": [
+          "Ken Becker"
+        ],
+        "account": "BJC HealthCare",
         "stage": "Won",
         "amount": 0.0,
         "close_date": "2026-09-01"
       },
       {
         "name": "GEHC DCT Phase 1: $0 Scope, Schedule, and AI Agent Updates (CR #2)",
-        "partner": "Rattan Singh",
-        "stage": "Propose",
-        "amount": 0.0,
-        "close_date": "2026-09-30"
-      },
-      {
-        "name": "Global DBU Process Design & PPM Scope Confirmation - Change Order 01",
-        "partner": "Samir Mehta",
-        "stage": "Close",
-        "amount": 1.0,
-        "close_date": "2026-12-21"
-      },
-      {
-        "name": "MSFT FIN Gaming Oracle - CR 3 for Assist with SIT [Zero dollars CR for documentation]",
-        "partner": "Jithendra Pai Brahmavar",
+        "partners": [
+          "Rattan Singh"
+        ],
+        "account": "GE Precision Healthcare LLC",
         "stage": "Propose",
         "amount": 0.0,
         "close_date": "2026-09-30"
       },
       {
         "name": "UNF-DELIVER-Cloud AES (RT1+RT2+RT MDM) - CO#2",
-        "partner": "Sunil Warier",
+        "partners": [
+          "Sunil Warier"
+        ],
+        "account": "Unifirst Corporation",
         "stage": "Won",
         "amount": 0.0,
         "close_date": "2026-12-31"
-      },
-      {
-        "name": "WWT FAH IMPL resource change",
-        "partner": "Samir Mehta",
-        "stage": "Propose",
-        "amount": 0.0,
-        "close_date": "2026-08-21"
       }
     ],
-    "target_interact_close_over_365d": []
+    "count": 119,
+    "total": 448219140.0
   },
   "trend": {
     "fiscal_year_start": "2026-07-01",
